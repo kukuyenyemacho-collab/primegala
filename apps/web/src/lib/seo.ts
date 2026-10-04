@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, fullAddress, site } from "./site";
+import { absoluteUrl, fullAddress, isProductionSite, site } from "./site";
 import { AREAS } from "@/content/keywords";
 
 interface PageMetaInput {
@@ -41,7 +41,12 @@ export function pageMetadata({
       ...(type === "article" ? { publishedTime, modifiedTime } : {}),
     },
     twitter: { card: "summary_large_image", title, description },
-    robots: noindex ? { index: false, follow: true } : undefined,
+    // Omit the key unless needed: `robots: undefined` would override the layout's robots settings.
+    ...(!isProductionSite
+      ? { robots: { index: false, follow: false } }
+      : noindex
+        ? { robots: { index: false, follow: true } }
+        : {}),
   };
 }
 
