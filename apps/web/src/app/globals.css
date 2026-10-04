@@ -19,6 +19,19 @@
   --color-brand-900: #0b3f23;
   --color-brand-950: #062616;
 
+  /* Trust blue: deep navy for institutional surfaces (footer, SHA, info panels) and key headings.
+     Green stays the action colour. */
+  --color-trust-50: #eef3fa;
+  --color-trust-100: #dbe6f5;
+  --color-trust-200: #b6cbe9;
+  --color-trust-300: #84a6d6;
+  --color-trust-500: #2f62a8;
+  --color-trust-600: #22508f;
+  --color-trust-700: #1b4076;
+  --color-trust-800: #15325d;
+  --color-trust-900: #0e2444;
+  --color-trust-950: #08172d;
+
   --color-sun-100: #fff3cf;
   --color-sun-200: #fde49a;
   --color-sun-300: #fbd46e;
@@ -33,7 +46,7 @@
   --color-alert: #c0261c;
 
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --radius-card: 1.25rem;
   --shadow-soft: 0 1px 2px rgb(16 34 26 / 0.04), 0 8px 24px -8px rgb(16 34 26 / 0.12);
@@ -90,5 +103,16 @@
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

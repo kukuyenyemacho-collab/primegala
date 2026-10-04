@@ -57,7 +57,7 @@ export const site = {
   contact: {
     phone: phone ? normalizeKenyanPhone(phone) : null,
     whatsapp: whatsapp ? toWhatsAppNumber(whatsapp) : null,
-    email: env("NEXT_PUBLIC_EMAIL"),
+    email: env("NEXT_PUBLIC_EMAIL") ?? "info@primegala.co.ke",
     emergencyPhone: env("NEXT_PUBLIC_EMERGENCY_PHONE"),
   },
   social: {
@@ -89,12 +89,24 @@ export function absoluteUrl(path = "/") {
   return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/**
+ * Contact channels. Only render a phone or WhatsApp action when the number is
+ * configured (`hasPhone` / `hasWhatsApp`); otherwise fall back to email or booking.
+ * Never show a placeholder number on the live site.
+ */
+export const hasPhone = Boolean(site.contact.phone);
+export const hasWhatsApp = Boolean(site.contact.whatsapp);
+
 export function phoneDisplay(): string {
-  return site.contact.phone ? formatKenyanPhone(site.contact.phone) : "07XX XXX XXX";
+  return site.contact.phone ? formatKenyanPhone(site.contact.phone) : "";
 }
 
 export function phoneHref(): string {
-  return site.contact.phone ? `tel:${site.contact.phone}` : "/contact";
+  return site.contact.phone ? `tel:${site.contact.phone}` : emailHref();
+}
+
+export function emailHref(subject?: string): string {
+  return `mailto:${site.contact.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
 }
 
 export function whatsappHref(message = "Hello Primegala, I would like to book an appointment."): string {

@@ -20,13 +20,6 @@ const jakarta = localFont({
   display: "swap",
 });
 
-const fraunces = localFont({
-  src: "../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2",
-  weight: "100 900",
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -82,7 +75,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-KE" className={`${jakarta.variable} ${fraunces.variable}`}>
+    <html lang="en-KE" className={jakarta.variable}>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
@@ -90,12 +83,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
-        {!isProductionSite && (
-          <div className="bg-sun-300 px-4 py-2 text-center text-xs font-semibold text-brand-950 sm:text-sm">
-            Preview: a draft website prepared by {site.credit.name} for {site.name}. Not the official site yet;
-            booking requests are not sent to the facility.
-          </div>
-        )}
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Header />
         <main id="main" className="flex-1">

@@ -67,16 +67,15 @@ export function slugify(text: string): string {
 
 /** Facility facts referenced in Markdown as {{TOKEN}} so legal text never drifts from site config. */
 function fillTokens(markdown: string): string {
-  const pending = "_[to be confirmed]_";
   const tokens: Record<string, string> = {
     NAME: site.name,
     ADDRESS: fullAddress(),
-    PHONE: site.contact.phone ? phoneDisplay() : pending,
-    EMAIL: site.contact.email ?? pending,
+    PHONE: site.contact.phone ? phoneDisplay() : "our front desk (open 24 hours)",
+    EMAIL: `[${site.contact.email}](mailto:${site.contact.email})`,
     URL: site.url,
     UPDATED: site.policiesUpdated,
-    ODPC_REG: process.env.NEXT_PUBLIC_ODPC_REGISTRATION ?? pending,
-    DPO: process.env.NEXT_PUBLIC_DPO_CONTACT ?? pending,
+    ODPC_REG: process.env.NEXT_PUBLIC_ODPC_REGISTRATION ?? "Available on request",
+    DPO: process.env.NEXT_PUBLIC_DPO_CONTACT ?? `Data Protection Officer, ${site.contact.email}`,
     CREDIT: `[${site.credit.legalName}](${site.credit.url})`,
   };
   return markdown.replace(/\{\{([A-Z_]+)\}\}/g, (match, key: string) => tokens[key] ?? match);
