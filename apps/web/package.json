@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "preview:file": "node scripts/build-preview-file.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5",
