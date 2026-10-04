@@ -53,18 +53,20 @@ The client's existing identity uses a primary green. We've formalised it into an
 | **`brand-600`** | **`#167A41`** | **Primegala Green: buttons, links, icons** | **5.4 : 1 (AA)** |
 | `brand-500` | `#1F9450` | Logo / decorative / large text only | 3.9 : 1 |
 | `brand-50` | `#EEF8F1` | Tinted backgrounds | — |
-| `sun-400` | `#F7C548` | Warm accent CTAs (with dark text: 10.3 : 1) | — |
+| **`trust-900`** | **`#0E2444`** | **Trust blue: footer, SHA and information panels** | **15.5 : 1** |
+| `trust-700` | `#1B4076` | Section labels, info icons, key figures | 10.3 : 1 |
+| `trust-50` | `#EEF3FA` | Information panel backgrounds | — |
+| `sun-400` | `#F7C548` | Tiny highlights only (with dark text: 10.3 : 1) | — |
 | `cream` | `#FBF8F1` | Story sections | — |
 | `ink` | `#10221A` | Body text | 16.6 : 1 |
 | `alert` | `#C0261C` | Emergency only | 5.9 : 1 |
 
-**Rule:** green leads, sun highlights sparingly, red only for emergencies.
+**Rule:** green is the action colour (buttons, links), deep trust blue carries institutional surfaces (footer, SHA, information panels, section labels), sun only as a tiny highlight, red only for emergencies. The pairing follows the minimal, professional style of government service sites: white surfaces, thin borders, no gradients.
 
 ## 5. Typography
 
-- **Fraunces** (variable serif): headings. Warm, editorial and trustworthy, it suits storytelling.
-- **Plus Jakarta Sans** (variable sans): body and UI. Highly legible on low-end phones.
-- Both are self-hosted, with no Google Fonts request, for speed and privacy.
+- **Plus Jakarta Sans** (variable sans) for everything: bold, tightly tracked headings and regular body text. One family keeps pages light and reads as calm and institutional. It's highly legible on low-end phones.
+- Self-hosted, with no Google Fonts request, for speed and privacy.
 
 ## 6. Logo
 
@@ -74,7 +76,7 @@ The client's existing identity uses a primary green. We've formalised it into an
   - `apps/web/public/brand/primegala-mark.svg`
   - `apps/web/public/brand/primegala-logo.svg`
   - Favicon: `apps/web/src/app/icon.svg`
-- Wordmark: "Primegala" in Fraunces semibold over "MEDICAL CENTRE" in Plus Jakarta Sans bold, tracked +24%.
+- Wordmark: "Primegala" in Plus Jakarta Sans bold over "MEDICAL CENTRE" in Plus Jakarta Sans bold, small and tracked +24%.
 - Clear space: the height of the cross arm on every side. Minimum size: 24 px mark, 120 px full lockup.
 - If the facility already has a logo, we keep its recognisable elements and apply this palette. **CONFIRM at the meeting.**
 

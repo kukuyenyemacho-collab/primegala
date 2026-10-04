@@ -79,7 +79,7 @@ const fontVars = htmlClasses
   .map((cls) => css.match(new RegExp("\\." + cls.replace(/[-_]/g, (c) => "\\" + c) + "\\{([^}]*)\\}"))?.[1])
   .filter(Boolean)
   .join(";");
-if (!fontVars.includes("--font-jakarta") || !fontVars.includes("--font-fraunces")) throw new Error("font variables not found");
+if (!fontVars.includes("--font-jakarta")) throw new Error("font variables not found");
 
 const script = `
 (() => {
