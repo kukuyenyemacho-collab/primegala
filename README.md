@@ -20,6 +20,14 @@ packages/contracts/       Shared with the HMIS: service codes, lead schema,
 docs/                     Research, brand, meeting pack, architecture, SEO/GEO, wireframes
 ```
 
+## Preview it yourself (in your browser, no installation)
+
+1. Open **[codespaces.new/kukuyenyemacho-collab/primegala](https://codespaces.new/kukuyenyemacho-collab/primegala?quickstart=1)** while logged in to GitHub (or on the repo page: **Code → Codespaces → Create codespace**).
+2. Wait 3–5 minutes the first time while it installs and builds. You'll see `pnpm build` then `pnpm start` in the terminal.
+3. The site opens in a new browser tab. If it doesn't, open the **Ports** tab and click the globe icon next to **Primegala site (3000)**.
+
+The preview address is **private**: only you, logged in to GitHub, can open it. Every non-production copy shows a yellow **Preview** banner and tells search engines not to index it, so it can't be mistaken for the official site. Test bookings are accepted and logged, not sent anywhere. Stop the codespace when you're done to save your free hours (GitHub → Your codespaces → Stop).
+
 ## Quick start
 
 ```bash
@@ -66,6 +74,7 @@ Content and assets:
 
 Launch:
 
+- [ ] Set `NEXT_PUBLIC_SITE_ENV=production` on the live deployment only (removes the Preview banner and allows indexing)
 - [ ] Configure the HMIS webhook (or `LEADS_LOG_ONLY` for staging only)
 - [ ] Add GA4 ID and Search Console/Bing verification; submit the sitemap
 - [ ] Claim Google Business Profile ([`docs/05-seo-geo-playbook.md`](docs/05-seo-geo-playbook.md))

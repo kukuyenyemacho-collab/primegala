@@ -18,6 +18,14 @@ const whatsapp = env("NEXT_PUBLIC_WHATSAPP") ?? phone;
 const lat = Number(env("NEXT_PUBLIC_GEO_LAT"));
 const lng = Number(env("NEXT_PUBLIC_GEO_LNG"));
 
+/**
+ * Only the real, client-approved deployment sets NEXT_PUBLIC_SITE_ENV=production.
+ * Every other copy (local, Codespaces, staging) is a preview: it shows a preview
+ * banner and tells search engines not to index it, so a draft can never be
+ * mistaken for the facility's official website.
+ */
+export const isProductionSite = env("NEXT_PUBLIC_SITE_ENV") === "production";
+
 export const site = {
   /** Registered name on KMHFR. CONFIRM if the facility has been re-licensed as a hospital. */
   name: "Primegala Medical Centre",

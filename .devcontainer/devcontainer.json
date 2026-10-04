@@ -1,0 +1,26 @@
+{
+  // Private browser preview of the Primegala site in GitHub Codespaces.
+  // GitHub → Code → Codespaces → "Create codespace". The site builds, starts and
+  // opens in a new tab at a private *.app.github.dev address only you can open.
+  "name": "Primegala site preview",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "hostRequirements": { "cpus": 2, "memory": "4gb" },
+  "containerEnv": {
+    "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    // No HMIS exists yet: accept test bookings and log them instead of failing.
+    "LEADS_LOG_ONLY": "true"
+  },
+  "postCreateCommand": "npm install -g pnpm@10.28.0 && pnpm install --frozen-lockfile && pnpm build",
+  "postAttachCommand": {
+    "site": "pnpm start"
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "Primegala site", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "codespaces": { "openFiles": ["README.md"] },
+    "vscode": { "extensions": ["bradlc.vscode-tailwindcss", "dbaeumer.vscode-eslint"] }
+  }
+}

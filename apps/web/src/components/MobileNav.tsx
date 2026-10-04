@@ -9,6 +9,8 @@ import { buttonClasses } from "./ui";
 
 export function MobileNav({ items }: { items: { href: string; label: string }[] }) {
   const [open, setOpen] = useState(false);
+  // Panel starts below the sticky header, wherever it sits (the preview banner can push it down).
+  const [panelTop, setPanelTop] = useState(104);
   const pathname = usePathname();
 
   // Close on navigation
@@ -33,7 +35,10 @@ export function MobileNav({ items }: { items: { href: string; label: string }[] 
     <div className="lg:hidden">
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={(e) => {
+          if (!open) setPanelTop(e.currentTarget.closest("header")?.getBoundingClientRect().bottom ?? 104);
+          setOpen((v) => !v);
+        }}
         aria-expanded={open}
         aria-controls="mobile-menu"
         className="inline-flex size-11 items-center justify-center rounded-full text-brand-900 hover:bg-brand-50"
@@ -46,7 +51,8 @@ export function MobileNav({ items }: { items: { href: string; label: string }[] 
         createPortal(
           <div
             id="mobile-menu"
-            className="fixed inset-x-0 top-[6.5rem] bottom-0 z-50 overflow-y-auto bg-white lg:hidden"
+            style={{ top: panelTop }}
+            className="fixed inset-x-0 bottom-0 z-50 overflow-y-auto bg-white lg:hidden"
           >
             <nav aria-label="Mobile" className="container-page py-6">
               <ul className="divide-y divide-line">

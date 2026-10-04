@@ -10,6 +10,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Lets `pnpm dev` serve its assets through GitHub Codespaces port forwarding.
+  allowedDevOrigins: ["*.app.github.dev"],
   transpilePackages: ["@primegala/contracts"],
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

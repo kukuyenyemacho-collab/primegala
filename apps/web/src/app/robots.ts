@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl, isProductionSite, site } from "@/lib/site";
 
 /**
  * Everything public is crawlable, including by AI assistants (GEO): when someone
@@ -7,6 +7,9 @@ import { absoluteUrl, site } from "@/lib/site";
  * want Primegala's own pages to be the source they cite.
  */
 export default function robots(): MetadataRoute.Robots {
+  if (!isProductionSite) {
+    return { rules: { userAgent: "*", disallow: "/" } };
+  }
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/api/"] },

@@ -8,7 +8,7 @@ import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { keywordsFor } from "@/content/keywords";
-import { site } from "@/lib/site";
+import { isProductionSite, site } from "@/lib/site";
 
 const jakarta = localFont({
   src: [
@@ -54,11 +54,13 @@ export const metadata: Metadata = {
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
-  },
+  robots: isProductionSite
+    ? {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+      }
+    : { index: false, follow: false, googleBot: { index: false, follow: false } },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
     other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
@@ -88,6 +90,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
+        {!isProductionSite && (
+          <div className="bg-sun-300 px-4 py-2 text-center text-xs font-semibold text-brand-950 sm:text-sm">
+            Preview: a draft website prepared by {site.credit.name} for {site.name}. Not the official site yet;
+            booking requests are not sent to the facility.
+          </div>
+        )}
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Header />
         <main id="main" className="flex-1">
