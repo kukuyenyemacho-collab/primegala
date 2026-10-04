@@ -1,0 +1,12 @@
+/* TEAM */
+Client: Primegala Medical Centre
+Location: Maili Sita, Nakuru–Nyahururu Road, Nakuru, Kenya
+
+Design & development: Steff Cloud Limited
+Site: https://steffcloud.co.ke
+Location: Nakuru, Kenya
+
+/* SITE */
+Standards: HTML5, CSS3, WCAG 2.2 AA, schema.org, FHIR R4 (lead hand-off)
+Software: Next.js, React, TypeScript, Tailwind CSS
+Language: English (en-KE), Kiswahili

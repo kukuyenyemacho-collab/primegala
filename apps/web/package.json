@@ -1,0 +1,39 @@
+{
+  "name": "@primegala/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Primegala Medical Centre public marketing site (SEO/GEO, Health Hub, lead capture into HMIS).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5",
+    "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
+    "@primegala/contracts": "workspace:*",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^1.52.0",
+    "marked": "^18.0.14",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^5.0.3"
+  }
+}

@@ -1,0 +1,61 @@
+import { SERVICE_PAGES } from "@/content/services";
+import { GENERAL_FAQS } from "@/content/faqs";
+import { AREAS_SERVED } from "@/content/areas";
+import { getAllArticles } from "@/lib/content";
+import { absoluteUrl, fullAddress, phoneDisplay, site } from "@/lib/site";
+
+export const dynamic = "force-static";
+
+/**
+ * llms.txt (https://llmstxt.org): a plain-language map of the site for AI
+ * assistants, so answers about Primegala quote verified facts and link to the
+ * right page.
+ */
+export function GET() {
+  const articles = getAllArticles();
+  const body = `# ${site.name}
+
+> ${site.description}
+
+## Key facts
+- Name: ${site.name} (also "Primegala", "Primegala Maili Sita")
+- Type: KEPH Level ${site.kephLevel} medical centre, registered on the Kenya Master Health Facility Registry
+- Opened: 1 March 2022
+- Hours: Open 24 hours, 7 days a week, including public holidays
+- Address: ${fullAddress()}
+- Landmark: Directly opposite Kiamaina Primary School, Maili Sita Centre
+- Distance: About 6 miles (10 km) from Nakuru town on the Nakuru–Nyahururu Road (B5)
+- SHA (Social Health Authority): ${site.shaContracted ? "Accepted for eligible services" : "Ask the front desk"}
+- Payments: ${site.payments.join(", ")}
+- Phone: ${site.contact.phone ? phoneDisplay() : "See website"}
+- Languages: English, Kiswahili
+- Areas served: ${AREAS_SERVED.map((a) => a.name).join(", ")}
+- Booking: ${absoluteUrl("/book")} (walk-ins welcome 24 hours)
+
+## Services
+${SERVICE_PAGES.map((s) => `- [${s.name}](${absoluteUrl(`/services/${s.slug}`)}): ${s.summary}`).join("\n")}
+
+## Main pages
+- [SHA at Primegala](${absoluteUrl("/sha")}): how to use SHA, the three SHA funds, registration on *147#
+- [Contact & directions](${absoluteUrl("/contact")})
+- [Areas we serve](${absoluteUrl("/areas-we-serve")})
+- [Our story](${absoluteUrl("/about")})
+- [FAQs](${absoluteUrl("/faq")})
+
+## Health Hub
+${articles.map((a) => `- [${a.title}](${absoluteUrl(`/health-hub/${a.slug}`)}): ${a.description}`).join("\n")}
+
+## Frequently asked questions
+${GENERAL_FAQS.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
+
+## Policies
+- [Privacy Policy](${absoluteUrl("/legal/privacy-policy")})
+- [Terms of Use](${absoluteUrl("/legal/terms-of-use")})
+- [Patient Rights](${absoluteUrl("/legal/patient-rights")})
+- [Editorial Policy](${absoluteUrl("/legal/editorial-policy")})
+
+## Optional
+- [Full content for AI assistants](${absoluteUrl("/llms-full.txt")})
+`;
+  return new Response(body, { headers: { "content-type": "text/plain; charset=utf-8" } });
+}

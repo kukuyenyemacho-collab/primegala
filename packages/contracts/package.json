@@ -1,0 +1,23 @@
+{
+  "name": "@primegala/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared contracts between the Primegala public site and the HMIS: service catalogue, lead/appointment schemas, FHIR R4 mapping and webhook signing.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5",
+    "vitest": "^5.0.3"
+  }
+}
