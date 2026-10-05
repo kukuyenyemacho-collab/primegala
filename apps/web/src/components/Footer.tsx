@@ -171,6 +171,14 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Closing wordmark: one line, about three-quarters of the width on large screens, scaling down
+          fluidly on phones. Decorative (the name is already in the logo and copyright line). */}
+      <div className="container-page overflow-hidden" aria-hidden="true">
+        <p className="pointer-events-none pt-2 pb-6 text-[clamp(3.25rem,16.5vw,11.75rem)] leading-[0.85] font-extrabold tracking-[-0.045em] whitespace-nowrap text-trust-800 select-none sm:pb-10">
+          Primegala<span className="text-brand-500">.</span>
+        </p>
+      </div>
     </footer>
   );
 }
