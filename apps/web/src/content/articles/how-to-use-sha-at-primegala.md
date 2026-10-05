@@ -75,4 +75,4 @@ If you're expecting, register on SHA as early as possible in your pregnancy and 
 
 ## How Primegala can help
 
-Our team helps patients register, check status and understand cover every day. If you'd like help before your visit, [book a SHA help session](/book?type=sha-help) or [message us on WhatsApp](/contact). Find out more on our [SHA at Primegala](/sha) page.
+Our team helps patients register, check status and understand cover every day. If you'd like help before your visit, [book a SHA help session](/book?type=sha-help) or [contact us](/contact). Find out more on our [SHA at Primegala](/sha) page.

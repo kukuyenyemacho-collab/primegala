@@ -1,17 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BadgeCheck, Calendar, Clock, TriangleAlert, UserPen } from "lucide-react";
+import { ArrowRight, BadgeCheck, Clock } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArticleCard, CategoryPill } from "@/components/Cards";
+import { CtaBand } from "@/components/CtaBand";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
-import { CtaBand } from "@/components/CtaBand";
-import { ButtonLink, Section, SectionHeading } from "@/components/ui";
+import { Section, SectionHeading } from "@/components/ui";
+import { ArticleToc } from "@/components/hub/ArticleToc";
+import { MedicalNote } from "@/components/hub/MedicalNote";
+import { MobileToc } from "@/components/hub/MobileToc";
+import { ServicePanel } from "@/components/hub/ServicePanel";
+import { ShareRow } from "@/components/hub/ShareRow";
+import { TipGrid } from "@/components/hub/TipGrid";
+import { displayTitle } from "@/components/hub/utils";
 import { SERVICE_PAGES } from "@/content/services";
-import { CATEGORIES, getAllArticles, getArticle, getRelatedArticles } from "@/lib/content";
-import { articleJsonLd, pageMetadata } from "@/lib/seo";
+import {
+  CATEGORIES,
+  getAllArticles,
+  getArticle,
+  getRelatedArticles,
+  getTips,
+  type Article,
+  type Heading,
+} from "@/lib/content";
 import { formatDate } from "@/lib/format";
+import { articleJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.slug }));
@@ -34,14 +50,68 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
+const FAQ_HEADING_ID = "article-faqs";
+
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) notFound();
 
   const path = `/health-hub/${article.slug}`;
-  const service = SERVICE_PAGES.find((s) => s.code === article.service);
-  const related = getRelatedArticles(article);
+  const isTip = article.category === "health-tips";
+  const category = CATEGORIES[article.category];
+  // Front matter normally uses the service code; accept the page slug too.
+  const service = SERVICE_PAGES.find((s) => s.code === article.service || s.slug === article.service);
+  const title = isTip ? displayTitle(article.title) : article.title;
+  const noun = isTip ? "tip" : article.category === "our-stories" ? "story" : "guide";
+
+  const toc: Heading[] = [
+    ...article.headings,
+    ...(article.faqs.length > 0 ? [{ id: FAQ_HEADING_ID, text: "Frequently asked questions" }] : []),
+  ];
+  const showToc = !isTip && toc.length >= 2;
+
+  const related = isTip ? [] : getRelatedArticles(article, 8).filter((a) => a.category !== "health-tips").slice(0, 3);
+  const moreTips = isTip ? getTips({ exclude: article.slug, limit: 6 }) : [];
+
+  const body = (
+    <div className="max-w-[70ch] text-lg">
+      {showToc && (
+        <div className="mb-8 text-base">
+          <MobileToc headings={toc} />
+        </div>
+      )}
+
+      <div className="prose-primegala" dangerouslySetInnerHTML={{ __html: article.html }} />
+
+      <div className="text-base">
+        {service && (
+          <div className="mt-12">
+            <ServicePanel service={service} />
+          </div>
+        )}
+
+        {article.faqs.length > 0 && (
+          <section className="mt-14" aria-labelledby={FAQ_HEADING_ID}>
+            <h2 id={FAQ_HEADING_ID} className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+              Frequently asked questions
+            </h2>
+            <div className="mt-6">
+              <FaqList faqs={article.faqs} withSchema={false} />
+            </div>
+          </section>
+        )}
+
+        <div className="mt-12">
+          <MedicalNote />
+        </div>
+
+        <div className="mt-8 border-t border-line pt-6">
+          <ShareRow title={title} url={absoluteUrl(path)} noun={noun} />
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -55,140 +125,63 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           author: article.author,
           reviewedBy: article.reviewedBy,
           lastReviewed: article.lastReviewed,
-          category: CATEGORIES[article.category].name,
+          category: category.name,
         })}
       />
-      {article.faqs.length > 0 && <FaqSchemaOnly faqs={article.faqs} />}
+      {article.faqs.length > 0 && <JsonLd data={faqJsonLd(article.faqs)} />}
 
       <article>
-        <header className="border-b border-line bg-gradient-to-b from-brand-50 to-white">
-          <div className="container-page py-10 sm:py-14">
-            <Breadcrumbs
-              items={[
-                { name: "Health Hub", path: "/health-hub" },
-                { name: CATEGORIES[article.category].name, path: `/health-hub/category/${article.category}` },
-                { name: article.title, path },
-              ]}
-            />
-            <div className="mt-8 max-w-3xl">
-              <CategoryPill category={article.category} />
-              <h1 className="mt-4 text-4xl leading-[1.1] font-semibold text-ink sm:text-5xl">{article.title}</h1>
-              <p className="mt-5 text-xl leading-relaxed text-muted">{article.description}</p>
-              <dl className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
-                <div className="flex items-center gap-1.5">
-                  <dt className="sr-only">Author</dt>
-                  <UserPen className="size-4 text-brand-600" aria-hidden />
-                  <dd>{article.author}</dd>
+        <ArticleHeader article={article} title={title} />
+
+        <div className="container-page py-10 sm:py-14">
+          {showToc ? (
+            <div className="lg:grid lg:grid-cols-12 lg:gap-12">
+              {/* First in the DOM so keyboard users reach it before the article; shown on the right. */}
+              <aside className="hidden lg:order-2 lg:col-span-4 lg:row-start-1 lg:block xl:col-span-3 xl:col-start-10">
+                <div className="sticky top-24 max-h-[calc(100dvh-7rem)] overflow-y-auto pb-6">
+                  <ArticleToc headings={toc} />
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <dt className="sr-only">Published</dt>
-                  <Calendar className="size-4 text-brand-600" aria-hidden />
-                  <dd>
-                    <time dateTime={article.published}>{formatDate(article.published)}</time>
-                    {article.updated && (
-                      <>
-                        {" "}
-                        · Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time>
-                      </>
-                    )}
-                  </dd>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <dt className="sr-only">Reading time</dt>
-                  <Clock className="size-4 text-brand-600" aria-hidden />
-                  <dd>{article.readingMinutes} min read</dd>
-                </div>
-              </dl>
-              {article.category !== "our-stories" && (
-                <p
-                  className={`mt-5 inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium ring-1 ${
-                    article.reviewedBy
-                      ? "bg-brand-50 text-brand-800 ring-brand-100"
-                      : "bg-sun-100 text-brand-950 ring-sun-200"
-                  }`}
-                >
-                  <BadgeCheck className="size-4" aria-hidden />
-                  {article.reviewedBy
-                    ? `Clinically reviewed by ${article.reviewedBy}${article.lastReviewed ? ` on ${formatDate(article.lastReviewed)}` : ""}`
-                    : "Clinical review pending"}
-                </p>
-              )}
+              </aside>
+              <div className="min-w-0 lg:order-1 lg:col-span-8 lg:row-start-1">{body}</div>
             </div>
-          </div>
-        </header>
-
-        <div className="container-page grid gap-12 py-12 lg:grid-cols-12 lg:py-16">
-          <aside className="order-2 lg:order-1 lg:col-span-3">
-            <div className="space-y-6 lg:sticky lg:top-32">
-              {article.headings.length > 2 && (
-                <nav aria-label="On this page" className="hidden lg:block">
-                  <p className="text-xs font-bold tracking-widest text-ink uppercase">On this page</p>
-                  <ul className="mt-4 space-y-2.5 border-l border-line">
-                    {article.headings.map((h) => (
-                      <li key={h.id}>
-                        <a href={`#${h.id}`} className="-ml-px block border-l border-transparent pl-4 text-sm text-muted hover:border-brand-500 hover:text-brand-700">
-                          {h.text}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              )}
-              {service && (
-                <div className="rounded-[var(--radius-card)] bg-brand-900 p-6 text-white">
-                  <p className="text-xs font-bold tracking-widest text-sun-300 uppercase">At Primegala</p>
-                  <p className="mt-2 font-display text-xl font-semibold">{service.name}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-brand-100">{service.summary}</p>
-                  <ButtonLink href={`/book?service=${service.code}`} variant="sun" className="mt-4 w-full" track="book_click_article">
-                    Book a visit
-                  </ButtonLink>
-                </div>
-              )}
-            </div>
-          </aside>
-
-          <div className="order-1 lg:order-2 lg:col-span-8 lg:col-start-4">
-            <div className="prose-primegala [&_.table-scroll]:overflow-x-auto" dangerouslySetInnerHTML={{ __html: article.html }} />
-
-            {article.faqs.length > 0 && (
-              <section className="mt-14" aria-labelledby="article-faqs">
-                <h2 id="article-faqs" className="text-3xl font-semibold text-ink">
-                  Frequently asked questions
-                </h2>
-                <div className="mt-6">
-                  <FaqList faqs={article.faqs} withSchema={false} />
-                </div>
-              </section>
-            )}
-
-            <aside className="mt-12 flex gap-3 rounded-2xl bg-surface p-5 text-sm leading-relaxed text-muted ring-1 ring-line">
-              <TriangleAlert className="size-5 shrink-0 text-sun-500" aria-hidden />
-              <p>
-                This article is general information, not a diagnosis. Always consult a qualified health professional
-                about your health. In an emergency call <a href="tel:999" className="font-semibold text-ink">999</a> or{" "}
-                <a href="tel:112" className="font-semibold text-ink">112</a>. See our{" "}
-                <Link href="/legal/medical-disclaimer" className="font-semibold text-brand-700 underline underline-offset-2">
-                  medical disclaimer
-                </Link>{" "}
-                and{" "}
-                <Link href="/legal/editorial-policy" className="font-semibold text-brand-700 underline underline-offset-2">
-                  editorial policy
-                </Link>
-                .
-              </p>
-            </aside>
-          </div>
+          ) : (
+            body
+          )}
         </div>
       </article>
 
       {related.length > 0 && (
-        <Section tone="surface">
-          <SectionHeading eyebrow="Keep reading" title="Related articles" />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {related.map((a) => (
-              <ArticleCard key={a.slug} article={a} />
-            ))}
+        <Section tone="surface" labelledBy="related-heading" bordered>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionHeading id="related-heading" eyebrow="Keep reading" title="Related guides" />
+            <Link href="/health-hub#guides" className="link-brand inline-flex shrink-0 items-center gap-1.5 self-start md:self-auto">
+              All Health Hub guides <ArrowRight className="size-4" aria-hidden />
+            </Link>
           </div>
+          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+            {related.map((a) => (
+              <li key={a.slug}>
+                <ArticleCard article={a} />
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      {moreTips.length > 0 && (
+        <Section tone="surface" labelledBy="more-tips-heading" bordered>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionHeading
+              id="more-tips-heading"
+              eyebrow="Quick reads"
+              title="More health tips"
+              intro="Open a tip to read it here in a minute or two."
+            />
+            <Link href="/health-hub#guides" className="link-brand inline-flex shrink-0 items-center gap-1.5 self-start md:self-auto">
+              Browse all guides <ArrowRight className="size-4" aria-hidden />
+            </Link>
+          </div>
+          <TipGrid tips={moreTips} className="mt-10" />
         </Section>
       )}
 
@@ -197,14 +190,73 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   );
 }
 
-function FaqSchemaOnly({ faqs }: { faqs: { q: string; a: string }[] }) {
+function ArticleHeader({ article, title }: { article: Article; title: string }) {
+  const path = `/health-hub/${article.slug}`;
+  const category = CATEGORIES[article.category];
   return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-      }}
-    />
+    <header className="border-b border-line bg-white">
+      <div className="container-page py-8 sm:py-12">
+        <Breadcrumbs
+          items={[
+            { name: "Health Hub", path: "/health-hub" },
+            { name: category.name, path: `/health-hub/category/${article.category}` },
+            { name: title, path },
+          ]}
+        />
+        <div className="mt-8 max-w-3xl">
+          <Link href={`/health-hub/category/${article.category}`} className="inline-flex rounded-full">
+            <CategoryPill category={article.category} />
+            <span className="sr-only">: see all articles in this topic</span>
+          </Link>
+          <h1 className="mt-4 text-3xl leading-[1.15] font-bold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
+            {title}
+          </h1>
+          <p className="mt-5 text-lg leading-relaxed text-muted sm:text-xl">{article.description}</p>
+
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-5 text-sm">
+            <div className="flex flex-wrap items-baseline gap-x-1.5">
+              <dt className="text-muted">Written by</dt>
+              <dd className="font-semibold text-ink">{article.author}</dd>
+            </div>
+            <div className="flex flex-wrap items-baseline gap-x-1.5">
+              <dt className="text-muted">Published</dt>
+              <dd className="font-semibold text-ink">
+                <time dateTime={article.published}>{formatDate(article.published)}</time>
+              </dd>
+            </div>
+            {article.updated && article.updated !== article.published && (
+              <div className="flex flex-wrap items-baseline gap-x-1.5">
+                <dt className="text-muted">Updated</dt>
+                <dd className="font-semibold text-ink">
+                  <time dateTime={article.updated}>{formatDate(article.updated)}</time>
+                </dd>
+              </div>
+            )}
+            <div>
+              <dt className="sr-only">Reading time</dt>
+              <dd className="inline-flex items-center gap-1.5 font-semibold text-ink">
+                <Clock className="size-4 text-trust-700" aria-hidden />
+                {article.readingMinutes} min read
+              </dd>
+            </div>
+          </dl>
+
+          {article.reviewedBy && (
+            <p className="mt-5 inline-flex items-start gap-2 rounded-full border border-brand-200 bg-brand-50 px-3.5 py-1.5 text-sm font-semibold text-brand-800">
+              <BadgeCheck className="mt-px size-4 shrink-0" aria-hidden />
+              <span>
+                Clinically reviewed by {article.reviewedBy}
+                {article.lastReviewed && (
+                  <>
+                    {" "}
+                    on <time dateTime={article.lastReviewed}>{formatDate(article.lastReviewed)}</time>
+                  </>
+                )}
+              </span>
+            </p>
+          )}
+        </div>
+      </div>
+    </header>
   );
 }

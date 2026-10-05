@@ -67,4 +67,4 @@ Someone with diabetes is confused, very drowsy, vomiting repeatedly, breathing f
 
 ## Diabetes care at Primegala
 
-Our [diabetes and hypertension clinic](/services/diabetes-and-hypertension-clinic) at Maili Sita offers sugar checks, reviews and refills, with WhatsApp reminders so you stay on track. [Book a sugar check](/book?service=chronic-care).
+Our [diabetes and hypertension clinic](/services/diabetes-and-hypertension-clinic) at Maili Sita offers sugar checks, reviews and refills, with reminders (if you want them) so you stay on track. [Book a sugar check](/book?service=chronic-care).

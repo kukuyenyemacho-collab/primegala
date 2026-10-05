@@ -1,8 +1,12 @@
-import { CalendarCheck, Navigation } from "lucide-react";
+import { CalendarCheck, Mail, Navigation, Phone } from "lucide-react";
 import { WhatsAppIcon } from "./Icon";
 import { ButtonLink } from "./ui";
-import { site, whatsappHref } from "@/lib/site";
+import { emailHref, hasPhone, hasWhatsApp, phoneDisplay, phoneHref, site, whatsappHref } from "@/lib/site";
 
+/**
+ * Closing call to action: flat navy band with a thin green rule. Call and WhatsApp
+ * only appear when those numbers are configured; otherwise visitors can email us.
+ */
 export function CtaBand({
   title = "Care is six miles closer than you think.",
   body = "Walk in any time, day or night, or book ahead and we'll be ready for you. We're on the Nakuru–Nyahururu Road at Maili Sita, opposite Kiamaina Primary School.",
@@ -11,34 +15,36 @@ export function CtaBand({
   body?: string;
 }) {
   return (
-    <section className="bg-white py-16 sm:py-20">
-      <div className="container-page">
-        <div className="relative overflow-hidden rounded-[2rem] bg-brand-800 px-6 py-12 sm:px-12 sm:py-16">
-          <svg
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-40 w-full text-brand-700/70"
-            viewBox="0 0 1200 160"
-            preserveAspectRatio="none"
-            aria-hidden
-          >
-            <path d="M0 110C200 60 380 70 600 95s420 20 600-35v100H0Z" fill="currentColor" />
-            <path d="M0 140c220-35 420-30 640-10s380 10 560-20v50H0Z" fill="#0b3f23" opacity=".6" />
-          </svg>
-          <div className="pointer-events-none absolute -top-16 -right-10 size-56 rounded-full bg-sun-400/25 blur-2xl" aria-hidden />
-          <div className="relative max-w-2xl">
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">{title}</h2>
-            <p className="mt-4 text-lg leading-relaxed text-brand-100">{body}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/book" variant="sun" size="lg" track="book_click_cta">
-                <CalendarCheck className="size-5" aria-hidden /> Book a visit
-              </ButtonLink>
-              <ButtonLink href={whatsappHref()} variant="inverted" size="lg" track="whatsapp_click_cta">
-                <WhatsAppIcon className="size-5" /> WhatsApp us
-              </ButtonLink>
-              <ButtonLink href={site.mapsUrl} variant="inverted" size="lg" track="directions_click_cta">
-                <Navigation className="size-5" aria-hidden /> Directions
-              </ButtonLink>
-            </div>
-          </div>
+    <section className="on-dark border-t-4 border-brand-500 bg-trust-950 text-white" aria-labelledby="cta-band-title">
+      <div className="container-page grid gap-8 py-14 sm:py-16 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-6">
+          <h2 id="cta-band-title" className="text-3xl leading-tight font-bold tracking-tight sm:text-4xl">
+            {title}
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-trust-100">{body}</p>
+        </div>
+        <div className="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end">
+          <ButtonLink href="/book" size="lg" track="book_click_cta">
+            <CalendarCheck className="size-5" aria-hidden /> Book a visit
+          </ButtonLink>
+          <ButtonLink href={site.mapsUrl} variant="inverted" size="lg" track="directions_click_cta">
+            <Navigation className="size-5" aria-hidden /> Get directions
+          </ButtonLink>
+          {hasPhone && (
+            <ButtonLink href={phoneHref()} variant="inverted" size="lg" track="call_click_cta">
+              <Phone className="size-5" aria-hidden /> Call {phoneDisplay()}
+            </ButtonLink>
+          )}
+          {hasWhatsApp && (
+            <ButtonLink href={whatsappHref()} variant="inverted" size="lg" track="whatsapp_click_cta">
+              <WhatsAppIcon className="size-5" /> WhatsApp us
+            </ButtonLink>
+          )}
+          {!hasPhone && !hasWhatsApp && (
+            <ButtonLink href={emailHref("Enquiry from the Primegala website")} variant="inverted" size="lg" track="email_click_cta">
+              <Mail className="size-5" aria-hidden /> Email us
+            </ButtonLink>
+          )}
         </div>
       </div>
     </section>

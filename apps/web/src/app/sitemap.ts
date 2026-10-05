@@ -17,6 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/team"), changeFrequency: "monthly", priority: 0.5 },
     { url: absoluteUrl("/areas-we-serve"), changeFrequency: "yearly", priority: 0.7 },
     { url: absoluteUrl("/faq"), changeFrequency: "monthly", priority: 0.7 },
+    { url: absoluteUrl("/patients-and-visitors"), changeFrequency: "monthly", priority: 0.8 },
+    { url: absoluteUrl("/payments-and-insurance"), changeFrequency: "monthly", priority: 0.8 },
+    { url: absoluteUrl("/emergency"), changeFrequency: "yearly", priority: 0.8 },
+    { url: absoluteUrl("/kiswahili"), changeFrequency: "monthly", priority: 0.6 },
     { url: absoluteUrl("/health-hub"), changeFrequency: "weekly", priority: 0.8 },
     { url: absoluteUrl("/legal"), changeFrequency: "yearly", priority: 0.2 },
   ].map((e) => ({ ...e, lastModified: launch }) as MetadataRoute.Sitemap[number]);

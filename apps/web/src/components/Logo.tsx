@@ -2,8 +2,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Primegala mark: a two-tone medical cross carrying a leaf, meaning care that
- * grows with the community. Proposed refresh of the facility's existing green
- * identity; swap for the official logo files once supplied.
+ * grows with the community, in the facility's green.
  */
 export function LogoMark({ className, title }: { className?: string; title?: string }) {
   return (
@@ -23,6 +22,10 @@ export function LogoMark({ className, title }: { className?: string; title?: str
   );
 }
 
+/**
+ * Wordmark lockup in Plus Jakarta Sans: "Primegala" in bold deep navy (trust) over a
+ * small tracked "MEDICAL CENTRE" in green. `inverted` is for navy and dark surfaces.
+ */
 export function Logo({ className, inverted = false }: { className?: string; inverted?: boolean }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
@@ -30,16 +33,16 @@ export function Logo({ className, inverted = false }: { className?: string; inve
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-[1.45rem] font-semibold tracking-tight",
-            inverted ? "text-white" : "text-brand-900",
+            "font-sans text-[1.4rem] font-bold tracking-tight",
+            inverted ? "text-white" : "text-trust-950",
           )}
         >
           Primegala
         </span>
         <span
           className={cn(
-            "mt-1 text-[0.6rem] font-bold tracking-[0.24em] uppercase",
-            inverted ? "text-brand-200" : "text-brand-600",
+            "mt-1 font-sans text-[0.6rem] font-bold tracking-[0.24em] uppercase",
+            inverted ? "text-trust-200" : "text-brand-600",
           )}
         >
           Medical Centre

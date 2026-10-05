@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { Plus } from "lucide-react";
 import { JsonLd } from "./JsonLd";
 import { faqJsonLd } from "@/lib/seo";
 
@@ -7,17 +7,16 @@ export function FaqList({ faqs, withSchema = true }: { faqs: { q: string; a: str
   return (
     <>
       {withSchema && <JsonLd data={faqJsonLd(faqs)} />}
-      <div className="divide-y divide-line overflow-hidden rounded-[var(--radius-card)] bg-white ring-1 ring-line">
+      <div className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-white">
         {faqs.map((f, i) => (
           <details key={f.q} className="group" open={i === 0}>
-            <summary className="flex cursor-pointer list-none items-start justify-between gap-6 px-6 py-5 text-left font-semibold text-ink transition-colors hover:bg-surface [&::-webkit-details-marker]:hidden">
-              <h3 className="font-sans text-base sm:text-lg">{f.q}</h3>
-              <ChevronDown
-                className="mt-1 size-5 shrink-0 text-brand-600 transition-transform group-open:rotate-180"
-                aria-hidden
-              />
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-surface focus-visible:-outline-offset-2 sm:gap-6 sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+              <h3 className="text-base leading-snug font-semibold text-ink sm:text-lg">{f.q}</h3>
+              <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md border border-line text-brand-600 group-open:border-brand-300 group-open:bg-brand-50">
+                <Plus className="size-4 transition-transform duration-150 group-open:rotate-45" aria-hidden />
+              </span>
             </summary>
-            <p className="px-6 pb-6 leading-relaxed text-muted">{f.a}</p>
+            <p className="px-5 pb-5 leading-relaxed text-muted sm:px-6 sm:pb-6">{f.a}</p>
           </details>
         ))}
       </div>

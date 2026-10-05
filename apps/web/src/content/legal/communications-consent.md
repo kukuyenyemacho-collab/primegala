@@ -36,13 +36,13 @@ Service messages are sent only when relevant to your care. Optional health tips 
 - **WhatsApp or SMS:** reply **STOP** at any time.
 - **Phone:** tell the caller you don't want further calls.
 - **Email:** use the unsubscribe link.
-- **Anytime:** contact {{PHONE}} or {{EMAIL}}, or ask at reception.
+- **Anytime:** email {{EMAIL}}, or ask at our front desk, which is open 24 hours.
 
 Opting out of health tips does not affect essential service messages about care you're receiving, unless you ask us to stop those too.
 
 ## WhatsApp
 
-When you message us on WhatsApp, the content is also processed by WhatsApp (Meta Platforms) under its own terms and privacy policy. For anything sensitive, please call or speak to us in person.
+When you message us on WhatsApp, the content is also processed by WhatsApp (Meta Platforms) under its own terms and privacy policy. For anything sensitive, please speak to us in person at our front desk.
 
 ## Calls may be recorded
 

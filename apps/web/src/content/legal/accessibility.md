@@ -32,6 +32,6 @@ We're continually improving. Some third-party content, such as embedded maps, ma
 
 ## Feedback
 
-If you find any barrier on our website or at our facility, please contact us at {{PHONE}} or {{EMAIL}}. We aim to respond within 5 working days.
+If you find any barrier on our website or at our facility, please email {{EMAIL}} or tell our front desk, which is open 24 hours. We aim to respond within 5 working days.
 
 *Last updated: {{UPDATED}}*

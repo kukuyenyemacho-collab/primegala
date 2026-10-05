@@ -15,10 +15,10 @@ faqs:
   - q: "Where exactly is Primegala Medical Centre?"
     a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kabatini Ward, Nakuru North."
   - q: "Do I need to book before my first visit?"
-    a: "No. Walk-ins are welcome 24 hours a day. Booking ahead online or on WhatsApp helps us prepare for you."
+    a: "No. Walk-ins are welcome 24 hours a day. Booking ahead online helps us prepare for you."
 ---
 
-**Short answer:** Primegala Medical Centre is at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, and is open 24 hours. Bring your ID, your SHA details and any previous medical records, then walk in or book ahead on WhatsApp.
+**Short answer:** Primegala Medical Centre is at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, and is open 24 hours. Bring your ID, your SHA details and any previous medical records, then walk in or book ahead online.
 
 A first visit anywhere can feel uncertain. Where do I go? Will it take all day? Will SHA work? Here's what happens from the moment you arrive.
 
@@ -47,7 +47,7 @@ A first visit anywhere can feel uncertain. Where do I go? Will it take all day? 
 3. **Consultation.** A clinician listens to your concerns, examines you and explains what they find in plain language.
 4. **Tests.** If you need a test, our on-site laboratory takes your sample. Most routine results are ready the same visit.
 5. **Treatment.** Your prescription is filled at our pharmacy, with clear instructions on how to take each medicine.
-6. **Follow-up.** If you need a review, we'll agree on a date and can remind you on WhatsApp.
+6. **Follow-up.** If you need a review, we'll agree on a date and, with your consent, remind you before it.
 
 ## How long will it take?
 

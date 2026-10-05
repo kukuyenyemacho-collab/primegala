@@ -30,6 +30,11 @@ export interface ServiceContent {
   story: { heading: string; body: string };
   offers: string[];
   steps: { title: string; body: string }[];
+  /**
+   * "How to prepare": 3-5 practical, general items (what to bring, how to get ready).
+   * Keep them safe and generic; never promise anything specific to Primegala here.
+   */
+  prepare: string[];
   sha: string;
   faqs: { q: string; a: string }[];
   keywordGroups: KeywordGroup[];
@@ -61,16 +66,23 @@ export const SERVICE_PAGES: ServiceContent[] = [
       "Medical reports and sick notes after a consultation",
     ],
     steps: [
-      { title: "Arrive or book", body: "Walk in any time, or book ahead on WhatsApp to be seen sooner." },
+      { title: "Arrive or book", body: "Walk in any time, or book ahead online so we can prepare for you." },
       { title: "Triage & registration", body: "A nurse checks your vital signs. Bring your ID and SHA details." },
       { title: "See a clinician", body: "We listen, examine and explain what we find in plain language." },
       { title: "Tests & medicine", body: "The lab and pharmacy are on site, so there's no running around town." },
+    ],
+    prepare: [
+      "Bring your national ID (or your child's birth certificate) and the phone registered with SHA.",
+      "Note when your symptoms started, what makes them better or worse, and any temperatures you have taken.",
+      "Bring the medicines you are taking, or their packets, including herbal remedies.",
+      "Bring any previous test results, prescriptions or discharge notes.",
+      "For a child's visit, bring the Mother & Child Health booklet.",
     ],
     sha: "Outpatient consultations for registered SHA members are covered under the Primary Healthcare Fund at Level 2 and 3 facilities. Our front desk confirms your eligibility using your ID number.",
     faqs: [
       {
         q: "Do I need an appointment to see a clinician at Primegala?",
-        a: "No. Walk-ins are welcome 24 hours a day. Booking ahead on WhatsApp or online helps us prepare and can shorten your wait.",
+        a: "No. Walk-ins are welcome 24 hours a day. Booking ahead online helps us prepare for your visit.",
       },
       {
         q: "Can I use SHA for an outpatient visit?",
@@ -82,7 +94,12 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["core", "local", "swahili"],
-    related: ["your-first-visit-to-primegala", "malaria-or-typhoid-how-to-tell"],
+    related: [
+      "your-first-visit-to-primegala",
+      "malaria-or-typhoid-how-to-tell",
+      "stress-and-sleep",
+      "cervical-cancer-screening-hpv",
+    ],
     featured: true,
   },
   {
@@ -113,6 +130,13 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Treat or stabilise", body: "We treat what can be treated here and stabilise anything more serious." },
       { title: "Refer if needed", body: "We arrange onward transfer and send your notes with you." },
     ],
+    prepare: [
+      "In a life-threatening emergency, call 999 or 112. Don't delay to gather documents.",
+      "If you can, bring the patient's ID, SHA details and any medicines they take.",
+      "Bring someone who knows what happened and can stay with the patient.",
+      "For a suspected poisoning or overdose, bring the container or packet with you.",
+      "For heavy bleeding, press firmly on the wound with a clean cloth on the way in.",
+    ],
     sha: "Emergency care is covered by SHA's Emergency, Chronic and Critical Illness Fund (ECCIF). Under Article 43(2) of the Constitution of Kenya, no one may be denied emergency medical treatment.",
     faqs: [
       {
@@ -129,7 +153,12 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["emergency", "core"],
-    related: ["when-to-seek-urgent-care", "your-first-visit-to-primegala"],
+    related: [
+      "when-to-seek-urgent-care",
+      "your-first-visit-to-primegala",
+      "asthma-attack-first-aid",
+      "dog-bites-rabies",
+    ],
     featured: true,
   },
   {
@@ -160,6 +189,13 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Labour & delivery", body: "Come in when labour starts. We monitor you and baby throughout." },
       { title: "Going home", body: "Postnatal checks, family planning counselling and baby's next visits." },
     ],
+    prepare: [
+      "Pack your maternity bag by 36 weeks: ID, SHA details, Mother & Child Health booklet, pads, lessos and baby clothes.",
+      "Confirm your SHA registration (dial *147#) well before your due date.",
+      "Arrange day and night transport, and save the numbers of two people you can call.",
+      "Choose a birth companion and agree who will care for your other children.",
+      "Know the danger signs (bleeding, severe headache, waters breaking early, baby moving less) and come in at once if they happen.",
+    ],
     sha: "Under current SHA rules, normal delivery at Level 2 and 3 facilities is paid for through the Primary Healthcare Fund for registered members. Register on SHA (dial *147#) early in pregnancy and ask our front desk to confirm your status before your due date.",
     faqs: [
       {
@@ -172,11 +208,16 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
       {
         q: "What if there is a complication during labour?",
-        a: "Our midwives monitor labour closely. If you need a caesarean section or specialist care, we stabilise you and transfer you quickly to a higher-level hospital.",
+        a: "Our midwives monitor labour closely. If you need a caesarean section or specialist care, we stabilise you and arrange transfer to a higher-level hospital, with your notes.",
       },
     ],
     keywordGroups: ["maternity", "local"],
-    related: ["antenatal-care-8-visits", "pregnancy-danger-signs"],
+    related: [
+      "antenatal-care-8-visits",
+      "pregnancy-danger-signs",
+      "delivery-under-sha-level-3",
+      "postnatal-care-6-week-check",
+    ],
     featured: true,
   },
   {
@@ -207,6 +248,13 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Regular contacts", body: "At least eight contacts, closer together as your due date nears." },
       { title: "Birth plan", body: "Together we agree where you'll deliver and how you'll get there." },
     ],
+    prepare: [
+      "Come as soon as you know you are pregnant, ideally before 12 weeks.",
+      "Bring your national ID and the phone registered with SHA.",
+      "Bring your Mother & Child Health booklet if you have one, plus any scan or test results.",
+      "Note the first day of your last menstrual period, if you know it.",
+      "Bring your partner if you wish: birth planning and joint HIV testing are easier together.",
+    ],
     sha: "Antenatal care is a Primary Healthcare Fund service for registered SHA members at Level 2 and 3 facilities.",
     faqs: [
       {
@@ -223,7 +271,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["maternity"],
-    related: ["antenatal-care-8-visits", "pregnancy-danger-signs"],
+    related: ["antenatal-care-8-visits", "pregnancy-danger-signs", "delivery-under-sha-level-3"],
   },
   {
     code: "family-planning",
@@ -251,7 +299,13 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Talk privately", body: "A provider explains each method, how it works and possible side effects." },
       { title: "Choose", body: "You decide. We check that the method is safe for you." },
       { title: "Start the same day", body: "Most methods can be started at the same visit." },
-      { title: "Follow-up", body: "We'll remind you on WhatsApp when your next dose or review is due." },
+      { title: "Follow-up", body: "With your consent, we can remind you when your next dose or review is due." },
+    ],
+    prepare: [
+      "Think about how long you want to delay or avoid pregnancy; it helps narrow the options.",
+      "Note the first day of your last period and whether you could be pregnant.",
+      "Bring a list of medicines you take and any health conditions, such as high blood pressure or migraines.",
+      "For a removal, bring any card or record from when the implant or coil was fitted.",
     ],
     sha: "Family planning services are part of primary healthcare for registered SHA members.",
     faqs: [
@@ -297,7 +351,14 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Bring the booklet", body: "Your child's MCH booklet shows which vaccines are due." },
       { title: "Weigh & measure", body: "We track growth on the chart so problems are spotted early." },
       { title: "Vaccinate", body: "We explain each vaccine and what to expect afterwards." },
-      { title: "Next date", body: "We give you the next visit date and a WhatsApp reminder." },
+      { title: "Next date", body: "We write the next date in the booklet and, with your consent, send a reminder." },
+    ],
+    prepare: [
+      "Bring your child's Mother & Child Health booklet: it shows which vaccines are due.",
+      "Bring your national ID and your child's birth certificate or birth notification, if you have it.",
+      "Dress your child in loose clothes that are easy to remove for weighing and vaccination.",
+      "For a sick child, note when the illness started, any temperatures taken and any medicines given.",
+      "Bring a feed, water and a spare nappy for the wait.",
     ],
     sha: "Child health services and immunisations are primary healthcare services. Routine vaccines on the national schedule are provided free of charge.",
     faqs: [
@@ -315,7 +376,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["child"],
-    related: ["kenya-immunisation-schedule", "when-to-seek-urgent-care"],
+    related: ["kenya-immunisation-schedule", "when-to-seek-urgent-care", "child-fever-at-night"],
   },
   {
     code: "hiv-testing",
@@ -344,6 +405,12 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Quick test", body: "A finger-prick test with results usually in about 20 minutes." },
       { title: "Your result", body: "We explain what it means and the next steps." },
       { title: "Ongoing support", body: "Linkage to prevention or treatment, with confidential follow-up." },
+    ],
+    prepare: [
+      "No fasting or special preparation is needed for a rapid HIV test.",
+      "If you think you were exposed to HIV in the last 72 hours, come in straight away for PEP, at any hour.",
+      "You can come alone, or with a partner for couples testing.",
+      "Bring a list of any medicines you take.",
     ],
     sha: "HIV testing services are offered as part of primary healthcare and national HIV programmes.",
     faqs: [
@@ -391,6 +458,12 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Results", body: "Most routine results are ready the same visit." },
       { title: "Explained", body: "Your clinician explains your results and next steps." },
     ],
+    prepare: [
+      "Ask your clinician whether your test needs fasting. Some blood sugar tests do, usually for about 8 hours (water is fine).",
+      "For urine or stool samples, use only the clean container the lab gives you.",
+      "Bring the request form if another facility asked for the test.",
+      "Tell us about any medicines you take, as some can affect results.",
+    ],
     sha: "Laboratory tests linked to a primary care consultation are covered for registered SHA members under the Primary Healthcare Fund.",
     faqs: [
       {
@@ -407,7 +480,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["lab"],
-    related: ["malaria-or-typhoid-how-to-tell"],
+    related: ["malaria-or-typhoid-how-to-tell", "cough-tb-testing", "brucellosis-milk-fever", "utis-in-women"],
   },
   {
     code: "pharmacy",
@@ -436,6 +509,12 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Checked", body: "We check the dose, allergies and other medicines you take." },
       { title: "Explained", body: "We show you how and when to take each medicine." },
       { title: "Refill reminders", body: "For long-term medicines, we remind you before you run out." },
+    ],
+    prepare: [
+      "Bring your prescription, or your clinic card for repeat medicines.",
+      "Bring the medicines you already take, or their packets, so we can check for interactions.",
+      "Tell us about any allergies, and whether you are pregnant or breastfeeding.",
+      "Ask how to store each medicine and what to do if you miss a dose.",
     ],
     sha: "Medicines prescribed during a covered visit are included according to SHA benefit rules.",
     faqs: [
@@ -468,7 +547,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       "Some illnesses need more than a prescription. When you or a loved one needs closer observation, IV treatment or round-the-clock nursing, our inpatient ward keeps care close to home and family.",
     story: {
       heading: "Close enough for family to visit",
-      body: "Being admitted far from home is hard on patients and harder on families, who spend money and time travelling. Our ward means recovery happens near the people who matter, with visiting that fits around school runs and work.",
+      body: "Being admitted far from home is hard on patients and harder on families, who spend money and time travelling. Our ward means recovery happens close to home, near the people who matter.",
     },
     offers: [
       "Short-stay and overnight admission",
@@ -483,6 +562,13 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Care", body: "Regular reviews and 24-hour nursing until you are well enough." },
       { title: "Discharge", body: "Medicine, instructions and a follow-up date before you go home." },
     ],
+    prepare: [
+      "Bring the patient's national ID, SHA details and the phone registered with SHA.",
+      "Pack nightwear, a change of clothes, toiletries, a towel and slippers.",
+      "Bring all current medicines in their packets, plus any recent results or referral notes.",
+      "Agree on one family contact we can update, and keep their number handy.",
+      "Leave jewellery and large amounts of cash at home.",
+    ],
     sha: "Inpatient care is covered under SHA's Social Health Insurance Fund (SHIF) for members with active contributions, according to SHA tariffs for Level 3 facilities.",
     faqs: [
       {
@@ -495,7 +581,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
       {
         q: "What are the visiting hours?",
-        a: "Ask our front desk for current visiting hours. We try to make visits easy for working families.",
+        a: "Ask our front desk for current visiting hours. Our patient and visitor guide explains what to bring for a stay and how visitors can help prevent infections on the ward.",
       },
     ],
     keywordGroups: ["inpatient", "sha"],
@@ -509,7 +595,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Regular checks, medication reviews and lifestyle support for long-term conditions.",
     metaTitle: "Diabetes & Blood Pressure Clinic | Maili Sita, Nakuru",
     metaDescription:
-      "Diabetes and hypertension care at Primegala Medical Centre, Maili Sita: blood pressure and sugar checks, medication reviews, nutrition advice and WhatsApp reminders.",
+      "Diabetes and hypertension care at Primegala Medical Centre, Maili Sita: blood pressure and sugar checks, medication reviews, nutrition advice and review reminders.",
     intro:
       "High blood pressure and diabetes are often silent until they cause serious harm. Regular checks close to home make it much easier to stay on track.",
     story: {
@@ -521,13 +607,19 @@ export const SERVICE_PAGES: ServiceContent[] = [
       "Medication start, review and refills",
       "Diet, exercise and weight counselling",
       "Kidney, eye and foot complication screening and referral",
-      "WhatsApp reminders for reviews and refills",
+      "Reminders for reviews and refills, with your consent",
     ],
     steps: [
       { title: "Screen", body: "A quick blood pressure and sugar check at any visit." },
       { title: "Plan", body: "Agree on targets, medicine and lifestyle changes." },
       { title: "Review", body: "Regular reviews to adjust treatment." },
       { title: "Stay on track", body: "Reminders so you never run out of medicine." },
+    ],
+    prepare: [
+      "Bring all your current medicines, or their packets, to every review.",
+      "Bring your clinic card, any home blood pressure or sugar readings and recent results.",
+      "If you have been asked to fast for a blood sugar test, ask your clinician how to take your diabetes medicine that morning.",
+      "Write down any symptoms or side effects you've noticed since your last visit.",
     ],
     sha: "Chronic disease follow-up at primary care level is supported under SHA; specialised chronic care beyond SHIF limits may fall under ECCIF.",
     faqs: [
@@ -545,7 +637,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["chronic"],
-    related: ["managing-high-blood-pressure", "diabetes-early-signs"],
+    related: ["managing-high-blood-pressure", "diabetes-early-signs", "medical-checkups-by-age"],
   },
   {
     code: "minor-procedures",
@@ -575,6 +667,13 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { title: "Dress", body: "A clean dressing and clear home-care instructions." },
       { title: "Review", body: "A dressing change or stitch removal date." },
     ],
+    prepare: [
+      "Keep the wound covered with a clean cloth or dressing on the way in.",
+      "For bleeding, press firmly on the wound and raise it if you can.",
+      "For a burn, cool it under cool running water for 20 minutes. Don't apply butter, toothpaste or oil.",
+      "Bring your tetanus vaccination record if you have one.",
+      "Wear loose clothing that is easy to move away from the wound.",
+    ],
     sha: "Minor procedures are covered according to SHA benefit rules for the type of visit.",
     faqs: [
       {
@@ -591,7 +690,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       },
     ],
     keywordGroups: ["emergency"],
-    related: ["when-to-seek-urgent-care"],
+    related: ["when-to-seek-urgent-care", "dog-bites-rabies"],
   },
 ];
 

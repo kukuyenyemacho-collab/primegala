@@ -92,7 +92,7 @@ describe("POST /api/leads", () => {
 
     const res = await POST(request(valid));
     expect(res.status).toBe(503);
-    expect((await res.json()).error).toMatch(/call or WhatsApp/);
+    expect((await res.json()).error).toMatch(/info@primegala.co.ke/);
   });
 
   it("accepts leads in production only when LEADS_LOG_ONLY is explicitly set", async () => {

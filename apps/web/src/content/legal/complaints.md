@@ -8,10 +8,9 @@ Your feedback helps us improve. Whether it's a compliment, a suggestion or a com
 
 ## How to give feedback or complain
 
-- **In person:** speak to the nurse in charge or the facility manager at any time, day or night.
-- **Phone or WhatsApp:** {{PHONE}}
+- **In person:** at our front desk, any time, day or night. Ask to speak to the nurse in charge or the facility manager.
 - **Email:** {{EMAIL}}
-- **Online:** use our [contact form](/contact) and choose "General enquiry".
+- **Online:** use our [contact form](/contact) and choose "Ask a question".
 - **Suggestion box:** at our reception.
 
 Please include your name, contact details, the date of your visit and what happened. You may complain on behalf of someone else with their consent.

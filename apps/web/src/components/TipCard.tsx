@@ -33,7 +33,9 @@ export function TipCard({ tip }: { tip: TipSummary }) {
           <Lightbulb className="size-4" aria-hidden /> Health tip · {tip.readingMinutes} min
         </span>
         <span className="mt-3 text-base font-bold text-ink">{title}</span>
-        <span className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">{tip.description}</span>
+        <span className="mt-2 block flex-1">
+          <span className="line-clamp-3 text-sm leading-relaxed text-muted">{tip.description}</span>
+        </span>
         <span className="mt-4 text-sm font-semibold text-brand-700 group-hover:underline">Read tip</span>
       </button>
       <Dialog open={open} onClose={() => setOpen(false)} title={title} description={tip.description} size="lg">

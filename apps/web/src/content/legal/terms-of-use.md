@@ -17,7 +17,7 @@ Content on the Site, including Health Hub articles and health tips, is general i
 ## 3. Appointment and callback requests
 
 - Submitting a form or WhatsApp message is a **request**, not a confirmed appointment. An appointment is confirmed only when our team contacts you.
-- We aim to respond promptly during operating hours but cannot guarantee a specific response time.
+- We aim to respond promptly but cannot guarantee a specific response time.
 - Please give accurate details. Don't submit requests on behalf of others without their permission.
 - Walk-in and urgent patients are prioritised according to clinical need (triage).
 
@@ -71,6 +71,6 @@ These Terms are governed by the laws of Kenya. Disputes will be subject to the j
 
 ## 14. Contact
 
-{{NAME}}, {{ADDRESS}}. Phone: {{PHONE}}. Email: {{EMAIL}}.
+{{NAME}}, {{ADDRESS}}. Email: {{EMAIL}}. Our front desk at the same address is open 24 hours a day.
 
 *Last updated: {{UPDATED}}*

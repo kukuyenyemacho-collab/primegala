@@ -1,7 +1,8 @@
 /**
  * Maili Sita at dusk: Menengai's ridge, the Nakuru–Nyahururu Road, Kiamaina
- * Primary School on one side and Primegala opposite, with sun and moon for
- * "day and night". Pure SVG: no image download, crisp on any screen.
+ * Primary School on one side and Primegala opposite, with moon and sun
+ * for "day and night". Flat colour bands only (no gradients): pure SVG, no image
+ * download, crisp on any screen.
  */
 export function HeroIllustration({ className }: { className?: string }) {
   return (
@@ -11,17 +12,15 @@ export function HeroIllustration({ className }: { className?: string }) {
         Primary School, with Menengai ridge behind
       </title>
       <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#0b3f23" />
-          <stop offset=".45" stopColor="#167a41" />
-          <stop offset="1" stopColor="#fbd46e" />
-        </linearGradient>
-        <clipPath id="frame">
-          <rect width="600" height="520" rx="36" />
+        <clipPath id="hero-ill-frame">
+          <rect width="600" height="520" rx="10" />
         </clipPath>
       </defs>
-      <g clipPath="url(#frame)">
-        <rect width="600" height="520" fill="url(#sky)" />
+      <g clipPath="url(#hero-ill-frame)">
+        {/* sky: flat navy bands, darkest at the top */}
+        <rect width="600" height="520" fill="#0e2444" />
+        <rect y="150" width="600" height="370" fill="#15325d" />
+        <rect y="235" width="600" height="285" fill="#1b4076" />
         {/* moon & stars: night */}
         <path d="M104 92a34 34 0 1 0 30 50 28 28 0 1 1-30-50Z" fill="#fff3cf" opacity=".95" />
         <g fill="#fff3cf">
@@ -32,8 +31,7 @@ export function HeroIllustration({ className }: { className?: string }) {
           <circle cx="290" cy="60" r="1.3" />
         </g>
         {/* sun: day */}
-        <circle cx="470" cy="190" r="92" fill="#fff3cf" opacity=".25" />
-        <circle cx="470" cy="190" r="58" fill="#fde49a" />
+        <circle cx="500" cy="138" r="46" fill="#fde49a" />
         {/* Menengai ridge */}
         <path
           d="M0 300c70-44 140-66 210-66 38 0 60 12 92 12 40 0 70-22 120-20 70 4 130 40 178 66v228H0Z"

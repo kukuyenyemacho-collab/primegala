@@ -57,4 +57,4 @@ High blood pressure in pregnancy can be dangerous for mother and baby. That's wh
 
 ## Blood pressure care at Primegala
 
-Our [diabetes and hypertension clinic](/services/diabetes-and-hypertension-clinic) at Maili Sita offers quick checks, medication reviews, refills and WhatsApp reminders. [Book a check](/book?service=chronic-care) or ask at any visit.
+Our [diabetes and hypertension clinic](/services/diabetes-and-hypertension-clinic) at Maili Sita offers quick checks, medication reviews, refills and, if you want them, reminders. [Book a check](/book?service=chronic-care) or ask at any visit.

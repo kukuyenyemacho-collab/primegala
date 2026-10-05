@@ -1,7 +1,8 @@
 /**
  * Neighbourhoods served. Each entry gives genuinely useful directions rather than
  * thin "hospital in X" doorway copy, which search engines penalise.
- * CONFIRM travel notes with staff who live locally before launch.
+ * Keep travel notes factual (roads, landmarks, matatu routes); review them with
+ * local staff whenever routes or landmarks change.
  */
 export interface Area {
   name: string;

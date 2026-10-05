@@ -30,7 +30,7 @@ export async function POST(req: Request) {
 
   if (rateLimited(clientIp(req))) {
     return NextResponse.json(
-      { ok: false, error: "Too many requests. Please call or WhatsApp us instead." },
+      { ok: false, error: `Too many requests. Please email ${site.contact.email} or come in; we're open 24 hours.` },
       { status: 429 },
     );
   }
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         ok: false,
-        error: "We couldn't send your request just now. Please call or WhatsApp us; we're open 24 hours.",
+        error: `We couldn't send your request just now. Please email ${site.contact.email} or come in; we're open 24 hours.`,
       },
       { status: 503 },
     );

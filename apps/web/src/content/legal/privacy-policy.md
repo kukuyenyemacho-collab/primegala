@@ -14,12 +14,12 @@ It is written to meet our obligations under the **Constitution of Kenya, 2010 (A
 |---|---|
 | **Data controller** | {{NAME}} |
 | **Address** | {{ADDRESS}} |
-| **Phone** | {{PHONE}} |
+| **In person** | Our front desk at the address above, open 24 hours a day |
 | **Email** | {{EMAIL}} |
-| **ODPC registration no.** | {{ODPC_REG}} |
-| **Data Protection Officer** | {{DPO}} |
+| **ODPC registration** | {{ODPC_REG}} |
+| **Data protection enquiries** | {{DPO}} |
 
-As a health service provider, Primegala is required to register with the Office of the Data Protection Commissioner (ODPC) as a data controller under the Data Protection (Registration of Data Controllers and Data Processors) Regulations, 2021. Our registration number is shown above.
+As a health service provider, Primegala is required to register with the Office of the Data Protection Commissioner (ODPC) as a data controller under the Data Protection (Registration of Data Controllers and Data Processors) Regulations, 2021. You may ask us for our registration details at any time.
 
 ## 2. What we collect
 
@@ -95,7 +95,7 @@ Under the DPA, including **sections 26, 32, 34, 35, 36, 38 and 40**, you have th
 - **Withdraw consent** at any time, without affecting earlier lawful processing
 - **Not be subject to decisions based solely on automated processing** that significantly affect you
 
-**To exercise your rights**, contact us at {{EMAIL}}, call {{PHONE}}, or ask at our front desk. We may need to verify your identity. We respond within the timelines set by the Data Protection (General) Regulations, 2021.
+**To exercise your rights**, email us at {{EMAIL}} or ask at our front desk, which is open 24 hours. We may need to verify your identity, for example by asking to see your national ID. We respond within the timelines set by the Data Protection (General) Regulations, 2021.
 
 ## 9. Children's data
 
@@ -103,7 +103,7 @@ We process the personal data of children (under 18) with the consent of a parent
 
 ## 10. Complaints
 
-If you're unhappy with how we've handled your data, please contact our Data Protection Officer first. You also have the right to lodge a complaint with the **Office of the Data Protection Commissioner** at [www.odpc.go.ke](https://www.odpc.go.ke).
+If you're unhappy with how we've handled your data, please contact our Data Protection Officer first, at {{EMAIL}}. You also have the right to lodge a complaint with the **Office of the Data Protection Commissioner** at [www.odpc.go.ke](https://www.odpc.go.ke).
 
 ## 11. Changes to this policy
 

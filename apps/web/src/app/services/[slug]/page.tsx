@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CalendarCheck, CircleCheck, ShieldCheck } from "lucide-react";
+import { CalendarCheck, Clock, ClipboardList, Landmark, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { ArticleCard, ServiceCard } from "@/components/Cards";
@@ -10,10 +10,11 @@ import { LeadForm } from "@/components/LeadForm";
 import { ServiceIcon, WhatsAppIcon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { CtaBand } from "@/components/CtaBand";
+import { CheckList, InfoPanel, StepList } from "@/components/PageSections";
 import { SERVICE_PAGES, getServiceBySlug, serviceKeywords } from "@/content/services";
 import { getArticlesBySlugs } from "@/lib/content";
 import { pageMetadata, serviceJsonLd } from "@/lib/seo";
-import { site, whatsappHref } from "@/lib/site";
+import { emailHref, hasPhone, hasWhatsApp, phoneDisplay, phoneHref, site, whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
   return SERVICE_PAGES.map((s) => ({ slug: s.slug }));
@@ -42,6 +43,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const others = SERVICE_PAGES.filter((s) => s.slug !== service.slug).slice(0, 3);
   const formServices = SERVICE_PAGES.map((s) => ({ code: s.code, name: s.name }));
   const path = `/services/${service.slug}`;
+  const isUrgent = service.code === "emergency-24hr";
 
   return (
     <>
@@ -55,22 +57,24 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         title={service.name}
         intro={service.intro}
         aside={
-          <div className="rounded-[var(--radius-card)] bg-white p-6 shadow-soft ring-1 ring-line">
-            <span className="flex size-14 items-center justify-center rounded-2xl bg-brand-600 text-white">
-              <ServiceIcon name={service.icon} className="size-7" strokeWidth={1.75} />
-            </span>
-            <ul className="mt-5 space-y-2.5 text-sm text-ink/85">
-              <li className="flex gap-2">
-                <CircleCheck className="size-5 shrink-0 text-brand-600" aria-hidden /> Open 24 hours, walk-ins welcome
+          <div className="rounded-xl border border-line bg-white p-6">
+            <div className="flex items-center gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-trust-50 text-trust-700">
+                <ServiceIcon name={service.icon} className="size-6" strokeWidth={1.75} />
+              </span>
+              <p className="font-bold text-ink">{service.summary}</p>
+            </div>
+            <ul className="mt-5 space-y-3 border-t border-line pt-5 text-sm text-ink/85">
+              <li className="flex gap-3">
+                <Clock className="size-5 shrink-0 text-trust-700" aria-hidden /> Open 24 hours, walk-ins welcome
               </li>
-              <li className="flex gap-2">
-                <CircleCheck className="size-5 shrink-0 text-brand-600" aria-hidden /> Maili Sita, opposite Kiamaina
-                Primary School
+              <li className="flex gap-3">
+                <MapPin className="size-5 shrink-0 text-trust-700" aria-hidden /> Maili Sita, opposite Kiamaina Primary
+                School
               </li>
               {site.shaContracted && (
-                <li className="flex gap-2">
-                  <CircleCheck className="size-5 shrink-0 text-brand-600" aria-hidden /> SHA accepted for eligible
-                  services
+                <li className="flex gap-3">
+                  <ShieldCheck className="size-5 shrink-0 text-trust-700" aria-hidden /> SHA accepted for eligible services
                 </li>
               )}
             </ul>
@@ -78,67 +82,105 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <ButtonLink href={`/book?service=${service.code}`} track="book_click_service">
                 <CalendarCheck className="size-4" aria-hidden /> Book
               </ButtonLink>
-              <ButtonLink
-                href={whatsappHref(`Hello Primegala, I'd like to ask about ${service.name}.`)}
-                variant="whatsapp"
-                track="whatsapp_click_service"
-              >
-                <WhatsAppIcon className="size-4" /> WhatsApp
-              </ButtonLink>
+              {hasWhatsApp ? (
+                <ButtonLink
+                  href={whatsappHref(`Hello Primegala, I'd like to ask about ${service.name}.`)}
+                  variant="whatsapp"
+                  track="whatsapp_click_service"
+                >
+                  <WhatsAppIcon className="size-4" /> WhatsApp
+                </ButtonLink>
+              ) : hasPhone ? (
+                <ButtonLink href={phoneHref()} variant="secondary" track="call_click_service">
+                  <Phone className="size-4" aria-hidden /> Call {phoneDisplay()}
+                </ButtonLink>
+              ) : (
+                <ButtonLink
+                  href={emailHref(`Question about ${service.name}`)}
+                  variant="secondary"
+                  track="email_click_service"
+                >
+                  <Mail className="size-4" aria-hidden /> Email us
+                </ButtonLink>
+              )}
             </div>
+            {isUrgent && (
+              <p className="mt-4 text-sm leading-relaxed text-ink">
+                <strong className="text-alert">Life-threatening emergency?</strong> Call{" "}
+                <a href="tel:999" className="font-bold text-alert underline underline-offset-2">
+                  999
+                </a>{" "}
+                or{" "}
+                <a href="tel:112" className="font-bold text-alert underline underline-offset-2">
+                  112
+                </a>
+                .{" "}
+                <Link href="/emergency" className="link-brand">
+                  Emergency care
+                </Link>
+              </p>
+            )}
           </div>
         }
       />
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <figure className="rounded-[var(--radius-card)] bg-cream p-8 ring-1 ring-sun-200/60">
-              <h2 className="text-2xl font-semibold text-ink sm:text-3xl">{service.story.heading}</h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink/80">{service.story.body}</p>
-            </figure>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="min-w-0 lg:col-span-7">
+            <section aria-labelledby="story-title" className="border-l-4 border-trust-200 pl-5 sm:pl-6">
+              <h2 id="story-title" className="text-2xl leading-tight font-bold tracking-tight text-ink sm:text-3xl">
+                {service.story.heading}
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-ink/85">{service.story.body}</p>
+            </section>
 
-            <h2 className="mt-14 text-3xl font-semibold text-ink">What we offer</h2>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {service.offers.map((o) => (
-                <li key={o} className="flex gap-3 rounded-2xl bg-surface p-4 ring-1 ring-line">
-                  <CircleCheck className="mt-0.5 size-5 shrink-0 text-brand-600" aria-hidden />
-                  <span className="leading-relaxed text-ink/85">{o}</span>
-                </li>
-              ))}
-            </ul>
+            <section aria-labelledby="offers-title" className="mt-14">
+              <h2 id="offers-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                What we offer
+              </h2>
+              <CheckList className="mt-6" tone="brand" columns={2} items={service.offers} />
+            </section>
 
-            <h2 className="mt-14 text-3xl font-semibold text-ink">What to expect</h2>
-            <ol className="mt-6 space-y-4">
-              {service.steps.map((step, i) => (
-                <li key={step.title} className="flex gap-4">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-600 font-semibold text-white">
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-sans font-bold text-ink">{step.title}</h3>
-                    <p className="mt-1 leading-relaxed text-muted">{step.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <section aria-labelledby="expect-title" className="mt-14">
+              <h2 id="expect-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                What to expect
+              </h2>
+              <StepList className="mt-6" steps={service.steps} />
+            </section>
 
-            <div className="mt-14 flex gap-4 rounded-[var(--radius-card)] bg-brand-900 p-6 text-white sm:p-8">
-              <ShieldCheck className="size-8 shrink-0 text-sun-300" aria-hidden />
-              <div>
-                <h2 className="font-sans text-lg font-bold">{service.name} and SHA</h2>
-                <p className="mt-2 leading-relaxed text-brand-100">{service.sha}</p>
-                <Link href="/sha" className="mt-3 inline-block font-semibold text-sun-300 underline underline-offset-4">
-                  How SHA works at Primegala
-                </Link>
+            <section aria-labelledby="prepare-title" className="mt-14">
+              <h2 id="prepare-title" className="flex items-center gap-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-trust-50 text-trust-700">
+                  <ClipboardList className="size-5" aria-hidden />
+                </span>
+                How to prepare
+              </h2>
+              <div className="mt-6 rounded-xl border border-line bg-white p-5 sm:p-6">
+                <CheckList items={service.prepare} />
+                <p className="mt-5 border-t border-line pt-4 text-sm leading-relaxed text-muted">
+                  General guidance only. Your clinician will tell you about anything specific to you.{" "}
+                  <Link href="/patients-and-visitors#before-your-visit" className="link-brand">
+                    Full patient guide
+                  </Link>
+                </p>
               </div>
-            </div>
+            </section>
+
+            <InfoPanel icon={Landmark} as="h2" className="mt-14" title={`${service.name} and SHA`}>
+              <p>{service.sha}</p>
+              <p className="mt-3">
+                <Link href="/sha">How SHA works at Primegala</Link> ·{" "}
+                <Link href="/payments-and-insurance">Payments &amp; insurance</Link>
+              </p>
+            </InfoPanel>
           </div>
 
-          <aside className="lg:col-span-5">
-            <div className="lg:sticky lg:top-32">
-              <h2 className="font-display text-2xl font-semibold text-ink">Request an appointment</h2>
-              <p className="mt-2 text-muted">We&apos;ll confirm by WhatsApp or phone.</p>
+          <aside className="min-w-0 lg:col-span-5" aria-labelledby="request-title">
+            <div className="lg:sticky lg:top-28">
+              <h2 id="request-title" className="text-2xl font-bold tracking-tight text-ink">
+                Request an appointment
+              </h2>
+              <p className="mt-2 text-muted">Our team will contact you to confirm. Walk-ins are welcome at any hour.</p>
               <LeadForm
                 className="mt-5"
                 services={formServices}
@@ -151,20 +193,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
 
-      <Section tone="surface">
-        <div className="grid gap-12 lg:grid-cols-12">
+      <Section tone="surface" labelledBy="service-faqs">
+        <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading eyebrow="FAQs" title={`${service.name}: your questions`} />
+            <SectionHeading id="service-faqs" eyebrow="FAQs" title={`${service.name}: your questions`} />
           </div>
-          <div className="lg:col-span-8">
+          <div className="min-w-0 lg:col-span-8">
             <FaqList faqs={service.faqs} />
           </div>
         </div>
       </Section>
 
       {related.length > 0 && (
-        <Section>
-          <SectionHeading eyebrow="From the Health Hub" title="Helpful reading" />
+        <Section labelledBy="related-reading">
+          <SectionHeading id="related-reading" eyebrow="From the Health Hub" title="Helpful reading" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {related.map((a) => (
               <ArticleCard key={a.slug} article={a} />
@@ -173,13 +215,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </Section>
       )}
 
-      <Section tone="surface">
-        <SectionHeading eyebrow="More services" title="Other care at Primegala" />
+      <Section tone="surface" labelledBy="more-services">
+        <SectionHeading id="more-services" eyebrow="More services" title="Other care at Primegala" />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {others.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}
         </div>
+        <p className="mt-8">
+          <Link href="/services" className="link-brand">
+            See all services
+          </Link>
+        </p>
       </Section>
 
       <CtaBand />
