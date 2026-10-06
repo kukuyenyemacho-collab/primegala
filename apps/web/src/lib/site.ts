@@ -13,7 +13,7 @@ const env = (key: string) => {
   return value ? value : null;
 };
 
-const phone = env("NEXT_PUBLIC_PHONE");
+const phone = env("NEXT_PUBLIC_PHONE") ?? "0746100727";
 const whatsapp = env("NEXT_PUBLIC_WHATSAPP") ?? phone;
 const lat = Number(env("NEXT_PUBLIC_GEO_LAT"));
 const lng = Number(env("NEXT_PUBLIC_GEO_LNG"));
@@ -28,11 +28,11 @@ export const isProductionSite = env("NEXT_PUBLIC_SITE_ENV") === "production";
 
 export const site = {
   /** Registered name on KMHFR. CONFIRM if the facility has been re-licensed as a hospital. */
-  name: "Primegala Medical Centre",
+  name: "Primegala Medical Center and Nursing Home",
   shortName: "Primegala",
-  tagline: "Prime care, close to home.",
+  tagline: "Your Health, Our Priority.",
   description:
-    "Primegala Medical Centre is a 24-hour, KEPH Level 3 medical centre at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, maternity, antenatal, family planning, HIV testing, laboratory, pharmacy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
+    "Primegala Medical Center and Nursing Home is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, maternity, antenatal, family planning, HIV testing, laboratory, pharmacy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
   url: (env("NEXT_PUBLIC_SITE_URL") ?? "https://primegala.co.ke").replace(/\/$/, ""),
   locale: "en_KE",
   foundingDate: "2022-03-01",
@@ -74,7 +74,7 @@ export const site = {
   policyVersion: "2026-10-04",
   policiesUpdated: "4 October 2026",
   credit: {
-    name: "Steff Cloud",
+    name: "STEFF CLOUD LIMITED",
     legalName: "Steff Cloud Limited",
     url: "https://steffcloud.co.ke",
   },

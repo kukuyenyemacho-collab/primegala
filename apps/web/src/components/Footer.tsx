@@ -157,13 +157,13 @@ export function Footer() {
             <p>
               © {new Date().getFullYear()} {site.name}. KEPH Level {site.kephLevel} facility, Nakuru County.
             </p>
-            <p>
+            <p className="text-base">
               Website by{" "}
               <a
                 href={site.credit.url}
                 target="_blank"
                 rel="noopener"
-                className="font-semibold text-white underline decoration-brand-400 underline-offset-4 hover:decoration-white"
+                className="text-lg font-extrabold tracking-wide text-white underline decoration-brand-400 decoration-2 underline-offset-4 hover:decoration-white"
               >
                 {site.credit.name}
               </a>

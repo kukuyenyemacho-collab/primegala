@@ -8,7 +8,7 @@ import { MapPin, Navigation } from "lucide-react";
  * visitor asks for the map (faster pages, and consent-friendly under the DPA).
  */
 export function MapEmbed({ query, mapsUrl }: { query: string; mapsUrl: string }) {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
   const patternId = `map-grid-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
 
   if (loaded) {
@@ -16,7 +16,7 @@ export function MapEmbed({ query, mapsUrl }: { query: string; mapsUrl: string })
       <iframe
         title="Map showing Primegala Medical Centre at Maili Sita"
         src={`https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`}
-        className="aspect-[4/3] w-full rounded-xl border border-line"
+        className="aspect-[4/3] min-h-80 w-full rounded-xl border border-line"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen

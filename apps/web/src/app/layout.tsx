@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { Analytics } from "@/components/Analytics";
+import { PwaRegister } from "@/components/PwaRegister";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { keywordsFor } from "@/content/keywords";
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
   creator: site.credit.legalName,
   publisher: site.name,
   category: "health",
+  appleWebApp: { capable: true, title: site.shortName, statusBarStyle: "default" },
   formatDetection: { telephone: true, address: true, email: true },
   alternates: {
     canonical: site.url,
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b3f23",
+  themeColor: "#08172d",
   width: "device-width",
   initialScale: 1,
 };
@@ -90,6 +92,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <Footer />
         <MobileActionBar />
+        <PwaRegister />
         <Analytics gaId={process.env.NEXT_PUBLIC_GA_ID?.trim() || null} />
       </body>
     </html>

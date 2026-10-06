@@ -70,7 +70,7 @@ export function organizationJsonLd(): JsonLdObject {
     slogan: site.tagline,
     description: site.description,
     url: site.url,
-    logo: absoluteUrl("/brand/primegala-mark.svg"),
+    logo: absoluteUrl("/brand/logo-mark.png"),
     image: absoluteUrl("/opengraph-image"),
     foundingDate: site.foundingDate,
     ...(site.contact.phone ? { telephone: site.contact.phone } : {}),

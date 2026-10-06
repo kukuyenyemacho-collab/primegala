@@ -6,19 +6,15 @@ import { cn } from "@/lib/cn";
  */
 export function LogoMark({ className, title }: { className?: string; title?: string }) {
   return (
-    <svg
-      viewBox="0 0 48 48"
-      className={className}
-      role={title ? "img" : undefined}
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/brand/logo-mark.png"
+      alt={title ?? ""}
       aria-hidden={title ? undefined : true}
-      aria-label={title}
-    >
-      <rect x="17" y="2" width="14" height="44" rx="7" fill="#167A41" />
-      <rect x="2" y="17" width="44" height="14" rx="7" fill="#1F9450" />
-      <path d="M24 34.5c-5.6-4.8-5.9-12.6 0-19.5 5.9 6.9 5.6 14.7 0 19.5Z" fill="#fff" />
-      <path d="M24 32.2V19.4" stroke="#1F9450" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M24 27.4l2.6-2.4M24 23.8l-2.3-2" stroke="#1F9450" strokeWidth="1.2" strokeLinecap="round" />
-    </svg>
+      width={400}
+      height={400}
+      className={cn("object-contain", className)}
+    />
   );
 }
 
