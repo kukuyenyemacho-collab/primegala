@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CalendarCheck, Clock, ClipboardList, Landmark, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { BellRing, CalendarCheck, Clock, ClipboardList, Landmark, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
-import { ArticleCard, ServiceCard } from "@/components/Cards";
+import { ArticleCard, ComingSoonPill, ServiceCard } from "@/components/Cards";
 import { FaqList } from "@/components/FaqList";
 import { LeadForm } from "@/components/LeadForm";
+import { Photo } from "@/components/Photo";
 import { ServiceIcon, WhatsAppIcon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { CtaBand } from "@/components/CtaBand";
 import { CheckList, InfoPanel, StepList } from "@/components/PageSections";
-import { SERVICE_PAGES, getServiceBySlug, serviceKeywords } from "@/content/services";
+import { OPEN_SERVICES, SERVICE_PAGES, getServiceBySlug, serviceKeywords, serviceOptions } from "@/content/services";
 import { getArticlesBySlugs } from "@/lib/content";
+import { cn } from "@/lib/cn";
 import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import { emailHref, hasPhone, hasWhatsApp, phoneDisplay, phoneHref, site, whatsappHref } from "@/lib/site";
 
@@ -40,8 +42,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   if (!service) notFound();
 
   const related = getArticlesBySlugs(service.related);
-  const others = SERVICE_PAGES.filter((s) => s.slug !== service.slug).slice(0, 3);
-  const formServices = SERVICE_PAGES.map((s) => ({ code: s.code, name: s.name }));
+  const soon = Boolean(service.comingSoon);
+  const others = (soon ? OPEN_SERVICES : SERVICE_PAGES).filter((s) => s.slug !== service.slug).slice(0, 3);
+  const formServices = serviceOptions();
   const path = `/services/${service.slug}`;
   const isUrgent = service.code === "emergency-24hr";
 
@@ -53,21 +56,34 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           { name: "Services", path: "/services" },
           { name: service.name, path },
         ]}
-        eyebrow="Primegala services"
+        eyebrow={soon ? "Coming soon to Primegala" : "Primegala services"}
         title={service.name}
         intro={service.intro}
         aside={
-          <div className="rounded-xl border border-line bg-white p-6">
+          <div className={cn("rounded-xl border bg-white p-6", soon ? "border-pink-200" : "border-line")}>
+            {soon && <ComingSoonPill className="mb-4" />}
             <div className="flex items-center gap-4">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-trust-50 text-trust-700">
+              <span
+                className={cn(
+                  "flex size-12 shrink-0 items-center justify-center rounded-lg",
+                  soon ? "bg-pink-50 text-pink-700" : "bg-trust-50 text-trust-700",
+                )}
+              >
                 <ServiceIcon name={service.icon} className="size-6" strokeWidth={1.75} />
               </span>
               <p className="font-bold text-ink">{service.summary}</p>
             </div>
             <ul className="mt-5 space-y-3 border-t border-line pt-5 text-sm text-ink/85">
-              <li className="flex gap-3">
-                <Clock className="size-5 shrink-0 text-trust-700" aria-hidden /> Open 24 hours, walk-ins welcome
-              </li>
+              {soon ? (
+                <li className="flex gap-3">
+                  <BellRing className="size-5 shrink-0 text-pink-700" aria-hidden /> Not open yet: leave your details to
+                  be told when it is
+                </li>
+              ) : (
+                <li className="flex gap-3">
+                  <Clock className="size-5 shrink-0 text-trust-700" aria-hidden /> Open 24 hours, walk-ins welcome
+                </li>
+              )}
               <li className="flex gap-3">
                 <MapPin className="size-5 shrink-0 text-trust-700" aria-hidden /> Maili Sita, opposite Kiamaina Primary
                 School
@@ -79,9 +95,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               )}
             </ul>
             <div className="mt-6 grid gap-2 sm:grid-cols-2">
-              <ButtonLink href={`/book?service=${service.code}`} track="book_click_service">
-                <CalendarCheck className="size-4" aria-hidden /> Book
-              </ButtonLink>
+              {soon ? (
+                <ButtonLink href="#request-title" track="notify_click_service">
+                  <BellRing className="size-4" aria-hidden /> Notify me
+                </ButtonLink>
+              ) : (
+                <ButtonLink href={`/book?service=${service.code}`} track="book_click_service">
+                  <CalendarCheck className="size-4" aria-hidden /> Book
+                </ButtonLink>
+              )}
               {hasWhatsApp ? (
                 <ButtonLink
                   href={whatsappHref(`Hello Primegala, I'd like to ask about ${service.name}.`)}
@@ -134,6 +156,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <p className="mt-4 text-lg leading-relaxed text-ink/85">{service.story.body}</p>
             </section>
 
+            {service.photos && (
+              <section aria-labelledby="photos-title" className="mt-14">
+                <h2 id="photos-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                  Inside our {service.name.toLowerCase()}
+                </h2>
+                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                  {service.photos.map((p) => (
+                    <Photo key={p.name} name={p.name} caption={p.caption} />
+                  ))}
+                </div>
+              </section>
+            )}
+
             <section aria-labelledby="offers-title" className="mt-14">
               <h2 id="offers-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
                 What we offer
@@ -177,14 +212,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
           <aside className="min-w-0 lg:col-span-5" aria-labelledby="request-title">
             <div className="lg:sticky lg:top-28">
-              <h2 id="request-title" className="text-2xl font-bold tracking-tight text-ink">
-                Request an appointment
+              <h2 id="request-title" className="scroll-mt-28 text-2xl font-bold tracking-tight text-ink">
+                {soon ? "Be the first to know" : "Request an appointment"}
               </h2>
-              <p className="mt-2 text-muted">Our team will contact you to confirm. Walk-ins are welcome at any hour.</p>
+              <p className="mt-2 text-muted">
+                {soon
+                  ? `Leave your details and we will contact you when ${service.name.toLowerCase()} opens at Primegala.`
+                  : "Our team will contact you to confirm. Walk-ins are welcome at any hour."}
+              </p>
               <LeadForm
                 className="mt-5"
                 services={formServices}
-                defaultType={service.code === "maternity" ? "maternity-tour" : "appointment"}
+                defaultType={soon ? "enquiry" : service.code === "maternity" ? "maternity-tour" : "appointment"}
                 defaultService={service.code}
                 whatsappHref={whatsappHref()}
               />

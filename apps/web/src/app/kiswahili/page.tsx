@@ -85,6 +85,14 @@ const HUDUMA: Record<ServiceCode, { jina: string; maelezo: string }> = {
     jina: "Upasuaji mdogo na kutibu vidonda",
     maelezo: "Kushona majeraha, kusafisha na kufunga vidonda, kutoa usaha kwenye jipu na huduma nyingine ndogo.",
   },
+  theatre: {
+    jina: "Chumba cha upasuaji (inakuja hivi karibuni)",
+    maelezo: "Upasuaji uliopangwa na wa dharura karibu na nyumbani. Bado haijafunguliwa: acha maelezo yako tukujulishe.",
+  },
+  "dental-care": {
+    jina: "Huduma za meno (inakuja hivi karibuni)",
+    maelezo: "Uchunguzi wa meno, kusafisha, kuziba na kung'oa meno kwa watu wazima na watoto. Bado haijafunguliwa.",
+  },
 };
 
 
@@ -136,7 +144,7 @@ export default function KiswahiliPage() {
               items={[
                 { term: "Saa za kazi", value: "Saa 24, kila siku, ikiwemo wikendi na sikukuu za umma" },
                 { term: "Mahali", value: "Maili Sita, barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina" },
-                { term: "Eneo", value: "Wadi ya Kabatini, Kaunti Ndogo ya Nakuru Kaskazini (Bahati), Kaunti ya Nakuru" },
+                { term: "Eneo", value: "Wadi ya Kiamaina, Kaunti Ndogo ya Nakuru Kaskazini (Bahati), Kaunti ya Nakuru" },
                 { term: "Umbali", value: "Takriban kilomita 10 (maili sita) kutoka mjini Nakuru" },
                 { term: "Malipo", value: "SHA kwa huduma zinazostahiki, M-Pesa na pesa taslimu" },
                 { term: "Lugha", value: "Kiswahili na Kiingereza" },
@@ -151,7 +159,7 @@ export default function KiswahiliPage() {
           id="huduma"
           eyebrow="Huduma zetu"
           title="Huduma 12 chini ya paa moja"
-          intro="Bofya huduma yoyote kusoma maelezo zaidi (kurasa hizo ziko kwa Kiingereza)."
+          intro="Bofya huduma yoyote kusoma maelezo zaidi (kurasa hizo ziko kwa Kiingereza). Chumba cha upasuaji na huduma za meno zinakuja hivi karibuni."
         />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICE_PAGES.map((s) => (
@@ -159,9 +167,19 @@ export default function KiswahiliPage() {
               <Link
                 href={`/services/${s.slug}`}
                 hrefLang="en"
-                className="group flex h-full gap-4 rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand-300 hover:bg-brand-50/30"
+                className={
+                  s.comingSoon
+                    ? "group flex h-full gap-4 rounded-xl border border-line bg-white p-5 transition-colors hover:border-pink-200 hover:bg-pink-50"
+                    : "group flex h-full gap-4 rounded-xl border border-line bg-white p-5 transition-colors hover:border-brand-300 hover:bg-brand-50/30"
+                }
               >
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-trust-50 text-trust-700">
+                <span
+                  className={
+                    s.comingSoon
+                      ? "flex size-10 shrink-0 items-center justify-center rounded-lg bg-pink-50 text-pink-700"
+                      : "flex size-10 shrink-0 items-center justify-center rounded-lg bg-trust-50 text-trust-700"
+                  }
+                >
                   <ServiceIcon name={s.icon} className="size-5" strokeWidth={1.75} />
                 </span>
                 <span className="min-w-0">
@@ -216,7 +234,7 @@ export default function KiswahiliPage() {
           id="mahali"
           eyebrow="Mahali tulipo"
           title="Maili Sita, mkabala na Shule ya Msingi Kiamaina"
-          intro="Tuko katika kituo cha Maili Sita kando ya barabara ya Nakuru–Nyahururu, Wadi ya Kabatini, takriban kilomita 10 kutoka mjini Nakuru."
+          intro="Tuko katika kituo cha Maili Sita kando ya barabara ya Nakuru–Nyahururu, Wadi ya Kiamaina, takriban kilomita 10 kutoka mjini Nakuru."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           <div className="rounded-xl border border-line bg-white p-6">

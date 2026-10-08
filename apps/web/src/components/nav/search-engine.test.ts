@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 
 const { buildSearchIndex } = await import("@/lib/search");
+const { SERVICE_PAGES } = await import("@/content/services");
 const { groupResults, highlightParts, normalize, parseQuery, prepareIndex, searchIndex, stem } = await import(
   "./search-engine"
 );
@@ -26,12 +27,20 @@ describe("search index", () => {
   it("covers every content type", () => {
     const types = new Set(entries.map((e) => e.type));
     expect([...types].sort()).toEqual(["article", "faq", "page", "policy", "service"]);
-    expect(entries.filter((e) => e.type === "service")).toHaveLength(12);
+    expect(entries.filter((e) => e.type === "service")).toHaveLength(SERVICE_PAGES.length);
   });
 
   it("never contains placeholder text", () => {
     const text = JSON.stringify(entries).toLowerCase();
-    for (const banned of ["07xx", "lorem", "to be confirmed", "coming soon"]) expect(text).not.toContain(banned);
+    for (const banned of ["07xx", "lorem", "to be confirmed"]) expect(text).not.toContain(banned);
+  });
+
+  it("says 'coming soon' only about services announced as coming soon", () => {
+    const soon = SERVICE_PAGES.filter((s) => s.comingSoon).map((s) => `/services/${s.slug}`);
+    expect(soon.length).toBeGreaterThan(0);
+    const allowed = new Set([...soon, "/services"]);
+    const hits = entries.filter((e) => JSON.stringify(e).toLowerCase().includes("coming soon"));
+    for (const e of hits) expect(allowed.has(e.href)).toBe(true);
   });
 });
 

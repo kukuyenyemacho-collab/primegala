@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/Cards";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
-import { SERVICE_PAGES } from "@/content/services";
+import { OPEN_SERVICES, SERVICE_PAGES } from "@/content/services";
 
 export function HomeServices() {
   return (
@@ -9,9 +9,9 @@ export function HomeServices() {
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <SectionHeading
           id="services-heading"
-          eyebrow={`Our ${SERVICE_PAGES.length} services`}
+          eyebrow={`Our ${OPEN_SERVICES.length} services, and more coming`}
           title="Everyday care, under one roof"
-          intro="From a midnight fever to your baby's first vaccines: consultation, laboratory, pharmacy and admission in one place at Maili Sita, without the trip to town."
+          intro="From a midnight fever to your baby's first vaccines: consultation, laboratory, pharmacy and admission in one place at Maili Sita, without the trip to town. A surgical theatre and dental care are coming soon."
         />
         <ButtonLink href="/services" variant="secondary" className="self-start md:self-auto">
           All services <ArrowRight className="size-4" aria-hidden />

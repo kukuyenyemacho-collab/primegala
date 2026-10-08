@@ -13,6 +13,7 @@ export interface NavService {
   summary: string;
   icon: IconName;
   href: string;
+  comingSoon?: boolean;
 }
 
 export interface NavHubCategory {

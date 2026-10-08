@@ -22,16 +22,16 @@ export const AREAS_SERVED: Area[] = [
   {
     name: "Kabatini",
     slug: "kabatini",
-    relation: "Same ward",
+    relation: "Neighbouring ward",
     directions:
-      "Primegala is in Kabatini Ward. From Kabatini, follow the Nakuru–Nyahururu Road to Maili Sita Centre and look for Kiamaina Primary School.",
+      "From Kabatini, follow the Nakuru–Nyahururu Road to Maili Sita Centre and look for Kiamaina Primary School.",
   },
   {
     name: "Kiamaina",
     slug: "kiamaina",
-    relation: "Neighbouring ward",
+    relation: "Same ward",
     directions:
-      "Head along the Nakuru–Nyahururu Road towards Maili Sita. Matatus between Kiamaina and Nakuru town pass our gate.",
+      "Primegala is in Kiamaina Ward, directly opposite Kiamaina Primary School. Head along the Nakuru–Nyahururu Road towards Maili Sita. Matatus between Kiamaina and Nakuru town pass our gate.",
   },
   {
     name: "Bahati",

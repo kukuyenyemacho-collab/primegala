@@ -20,6 +20,8 @@ export const SERVICE_CODES = [
   "inpatient",
   "chronic-care",
   "minor-procedures",
+  "theatre",
+  "dental-care",
 ] as const;
 
 export type ServiceCode = (typeof SERVICE_CODES)[number];
@@ -31,6 +33,8 @@ export interface ServiceDefinition {
   listedOnKmhfr: boolean;
   /** Which SHA fund typically pays, for patient guidance only (tariffs change) */
   shaFund?: "PHCF" | "SHIF" | "ECCIF";
+  /** Announced but not yet open to patients: the site takes interest, not bookings */
+  comingSoon?: boolean;
 }
 
 export const SERVICES: readonly ServiceDefinition[] = [
@@ -46,6 +50,8 @@ export const SERVICES: readonly ServiceDefinition[] = [
   { code: "inpatient", name: "Inpatient Care", listedOnKmhfr: true, shaFund: "SHIF" },
   { code: "chronic-care", name: "Diabetes & Hypertension Clinic", listedOnKmhfr: false, shaFund: "PHCF" },
   { code: "minor-procedures", name: "Minor Procedures & Wound Care", listedOnKmhfr: false },
+  { code: "theatre", name: "Surgical Theatre", listedOnKmhfr: false, shaFund: "SHIF", comingSoon: true },
+  { code: "dental-care", name: "Dental Care", listedOnKmhfr: false, comingSoon: true },
 ];
 
 export function getService(code: ServiceCode): ServiceDefinition {

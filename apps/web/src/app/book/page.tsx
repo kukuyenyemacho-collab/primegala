@@ -6,7 +6,7 @@ import { Section } from "@/components/ui";
 import { LeadForm } from "@/components/LeadForm";
 import { WhatsAppIcon } from "@/components/Icon";
 import { EmergencyNotice, StepList, VisitFacts } from "@/components/PageSections";
-import { SERVICE_PAGES } from "@/content/services";
+import { serviceOptions } from "@/content/services";
 import { pageMetadata } from "@/lib/seo";
 import { hasWhatsApp, whatsappHref } from "@/lib/site";
 
@@ -31,7 +31,7 @@ export default function BookPage() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="min-w-0 lg:col-span-8">
             <h2 className="sr-only">Your request</h2>
-            <LeadForm services={SERVICE_PAGES.map((s) => ({ code: s.code, name: s.name }))} whatsappHref={whatsappHref()} />
+            <LeadForm services={serviceOptions()} whatsappHref={whatsappHref()} />
           </div>
           <aside className="min-w-0 space-y-5 lg:col-span-4" aria-label="Before you book">
             <EmergencyNotice title="Emergency? Don't book." as="h2">

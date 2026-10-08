@@ -7,6 +7,7 @@ import { HomeHealthTips } from "@/components/home/HomeHealthTips";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeServices } from "@/components/home/HomeServices";
 import { HomeStory } from "@/components/home/HomeStory";
+import { InsidePrimegala } from "@/components/home/InsidePrimegala";
 import { KeyFacts } from "@/components/home/KeyFacts";
 import { MaternitySpotlight } from "@/components/home/MaternitySpotlight";
 import { ShaPanel } from "@/components/home/ShaPanel";
@@ -58,6 +59,7 @@ export default function HomePage() {
       <HomeServices />
       <HomeStory />
       <VisitSteps />
+      <InsidePrimegala />
       <ShaPanel />
       <MaternitySpotlight guides={maternityGuides} />
       <HomeHealthTips tips={tips} guides={guides} />

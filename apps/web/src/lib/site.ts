@@ -13,7 +13,7 @@ const env = (key: string) => {
   return value ? value : null;
 };
 
-const phone = env("NEXT_PUBLIC_PHONE") ?? "0746100727";
+const phone = env("NEXT_PUBLIC_PHONE") ?? "0182744816";
 const whatsapp = env("NEXT_PUBLIC_WHATSAPP") ?? phone;
 const lat = Number(env("NEXT_PUBLIC_GEO_LAT"));
 const lng = Number(env("NEXT_PUBLIC_GEO_LNG"));
@@ -33,7 +33,7 @@ export const site = {
   tagline: "Your Health, Our Priority.",
   description:
     "Primegala Medical Center and Nursing Home is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, maternity, antenatal, family planning, HIV testing, laboratory, pharmacy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
-  url: (env("NEXT_PUBLIC_SITE_URL") ?? "https://primegala.co.ke").replace(/\/$/, ""),
+  url: (env("NEXT_PUBLIC_SITE_URL") ?? "https://primegalahospital.co.ke").replace(/\/$/, ""),
   locale: "en_KE",
   foundingDate: "2022-03-01",
   kephLevel: 3,
@@ -45,7 +45,7 @@ export const site = {
     street: "Nakuru–Nyahururu Road, Maili Sita Centre",
     landmark: "Opposite Kiamaina Primary School",
     locality: "Maili Sita",
-    ward: "Kabatini Ward",
+    ward: "Kiamaina Ward",
     subCounty: "Nakuru North (Bahati) Sub-County",
     region: "Nakuru County",
     country: "KE",
@@ -57,15 +57,22 @@ export const site = {
   contact: {
     phone: phone ? normalizeKenyanPhone(phone) : null,
     whatsapp: whatsapp ? toWhatsAppNumber(whatsapp) : null,
-    email: env("NEXT_PUBLIC_EMAIL") ?? "info@primegala.co.ke",
+    /** General enquiries, records requests and feedback. */
+    email: env("NEXT_PUBLIC_EMAIL") ?? "info@primegalahospital.co.ke",
+    /** Questions about health, services and our Health Hub guides. */
+    healthEmail: env("NEXT_PUBLIC_HEALTH_EMAIL") ?? "health@primegalahospital.co.ke",
+    /** Patient support: SHA and payment help, appointments, complaints, website issues. */
+    supportEmail: env("NEXT_PUBLIC_SUPPORT_EMAIL") ?? "support@primegalahospital.co.ke",
     emergencyPhone: env("NEXT_PUBLIC_EMERGENCY_PHONE"),
   },
+  /** One handle on every platform: @primegalamedicalcenter. */
+  socialHandle: "@primegalamedicalcenter",
   social: {
-    facebook: env("NEXT_PUBLIC_FACEBOOK_URL"),
-    instagram: env("NEXT_PUBLIC_INSTAGRAM_URL"),
-    tiktok: env("NEXT_PUBLIC_TIKTOK_URL"),
-    x: env("NEXT_PUBLIC_X_URL"),
-    youtube: env("NEXT_PUBLIC_YOUTUBE_URL"),
+    facebook: env("NEXT_PUBLIC_FACEBOOK_URL") ?? "https://www.facebook.com/primegalamedicalcenter",
+    instagram: env("NEXT_PUBLIC_INSTAGRAM_URL") ?? "https://www.instagram.com/primegalamedicalcenter",
+    tiktok: env("NEXT_PUBLIC_TIKTOK_URL") ?? "https://www.tiktok.com/@primegalamedicalcenter",
+    x: env("NEXT_PUBLIC_X_URL") ?? "https://x.com/primegalamedicalcenter",
+    youtube: env("NEXT_PUBLIC_YOUTUBE_URL") ?? "https://www.youtube.com/@primegalamedicalcenter",
   },
   /** CONFIRM accepted private insurers at the meeting. */
   payments: ["SHA", "M-Pesa", "Cash"] as string[],
@@ -105,9 +112,16 @@ export function phoneHref(): string {
   return site.contact.phone ? `tel:${site.contact.phone}` : emailHref();
 }
 
-export function emailHref(subject?: string): string {
-  return `mailto:${site.contact.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
+export function emailHref(subject?: string, to: string = site.contact.email): string {
+  return `mailto:${to}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
 }
+
+/** Every public mailbox, with what it is for (contact page, footer, llms.txt). */
+export const EMAILS = [
+  { label: "General enquiries", address: site.contact.email, purpose: "Questions, records requests and feedback" },
+  { label: "Health questions", address: site.contact.healthEmail, purpose: "Our services and Health Hub guides" },
+  { label: "Patient support", address: site.contact.supportEmail, purpose: "SHA and payments, appointments, complaints" },
+];
 
 export function whatsappHref(message = "Hello Primegala, I would like to book an appointment."): string {
   return site.contact.whatsapp

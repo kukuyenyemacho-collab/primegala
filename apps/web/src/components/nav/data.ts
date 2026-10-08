@@ -1,6 +1,6 @@
 import "server-only";
 import { NAV_GROUPS } from "@/content/navigation";
-import { SERVICE_PAGES } from "@/content/services";
+import { SERVICE_PAGES, serviceOptions } from "@/content/services";
 import { CATEGORIES, getAllArticles, type CategorySlug } from "@/lib/content";
 import { emailHref, hasPhone, hasWhatsApp, phoneDisplay, phoneHref, site, whatsappHref } from "@/lib/site";
 import type { NavData, NavFact } from "./types";
@@ -29,6 +29,7 @@ export function getNavData(): NavData {
       summary: s.summary,
       icon: s.icon,
       href: `/services/${s.slug}`,
+      comingSoon: s.comingSoon,
     })),
     hub: {
       categories: (Object.keys(CATEGORIES) as CategorySlug[])
@@ -55,6 +56,6 @@ export function getNavData(): NavData {
       email: { href: emailHref(), label: site.contact.email },
       mapsUrl: site.mapsUrl,
     },
-    bookingServices: SERVICE_PAGES.map((s) => ({ code: s.code, name: s.name })),
+    bookingServices: serviceOptions(),
   };
 }

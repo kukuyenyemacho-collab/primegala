@@ -13,7 +13,7 @@ keywords:
   - hospital near Kiamaina Primary School
 faqs:
   - q: "Where exactly is Primegala Medical Centre?"
-    a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kabatini Ward, Nakuru North."
+    a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North."
   - q: "Do I need to book before my first visit?"
     a: "No. Walk-ins are welcome 24 hours a day. Booking ahead online helps us prepare for you."
 ---
@@ -24,7 +24,7 @@ A first visit anywhere can feel uncertain. Where do I go? Will it take all day? 
 
 ## Finding us
 
-- **Address:** Maili Sita Centre, Nakuru–Nyahururu Road, Kabatini Ward, Nakuru North
+- **Address:** Maili Sita Centre, Nakuru–Nyahururu Road, Kiamaina Ward, Nakuru North
 - **Landmark:** Directly opposite **Kiamaina Primary School**
 - **From Nakuru town:** About 10 km north on the Nakuru–Nyahururu Road. "Maili Sita" literally means *six miles*.
 - **By matatu:** Any matatu heading towards Bahati, Kiamaina or Nyahururu can drop you at Maili Sita.

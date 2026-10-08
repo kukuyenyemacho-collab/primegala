@@ -23,7 +23,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Services",
     href: "/services",
     panel: "services",
-    intro: "Twelve services under one roof at Maili Sita, open 24 hours.",
+    intro: "Twelve services under one roof at Maili Sita, open 24 hours. Theatre and dental care coming soon.",
   },
   {
     label: "Patients & Visitors",

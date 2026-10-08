@@ -28,18 +28,36 @@ export function NavFacts({ facts, className }: { facts: NavFact[]; className?: s
 const linkTitle = "block text-sm font-semibold text-ink group-hover:text-brand-700 group-hover:underline underline-offset-2";
 const linkText = "mt-0.5 block text-[0.8125rem] leading-snug text-muted";
 const linkBox = "group block h-full rounded-lg px-3 py-2.5 transition-colors hover:bg-surface";
+/** Coming-soon services get a light pink hover instead of grey. */
+const linkBoxSoon = "group block h-full rounded-lg px-3 py-2.5 transition-colors hover:bg-pink-50";
 
 function ServicesPanel({ services, pathname }: { services: NavService[]; pathname: string }) {
   return (
     <ul className="grid grid-cols-3 gap-1">
       {services.map((s) => (
         <li key={s.slug}>
-          <Link href={s.href} {...currentProps(pathname, s.href)} className={cn(linkBox, "flex gap-3")}>
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-trust-50 text-trust-700">
+          <Link
+            href={s.href}
+            {...currentProps(pathname, s.href)}
+            className={cn(s.comingSoon ? linkBoxSoon : linkBox, "flex gap-3")}
+          >
+            <span
+              className={cn(
+                "flex size-9 shrink-0 items-center justify-center rounded-lg",
+                s.comingSoon ? "bg-pink-50 text-pink-700" : "bg-trust-50 text-trust-700",
+              )}
+            >
               <ServiceIcon name={s.icon} className="size-5" strokeWidth={1.75} />
             </span>
             <span className="min-w-0">
-              <span className={linkTitle}>{s.name}</span>
+              <span className={linkTitle}>
+                {s.name}
+                {s.comingSoon && (
+                  <span className="ml-1.5 rounded-full bg-pink-100 px-1.5 py-px align-middle text-[0.625rem] font-bold tracking-wide text-pink-800 uppercase">
+                    Soon
+                  </span>
+                )}
+              </span>
               <span className={cn(linkText, "line-clamp-2")}>{s.summary}</span>
             </span>
           </Link>

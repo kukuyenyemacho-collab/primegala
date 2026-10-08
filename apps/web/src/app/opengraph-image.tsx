@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
@@ -6,7 +8,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /** Flat navy card with a green rule: facts only, matching the site's institutional style. */
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const logo = await readFile(join(process.cwd(), "public/brand/logo-mark.png"));
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
   const chips = [
     "Open 24 hours",
     `KEPH Level ${site.kephLevel}`,
@@ -47,10 +51,7 @@ export default function OpengraphImage() {
                 background: "#ffffff",
               }}
             >
-              <div style={{ position: "relative", width: 64, height: 64, display: "flex" }}>
-                <div style={{ position: "absolute", left: 23, top: 0, width: 18, height: 64, borderRadius: 9, background: "#167a41" }} />
-                <div style={{ position: "absolute", left: 0, top: 23, width: 64, height: 18, borderRadius: 9, background: "#1f9450" }} />
-              </div>
+              <img src={logoSrc} alt="" width={76} height={76} />
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 48, fontWeight: 700, letterSpacing: -1 }}>Primegala</div>

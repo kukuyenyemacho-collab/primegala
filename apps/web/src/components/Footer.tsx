@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon, YouTubeIcon } from "./Icon";
 import { SERVICE_PAGES } from "@/content/services";
 import { NAV_GROUPS, type NavLink } from "@/content/navigation";
-import { emailHref, fullAddress, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
+import { EMAILS, emailHref, fullAddress, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
 
 const LEGAL_LINKS: NavLink[] = [
   { href: "/legal/privacy-policy", label: "Privacy Policy" },
@@ -54,7 +54,10 @@ export function Footer() {
     { href: site.social.youtube, label: "YouTube", Icon: YouTubeIcon },
   ].filter((s): s is typeof s & { href: string } => Boolean(s.href));
 
-  const services = SERVICE_PAGES.map((s) => ({ href: `/services/${s.slug}`, label: s.name }));
+  const services = SERVICE_PAGES.map((s) => ({
+    href: `/services/${s.slug}`,
+    label: s.comingSoon ? `${s.name} (coming soon)` : s.name,
+  }));
   const patients = groupItems("Patients & Visitors");
   const about = [...groupItems("About"), { href: "/health-hub", label: "Health Hub" }];
 
@@ -90,9 +93,18 @@ export function Footer() {
             )}
             <p className="flex gap-3">
               <Mail className="mt-0.5 size-5 shrink-0 text-trust-300" aria-hidden />
-              <a href={emailHref()} className={`${linkClass} break-all`} data-track="email_click_footer">
-                {site.contact.email}
-              </a>
+              <span className="grid gap-1">
+                {EMAILS.map((e) => (
+                  <a
+                    key={e.address}
+                    href={emailHref(undefined, e.address)}
+                    className={`${linkClass} break-all`}
+                    data-track="email_click_footer"
+                  >
+                    {e.address}
+                  </a>
+                ))}
+              </span>
             </p>
           </address>
 
@@ -117,21 +129,26 @@ export function Footer() {
           </div>
 
           {socials.length > 0 && (
-            <ul className="mt-6 flex gap-2" aria-label="Primegala on social media">
-              {socials.map(({ href, label, Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener"
-                    className="inline-flex size-10 items-center justify-center rounded-lg border border-white/15 text-white hover:bg-white/10"
-                  >
-                    <Icon className="size-5" />
-                    <span className="sr-only">{label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <>
+              <p className="mt-7 text-sm text-trust-200">
+                Follow us everywhere: <span className="font-semibold text-white">{site.socialHandle}</span>
+              </p>
+              <ul className="mt-3 flex gap-2" aria-label="Primegala on social media">
+                {socials.map(({ href, label, Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener"
+                      className="inline-flex size-10 items-center justify-center rounded-lg border border-white/15 text-white hover:bg-white/10"
+                    >
+                      <Icon className="size-5" />
+                      <span className="sr-only">{label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
           )}
         </div>
 

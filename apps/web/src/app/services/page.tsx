@@ -8,7 +8,7 @@ import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { InfoPanel } from "@/components/PageSections";
-import { SERVICE_PAGES } from "@/content/services";
+import { OPEN_SERVICES, SERVICE_PAGES } from "@/content/services";
 import { keywordsFor } from "@/content/keywords";
 import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
@@ -47,6 +47,12 @@ const GROUPS: { id: string; title: string; intro: string; codes: ServiceCode[] }
     intro: "Long-term condition reviews, and admission when you need closer care.",
     codes: ["chronic-care", "inpatient"],
   },
+  {
+    id: "coming-soon",
+    title: "Coming soon",
+    intro: "New services opening at Primegala. Open one to be told the day it starts.",
+    codes: ["theatre", "dental-care"],
+  },
 ];
 
 export default function ServicesPage() {
@@ -69,7 +75,7 @@ export default function ServicesPage() {
         crumbs={[{ name: "Services", path: "/services" }]}
         eyebrow="Our services"
         title="Care for every stage of life, six miles closer"
-        intro={`Primegala offers ${SERVICE_PAGES.length} services under one roof at Maili Sita, open 24 hours: outpatient and urgent care, maternity and antenatal care, family planning, child health, HIV testing, laboratory, pharmacy, inpatient admission, chronic disease care and minor procedures.${site.shaContracted ? " SHA is accepted for eligible services." : ""}`}
+        intro={`Primegala offers ${OPEN_SERVICES.length} services under one roof at Maili Sita, open 24 hours: outpatient and urgent care, maternity and antenatal care, family planning, child health, HIV testing, laboratory, pharmacy, inpatient admission, chronic disease care and minor procedures. A surgical theatre and dental care are coming soon.${site.shaContracted ? " SHA is accepted for eligible services." : ""}`}
       >
         <ButtonLink href="/book" size="lg" track="book_click_services">
           <CalendarCheck className="size-5" aria-hidden /> Book a visit

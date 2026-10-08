@@ -16,7 +16,7 @@ describe("robots.txt", () => {
   it("allows search and AI crawlers on the production site", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_ENV", "production");
     const robots = await loadRobots();
-    expect(robots.sitemap).toBe("https://primegala.co.ke/sitemap.xml");
+    expect(robots.sitemap).toBe("https://primegalahospital.co.ke/sitemap.xml");
     expect(JSON.stringify(robots.rules)).toContain("GPTBot");
   });
 });

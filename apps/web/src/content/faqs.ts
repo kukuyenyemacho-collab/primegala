@@ -12,7 +12,7 @@ export interface Faq {
 export const GENERAL_FAQS: Faq[] = [
   {
     q: "Where is Primegala Medical Centre located?",
-    a: "Primegala Medical Centre is at Maili Sita Centre on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, in Kabatini Ward, Nakuru North (Bahati) Sub-County, Nakuru County. It is about six miles (roughly 10 km) from Nakuru town.",
+    a: "Primegala Medical Centre is at Maili Sita Centre on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North (Bahati) Sub-County, Nakuru County. It is about six miles (roughly 10 km) from Nakuru town.",
   },
   {
     q: "Is Primegala open 24 hours?",
@@ -155,7 +155,7 @@ export const EMERGENCY_FAQS: Faq[] = [
 export const SWAHILI_FAQS: Faq[] = [
   {
     q: "Primegala Medical Centre iko wapi?",
-    a: "Primegala Medical Centre iko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina, katika Wadi ya Kabatini, Kaunti Ndogo ya Nakuru Kaskazini (Bahati), Kaunti ya Nakuru. Ni takriban kilomita 10 (maili sita) kutoka mjini Nakuru.",
+    a: "Primegala Medical Centre iko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina, katika Wadi ya Kiamaina, Kaunti Ndogo ya Nakuru Kaskazini (Bahati), Kaunti ya Nakuru. Ni takriban kilomita 10 (maili sita) kutoka mjini Nakuru.",
   },
   {
     q: "Je, Primegala iko wazi saa 24?",

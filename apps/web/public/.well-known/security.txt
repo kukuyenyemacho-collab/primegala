@@ -2,5 +2,5 @@
 # Please do not include patient information in reports.
 Contact: https://steffcloud.co.ke
 Preferred-Languages: en, sw
-Canonical: https://primegala.co.ke/.well-known/security.txt
+Canonical: https://primegalahospital.co.ke/.well-known/security.txt
 Expires: 2027-10-04T00:00:00.000Z

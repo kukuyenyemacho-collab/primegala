@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, HandHeart, Languages, ShieldCheck, Sun } from "lucide-react";
+import { ArrowRight, BadgeCheck, HandHeart, HeartHandshake, Sun, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { Photo } from "@/components/Photo";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
@@ -36,12 +37,24 @@ const TIMELINE = [
   },
 ];
 
+/** Our core values, as displayed on the board at the Primegala reception desk. */
 const VALUES = [
-  { Icon: Sun, title: "Always here", body: "Open every hour of every day, because illness never waits for morning." },
-  { Icon: HandHeart, title: "Dignity for all", body: "Every patient is treated with the same respect, whatever their means." },
-  { Icon: ShieldCheck, title: "Honest care", body: "We test before we treat, explain clearly, and tell you about costs before treatment." },
-  { Icon: Languages, title: "Clear communication", body: "We explain your care in English or Kiswahili, whichever you prefer." },
+  {
+    Icon: Users,
+    title: "Collaboration",
+    body: "We foster teamwork within the organisation and work with partners to deliver the best possible value to our patients.",
+  },
+  {
+    Icon: BadgeCheck,
+    title: "Professionalism",
+    body: "We hold ourselves to high standards of professional conduct and accountability, in line with legal, regulatory and best-practice requirements.",
+  },
+  { Icon: HandHeart, title: "Care", body: "Our service helps each individual person, and improves the health of the whole community." },
+  { Icon: HeartHandshake, title: "Compassion", body: "Our care is given through relationships based on empathy, respect and dignity." },
+  { Icon: Sun, title: "Commitment", body: "Our patients are our cornerstone, every hour of every day." },
 ];
+
+const AIMS = ["Quality and standards", "Accessibility and equity", "Professionalism", "Community well-being", "Continuous improvement"];
 
 export default function AboutPage() {
   return (
@@ -83,6 +96,13 @@ export default function AboutPage() {
                 admission.
               </p>
             </div>
+
+            <Photo
+              name="reception"
+              priority
+              className="mt-10 max-w-md"
+              caption="Our reception at Maili Sita, with our quality policy and values on the desk. Triage is the door beside it."
+            />
 
             <h2 className="mt-14 text-2xl font-bold tracking-tight text-ink sm:text-3xl">Our mission</h2>
             <p className="mt-4 text-lg leading-relaxed text-ink/85">
@@ -127,13 +147,28 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="surface" labelledBy="values">
-        <SectionHeading id="values" eyebrow="Our values" title="What guides us" />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <SectionHeading
+          id="values"
+          eyebrow="Our values"
+          title="What guides us"
+          intro="The same five values you'll see on the board at our reception desk."
+        />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {VALUES.map(({ Icon, title, body }) => (
             <IconCard key={title} icon={Icon} title={title}>
               {body}
             </IconCard>
           ))}
+        </div>
+        <div className="mt-10 rounded-xl border border-line bg-white p-6">
+          <h3 className="font-bold text-ink">Our aims</h3>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {AIMS.map((a) => (
+              <li key={a} className="rounded-full border border-trust-100 bg-trust-50 px-3.5 py-1.5 text-sm font-semibold text-trust-800">
+                {a}
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 

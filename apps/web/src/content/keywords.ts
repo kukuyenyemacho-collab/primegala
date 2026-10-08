@@ -117,6 +117,21 @@ export const KEYWORDS = {
   ],
   pharmacy: ["pharmacy near me open 24 hours", "chemist Maili Sita", "24 hour pharmacy Nakuru"],
   inpatient: ["admission hospital Nakuru", "inpatient hospital Bahati", "hospital with beds near me"],
+  theatre: [
+    "hospital with theatre Nakuru",
+    "surgery hospital Nakuru",
+    "caesarean section hospital Nakuru",
+    "minor surgery Bahati",
+    "operation hospital near me",
+  ],
+  dental: [
+    "dentist Nakuru",
+    "dentist near me",
+    "dental clinic Nakuru",
+    "dentist Bahati",
+    "tooth extraction Nakuru",
+    "daktari wa meno Nakuru",
+  ],
   sha: [
     "SHA hospitals in Nakuru",
     "hospitals that accept SHA in Nakuru",

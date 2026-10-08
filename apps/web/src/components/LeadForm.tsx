@@ -38,7 +38,7 @@ const FIRST_TOUCH_KEY = "pg-first-touch";
  * Static env reads are inlined into the client bundle at build time (unlike the
  * dynamic lookups in lib/site.ts), so this matches site.contact.email everywhere.
  */
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_EMAIL?.trim() || "info@primegala.co.ke";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_EMAIL?.trim() || "info@primegalahospital.co.ke";
 
 /** Field order for the error summary, so errors are listed top to bottom. */
 const FIELD_LABELS: Record<string, string> = {

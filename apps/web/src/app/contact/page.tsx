@@ -9,10 +9,11 @@ import { LeadForm } from "@/components/LeadForm";
 import { WhatsAppIcon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { CheckList, FaqSection } from "@/components/PageSections";
-import { SERVICE_PAGES } from "@/content/services";
+import { serviceOptions } from "@/content/services";
 import { keywordsFor } from "@/content/keywords";
 import { pageMetadata } from "@/lib/seo";
 import {
+  EMAILS,
   absoluteUrl,
   emailHref,
   fullAddress,
@@ -34,7 +35,7 @@ export const metadata: Metadata = pageMetadata({
 const CONTACT_FAQS = [
   {
     q: "Where is Primegala Medical Centre?",
-    a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kabatini Ward, Nakuru North (Bahati) Sub-County, Nakuru County.",
+    a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North (Bahati) Sub-County, Nakuru County.",
   },
   {
     q: "How far is Maili Sita from Nakuru town?",
@@ -75,7 +76,7 @@ function ContactCard({
 }
 
 export default function ContactPage() {
-  const formServices = SERVICE_PAGES.map((s) => ({ code: s.code, name: s.name }));
+  const formServices = serviceOptions();
   return (
     <>
       <JsonLd
@@ -102,9 +103,18 @@ export default function ContactPage() {
             >
               {site.contact.email}
             </a>
+            <ul className="mt-4 space-y-2 text-sm">
+              {EMAILS.slice(1).map((e) => (
+                <li key={e.address}>
+                  <span className="font-semibold text-ink">{e.label}:</span>{" "}
+                  <a href={emailHref(undefined, e.address)} className="link-brand break-all">
+                    {e.address}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <p className="mt-3 text-sm leading-relaxed text-muted">
-              For general questions, records requests and feedback. Please don&apos;t send detailed medical information
-              by email.
+              Please don&apos;t send detailed medical information by email.
             </p>
             {hasPhone && (
               <p className="mt-5 border-t border-trust-100 pt-4">
@@ -153,9 +163,18 @@ export default function ContactPage() {
         <SectionHeading id="contact-details" eyebrow="Contact details" title="How to reach us" />
         <dl className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <ContactCard icon={Mail} title="Email">
-            <a href={emailHref()} className="link-brand break-all" data-track="email_click_contact_card">
-              {site.contact.email}
-            </a>
+            <ul className="space-y-3">
+              {EMAILS.map((e) => (
+                <li key={e.address}>
+                  <span className="block text-sm text-muted">
+                    {e.label}: {e.purpose.charAt(0).toLowerCase() + e.purpose.slice(1)}
+                  </span>
+                  <a href={emailHref(undefined, e.address)} className="link-brand break-all" data-track="email_click_contact_card">
+                    {e.address}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </ContactCard>
           <ContactCard icon={MapPin} title="Address">
             {fullAddress()}

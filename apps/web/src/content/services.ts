@@ -1,5 +1,6 @@
 import type { ServiceCode } from "@primegala/contracts";
 import { keywordsFor, type KeywordGroup } from "./keywords";
+import type { PhotoName } from "@/components/Photo";
 
 export type IconName =
   | "Stethoscope"
@@ -13,7 +14,9 @@ export type IconName =
   | "Pill"
   | "BedDouble"
   | "Activity"
-  | "Bandage";
+  | "Bandage"
+  | "Scissors"
+  | "Toothbrush";
 
 export interface ServiceContent {
   code: ServiceCode;
@@ -40,6 +43,13 @@ export interface ServiceContent {
   keywordGroups: KeywordGroup[];
   related: string[];
   featured?: boolean;
+  /** Real photos of this service at Primegala, shown on the service page. */
+  photos?: { name: PhotoName; caption: string }[];
+  /**
+   * Announced but not yet open. The page says so plainly, takes "notify me" requests
+   * instead of bookings, and the card carries a soft pink accent.
+   */
+  comingSoon?: boolean;
 }
 
 export const SERVICE_PAGES: ServiceContent[] = [
@@ -533,6 +543,11 @@ export const SERVICE_PAGES: ServiceContent[] = [
     ],
     keywordGroups: ["pharmacy"],
     related: ["managing-high-blood-pressure"],
+    photos: [
+      { name: "pharmacyStock", caption: "Antibiotics, syrups and antacids, each on its own labelled shelf." },
+      { name: "pharmacyCounter", caption: "Children's medicines and cough remedies within easy reach of the counter." },
+      { name: "pharmacyShelves", caption: "Our pharmacy store at Maili Sita." },
+    ],
   },
   {
     code: "inpatient",
@@ -692,9 +707,124 @@ export const SERVICE_PAGES: ServiceContent[] = [
     keywordGroups: ["emergency"],
     related: ["when-to-seek-urgent-care", "dog-bites-rabies"],
   },
+  {
+    code: "theatre",
+    slug: "surgical-theatre",
+    name: "Surgical Theatre",
+    icon: "Scissors",
+    comingSoon: true,
+    summary: "Coming soon: an operating theatre for planned and urgent surgery, closer to home.",
+    metaTitle: "Surgical Theatre at Maili Sita, Nakuru | Coming Soon",
+    metaDescription:
+      "Primegala Medical Center is opening a surgical theatre at Maili Sita on the Nakuru–Nyahururu Road, for planned and urgent operations closer to home. Register your interest.",
+    intro:
+      "Primegala is preparing an operating theatre at Maili Sita, so families along the Nakuru–Nyahururu Road can have planned and urgent operations closer to home. It is not open yet. Leave your details and we will tell you as soon as it is.",
+    story: {
+      heading: "Surgery without the long trip",
+      body: "Today, an operation often means travelling to town, waiting, and arranging for family to visit far from home. A theatre at Maili Sita means the same team that knows you before an operation cares for you after it, a short ride from home.",
+    },
+    offers: [
+      "Planned (elective) surgical procedures",
+      "Urgent operations, with referral when a higher level of care is needed",
+      "Safe anaesthesia with monitoring before, during and after surgery",
+      "Pre-operative assessment and tests on site",
+      "Recovery on our inpatient ward, with follow-up reviews",
+    ],
+    steps: [
+      { title: "Consultation", body: "A clinician assesses you and explains whether surgery is the right option." },
+      { title: "Preparation", body: "Tests, a pre-operative check and clear instructions for the day." },
+      { title: "Your operation", body: "Surgery in the theatre, with anaesthesia and close monitoring." },
+      { title: "Recovery", body: "Care on the ward, then a review date and home-care advice." },
+    ],
+    prepare: [
+      "Bring any referral letter, previous test results and a list of the medicines you take.",
+      "Follow the fasting instructions you are given before surgery: usually no food for several hours.",
+      "Tell us about allergies, bleeding problems, pregnancy or past reactions to anaesthesia.",
+      "Arrange for an adult to accompany you home after the procedure.",
+    ],
+    sha: "Once the theatre opens, eligible surgical procedures will be covered according to SHA benefit rules. We will confirm what is covered, and any cost, before your operation.",
+    faqs: [
+      {
+        q: "Is the Primegala theatre open now?",
+        a: "Not yet. It is coming soon. Leave your details and we will let you know when it opens. Until then, our clinicians refer patients who need surgery.",
+      },
+      {
+        q: "What kind of operations will be done?",
+        a: "Planned and urgent procedures suitable for the facility's level. When you need more specialised care, we refer you and help arrange it.",
+      },
+      {
+        q: "Will SHA cover surgery at Primegala?",
+        a: "Eligible procedures will be covered according to SHA benefit rules. We confirm cover and any costs with you before treatment.",
+      },
+    ],
+    keywordGroups: ["theatre", "inpatient"],
+    related: ["your-first-visit-to-primegala", "how-to-use-sha-at-primegala"],
+  },
+  {
+    code: "dental-care",
+    slug: "dental-care",
+    name: "Dental Care",
+    icon: "Toothbrush",
+    comingSoon: true,
+    summary: "Coming soon: check-ups, fillings, extractions and dental advice for the whole family.",
+    metaTitle: "Dental Care at Maili Sita, Nakuru | Coming Soon",
+    metaDescription:
+      "Dental care is coming to Primegala Medical Center at Maili Sita, Nakuru: check-ups, cleaning, fillings, extractions and children's dental care. Register your interest.",
+    intro:
+      "Dental care is coming to Primegala at Maili Sita: check-ups, cleaning, fillings and extractions for adults and children, without the trip to town. It is not open yet. Leave your details and we will tell you when it is.",
+    story: {
+      heading: "A toothache shouldn't wait for a trip to town",
+      body: "Many people put up with a painful tooth for weeks because the nearest dentist is far away. Small problems caught early are simpler to treat. A dental clinic at Maili Sita brings check-ups and treatment closer to home.",
+    },
+    offers: [
+      "Dental check-ups and oral health advice",
+      "Scaling and cleaning",
+      "Fillings for cavities",
+      "Tooth extractions",
+      "Children's dental care",
+    ],
+    steps: [
+      { title: "Examination", body: "A dental check of your teeth and gums." },
+      { title: "Plan", body: "We explain what we found and the treatment options." },
+      { title: "Treatment", body: "Cleaning, filling or extraction, with local anaesthetic where needed." },
+      { title: "Aftercare", body: "Home-care advice and a review date if you need one." },
+    ],
+    prepare: [
+      "Brush your teeth before your visit.",
+      "Bring a list of the medicines you take, especially blood thinners.",
+      "Tell us about allergies, heart conditions or pregnancy.",
+      "For a child's first visit, tell them what to expect in simple, positive words.",
+    ],
+    sha: "Once dental services open, we will confirm what SHA covers, and any cost, before treatment.",
+    faqs: [
+      {
+        q: "Is the dental clinic open now?",
+        a: "Not yet. It is coming soon. Leave your details and we will let you know when it opens.",
+      },
+      {
+        q: "What should I do about a toothache until then?",
+        a: "Rinse with warm salty water and keep the area clean. Come in to the outpatient clinic if you have swelling of the face, fever or pain that stops you sleeping.",
+      },
+      {
+        q: "Will children be seen?",
+        a: "Yes. Children's dental care will be part of the service.",
+      },
+    ],
+    keywordGroups: ["dental"],
+    related: ["medical-checkups-by-age", "your-first-visit-to-primegala"],
+  },
 ];
 
-export function getServiceBySlug(slug: string) {
+/** Services patients can use today (the rest are announced as coming soon). */
+export const OPEN_SERVICES = SERVICE_PAGES.filter((s) => !s.comingSoon);
+
+/** Options for booking-form service selects; coming-soon services take "notify me" requests. */
+export function serviceOptions() {
+  return SERVICE_PAGES.map((s) => ({ code: s.code, name: s.comingSoon ? `${s.name} (coming soon)` : s.name }));
+}
+
+export function getServiceBySlug
+(slug: string) {
   return SERVICE_PAGES.find((s) => s.slug === slug);
 }
 

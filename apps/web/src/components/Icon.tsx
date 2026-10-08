@@ -8,9 +8,11 @@ import {
   HeartPulse,
   Pill,
   Ribbon,
+  Scissors,
   Siren,
   Stethoscope,
   Syringe,
+  Toothbrush,
   type LucideProps,
 } from "lucide-react";
 import type { IconName } from "@/content/services";
@@ -25,9 +27,11 @@ const ICONS = {
   HeartPulse,
   Pill,
   Ribbon,
+  Scissors,
   Siren,
   Stethoscope,
   Syringe,
+  Toothbrush,
 } satisfies Record<IconName, unknown>;
 
 export function ServiceIcon({ name, ...props }: { name: IconName } & LucideProps) {
