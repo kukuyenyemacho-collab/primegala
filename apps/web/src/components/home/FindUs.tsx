@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { MapPin, Navigation } from "lucide-react";
 import { MapEmbed } from "@/components/MapEmbed";
+import { Photo } from "@/components/Photo";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { AREAS_SERVED } from "@/content/areas";
 import { emailHref, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
@@ -9,7 +10,10 @@ import { emailHref, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
 export function FindUs() {
   const a = site.address;
   const details: { term: string; value: ReactNode }[] = [
-    { term: "Address", value: `${a.street}, ${a.landmark.charAt(0).toLowerCase()}${a.landmark.slice(1)}` },
+    {
+      term: "Address",
+      value: `${a.building}, ${a.street}, ${a.landmark.charAt(0).toLowerCase()}${a.landmark.slice(1)}`,
+    },
     { term: "Area", value: `${a.ward}, ${a.subCounty}, ${a.region}` },
     { term: "Opening hours", value: "Open 24 hours, every day, including public holidays" },
     ...(hasPhone
@@ -76,8 +80,9 @@ export function FindUs() {
             </ButtonLink>
           </div>
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 space-y-5">
           <MapEmbed query="Primegala Medical Centre, Maili Sita, Nakuru" mapsUrl={site.mapsUrl} />
+          <Photo name="building" caption="Look for this building: white and blue, with 'SHA accepted here' above the gate." />
         </div>
       </div>
     </Section>

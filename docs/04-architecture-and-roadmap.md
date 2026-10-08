@@ -10,7 +10,7 @@ One platform, two faces: the **public marketing site** (live first) and **Primeg
                               │
                               ▼
 ┌────────────────────────────────────────────────────────────┐
-│  apps/web: Public site (Next.js, static, primegala.co.ke)  │
+│  apps/web: Public site (Next.js, static, primegalahospital.co.ke)  │
 │  Services · SHA guide · Health Hub · Book · Policies       │
 │  SEO/GEO: JSON-LD, sitemap, llms.txt, RSS                  │
 │  POST /api/leads ── validate (zod) ── consent record       │
@@ -95,7 +95,7 @@ The production site **refuses to drop leads silently**. If the HMIS is unreachab
 
 | Weeks | Work |
 |---|---|
-| 1 | Confirm facts and assets; buy primegala.co.ke; claim and complete Google Business Profile; deploy |
+| 1 | Confirm facts and assets; point primegalahospital.co.ke (owned) at the site; claim and complete Google Business Profile; deploy |
 | 1–2 | Clinician reviews Health Hub articles (adds name and date) → mark as reviewed |
 | 2 | Google Search Console and Bing Webmaster: submit sitemap; GA4 conversions (call, WhatsApp, lead) |
 | 2–4 | Citations: KMHFR corrections, SHA facility list, Bing Places, Apple Business Connect, Kenyan directories |

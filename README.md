@@ -51,7 +51,7 @@ Facility facts live in `apps/web/src/lib/site.ts`; contact details come from env
 
 ## Deploy
 
-Any Node 20+ host works (Vercel, Netlify, a VPS with `pnpm build && pnpm start`). On Vercel, set the project root to `apps/web`. Point `primegala.co.ke` at it and set `NEXT_PUBLIC_SITE_URL`.
+Any Node 20+ host works (Vercel, Netlify, a VPS with `pnpm build && pnpm start`). On Vercel, set the project root to `apps/web`. Point `primegalahospital.co.ke` at it and set `NEXT_PUBLIC_SITE_URL`.
 
 ## Pre-launch checklist
 

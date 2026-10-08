@@ -442,6 +442,11 @@ export const SERVICE_PAGES: ServiceContent[] = [
   },
   {
     code: "laboratory",
+    photos: [
+      { name: "labBench", caption: "Microscope, centrifuge, shaker and incubator on our lab bench." },
+      { name: "labAnalyser", caption: "Our automated blood-count analyser for full blood counts." },
+      { name: "labMicroscope", caption: "Microscopy for malaria and other tests, on site." },
+    ],
     slug: "laboratory",
     name: "Laboratory Services",
     icon: "FlaskConical",

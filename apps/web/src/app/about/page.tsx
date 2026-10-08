@@ -97,12 +97,20 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <Photo
-              name="reception"
-              priority
-              className="mt-10 max-w-md"
-              caption="Our reception at Maili Sita, with our quality policy and values on the desk. Triage is the door beside it."
-            />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              <Photo
+                name="building"
+                priority
+                aspect="aspect-[4/5]"
+                imgClassName="object-[25%_center]"
+                caption="Primegala Medical Centre & Nursing Home, in the Esther Memorial Building at Maili Sita."
+              />
+              <Photo
+                name="reception"
+                priority
+                caption="Our reception, with our quality policy and values on the desk. Triage is the door beside it."
+              />
+            </div>
 
             <h2 className="mt-14 text-2xl font-bold tracking-tight text-ink sm:text-3xl">Our mission</h2>
             <p className="mt-4 text-lg leading-relaxed text-ink/85">

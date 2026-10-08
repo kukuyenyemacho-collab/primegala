@@ -5,6 +5,7 @@ import { Bus, Car, Clock, Landmark, Mail, MapPin, MessageSquareText, Navigation,
 import { PageHero } from "@/components/PageHero";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { MapEmbed } from "@/components/MapEmbed";
+import { Photo } from "@/components/Photo";
 import { LeadForm } from "@/components/LeadForm";
 import { WhatsAppIcon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
@@ -220,7 +221,7 @@ export default function ContactPage() {
               id="directions"
               eyebrow="Directions"
               title="How to get here"
-              intro="We are at Maili Sita Centre on the Nakuru–Nyahururu Road (B5), directly opposite Kiamaina Primary School."
+              intro="We are at Maili Sita Centre on the Nakuru–Nyahururu Road (B5), directly opposite Kiamaina Primary School, in the white and blue Esther Memorial Building."
             />
             <div className="mt-8 space-y-4">
               <div className="flex gap-4 rounded-xl border border-line bg-white p-5">
@@ -257,8 +258,12 @@ export default function ContactPage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 space-y-5">
             <MapEmbed query="Primegala Medical Centre, Maili Sita, Nakuru" mapsUrl={site.mapsUrl} />
+            <Photo
+              name="building"
+              caption="The Primegala building: look for 'Primegala Medical Centre & Nursing Home' and 'SHA accepted here'."
+            />
           </div>
         </div>
       </Section>

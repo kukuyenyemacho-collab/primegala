@@ -61,8 +61,8 @@ export interface FhirBundle {
   }[];
 }
 
-export const PRIMEGALA_SERVICE_SYSTEM = "https://primegala.co.ke/fhir/CodeSystem/service";
-export const PRIMEGALA_LEAD_SYSTEM = "https://primegala.co.ke/fhir/NamingSystem/website-lead";
+export const PRIMEGALA_SERVICE_SYSTEM = "https://primegalahospital.co.ke/fhir/CodeSystem/service";
+export const PRIMEGALA_LEAD_SYSTEM = "https://primegalahospital.co.ke/fhir/NamingSystem/website-lead";
 
 /** EAT is UTC+3 with no daylight saving. */
 const TIME_WINDOW_HOURS: Record<string, [string, string]> = {
@@ -94,7 +94,7 @@ export function leadToFhirBundle(lead: Lead): FhirBundle {
     telecom,
     extension: [
       {
-        url: "https://primegala.co.ke/fhir/StructureDefinition/preferred-contact-channel",
+        url: "https://primegalahospital.co.ke/fhir/StructureDefinition/preferred-contact-channel",
         valueString: lead.contact.preferredChannel,
       },
     ],

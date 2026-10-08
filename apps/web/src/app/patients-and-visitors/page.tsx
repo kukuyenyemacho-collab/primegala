@@ -147,7 +147,15 @@ export default function PatientsAndVisitorsPage() {
             </p>
             <p>At the front desk, our team will:</p>
           </Prose>
-          <Photo name="reception" caption="Our reception desk. The triage room is the door just beside it." className="max-w-md" />
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Photo
+              name="building"
+              aspect="aspect-[4/5]"
+              imgClassName="object-[25%_center]"
+              caption="The Primegala building, opposite Kiamaina Primary School. Come in through the main gate."
+            />
+            <Photo name="reception" caption="Our reception desk. The triage room is the door just beside it." />
+          </div>
           <StepList
             steps={[
               { title: "Open or find your patient file", body: "Using your ID, or your child's details." },
@@ -236,7 +244,10 @@ export default function PatientsAndVisitorsPage() {
               each one. Ask what to do if you miss a dose.
             </p>
           </Prose>
-          <Photo name="pharmacyCounter" caption="The Primegala pharmacy, with medicines sorted by type." className="max-w-md" />
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Photo name="labDoor" caption="Follow the green 'Laboratory' sign for your tests." />
+            <Photo name="pharmacyCounter" caption="The Primegala pharmacy, with medicines sorted by type." />
+          </div>
         </ContentBlock>
 
         <ContentBlock

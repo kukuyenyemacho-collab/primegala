@@ -159,11 +159,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {service.photos && (
               <section aria-labelledby="photos-title" className="mt-14">
                 <h2 id="photos-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  Inside our {service.name.toLowerCase()}
+                  A look inside
                 </h2>
                 <div className="mt-6 grid gap-4 sm:grid-cols-3">
                   {service.photos.map((p) => (
-                    <Photo key={p.name} name={p.name} caption={p.caption} />
+                    <Photo key={p.name} name={p.name} caption={p.caption} aspect="aspect-[4/5]" />
                   ))}
                 </div>
               </section>

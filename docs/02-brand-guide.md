@@ -5,8 +5,8 @@
 | Asset | Recommendation | Why |
 |---|---|---|
 | **Public brand** | **Primegala Medical Centre** (short: **Primegala**) | Matches the KMHFR registration. Using "Hospital" before it is licensed as one could breach KMPDC advertising rules. Switch in one line (`apps/web/src/lib/site.ts`) if re-licensed. |
-| **Primary domain** | **primegala.co.ke** | Short, exact-match brand. `.co.ke` signals a Kenyan business to patients and to Google's local ranking. No existing site found under the name. |
-| Defensive domains | primegala.com, primegalahospital.co.ke, primegalamedical.co.ke → 301 to primegala.co.ke | Protects the name and captures typed variations. |
+| **Primary domain** | **primegalahospital.co.ke** (owned by the facility) | `.co.ke` signals a Kenyan business to patients and to Google's local ranking. Emails: info@, health@ and support@primegalahospital.co.ke. |
+| Defensive domains | primegala.co.ke, primegala.com → 301 to primegalahospital.co.ke | Protects the name and captures typed variations. |
 | Tagline | **"Prime care, close to home."** | Uses the brand name; true to the location story. |
 | Story line | **"Six miles from town. Minutes from you."** | *Maili Sita* = six miles. A memorable, local, factual hook. |
 | Health content | **Primegala Health Hub** | |
@@ -87,4 +87,4 @@ The client's existing identity uses a primary green. We've formalised it into an
 
 ## 8. Signage and print alignment (recommendation)
 
-Repaint the signboard in Primegala Green with the new mark. Add "OPEN 24 HOURS" and "SHA ACCEPTED" panels, plus a QR code linking to `primegala.co.ke/book?utm_source=signboard`.
+Repaint the signboard in Primegala Green with the new mark. Add "OPEN 24 HOURS" and "SHA ACCEPTED" panels, plus a QR code linking to `primegalahospital.co.ke/book?utm_source=signboard`.

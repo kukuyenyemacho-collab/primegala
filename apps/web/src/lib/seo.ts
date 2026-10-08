@@ -83,7 +83,7 @@ export function organizationJsonLd(): JsonLdObject {
     })),
     address: {
       "@type": "PostalAddress",
-      streetAddress: `${site.address.street} (${site.address.landmark})`,
+      streetAddress: `${site.address.building}, ${site.address.street} (${site.address.landmark})`,
       addressLocality: site.address.locality,
       addressRegion: site.address.region,
       addressCountry: site.address.country,

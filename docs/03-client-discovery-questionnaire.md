@@ -68,7 +68,7 @@ KMHFR lists: **General Outpatient, Long-acting Family Planning, Inpatient, HIV T
 - [ ] Staff list for the Team page, with **written consent** to publish: name, cadre, registration number, qualifications, languages, photo.
 - [ ] Founder's story, in their words: why Maili Sita? Why 2022? Any memorable moments? (Feeds "Our story".)
 - [ ] Social media accounts and logins: Facebook, Instagram, TikTok, Google Business Profile (claimed?), WhatsApp Business.
-- [ ] Domain: do they own one? Our recommendation is **primegala.co.ke** (also register primegala.com to protect the name).
+- [x] Domain: the facility owns **primegalahospital.co.ke**. Also consider registering primegala.co.ke and primegala.com to protect the name.
 - [ ] Existing patient reviews or thank-you messages (only with permission).
 
 ---

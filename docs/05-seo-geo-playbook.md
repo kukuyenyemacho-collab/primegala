@@ -46,7 +46,7 @@ Source of truth in code: `apps/web/src/content/keywords.ts`.
 ### Google Business Profile (week 1, highest impact)
 - Claim or verify "Primegala Medical Centre". Primary category **Medical clinic**; secondary categories Maternity hospital, Medical laboratory, Pharmacy, Family planning center (only those confirmed).
 - Hours: open 24 hours. Add every service, with descriptions copied from the service pages.
-- Exact pin at the gate. Website: `https://primegala.co.ke/?utm_source=google&utm_medium=organic&utm_campaign=gbp`.
+- Exact pin at the gate. Website: `https://primegalahospital.co.ke/?utm_source=google&utm_medium=organic&utm_campaign=gbp`.
 - Booking link: `/book?utm_source=google&utm_medium=gbp`.
 - At least 20 real photos (exterior with signage, reception, team, rooms), then weekly posts that link to new Health Hub articles.
 - Q&A: seed with real FAQs (hours, SHA, directions).

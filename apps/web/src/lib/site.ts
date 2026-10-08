@@ -42,6 +42,8 @@ export const site = {
   shaContracted: true,
   mflCode: env("NEXT_PUBLIC_MFL_CODE"),
   address: {
+    /** Name painted above the entrance, useful for finding the gate. */
+    building: "Esther Memorial Building",
     street: "Nakuru–Nyahururu Road, Maili Sita Centre",
     landmark: "Opposite Kiamaina Primary School",
     locality: "Maili Sita",
@@ -132,5 +134,5 @@ export function whatsappHref(message = "Hello Primegala, I would like to book an
 export function fullAddress(): string {
   const a = site.address;
   const landmark = a.landmark.charAt(0).toLowerCase() + a.landmark.slice(1);
-  return `${a.street}, ${landmark}, ${a.ward}, ${a.region}, Kenya`;
+  return `${a.building}, ${a.street}, ${landmark}, ${a.ward}, ${a.region}, Kenya`;
 }
