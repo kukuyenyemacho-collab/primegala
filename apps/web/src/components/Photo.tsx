@@ -56,6 +56,24 @@ export const PHOTOS = {
     width: 960,
     height: 1280,
   },
+  labAnalysers: {
+    src: "/images/lab-analysers.jpg",
+    alt: "Blood chemistry and rapid test analysers on the Primegala laboratory bench",
+    width: 960,
+    height: 1280,
+  },
+  pharmacyDoor: {
+    src: "/images/pharmacy-door.jpg",
+    alt: "The Primegala pharmacy door, marked with a green 'Pharmacy' sign",
+    width: 960,
+    height: 1280,
+  },
+  mchDoor: {
+    src: "/images/mch-door.jpg",
+    alt: "The door to the antenatal, child health and family planning room at Primegala, marked 'ANC/MCH/F.P'",
+    width: 960,
+    height: 1280,
+  },
 } as const;
 
 export type PhotoName = keyof typeof PHOTOS;

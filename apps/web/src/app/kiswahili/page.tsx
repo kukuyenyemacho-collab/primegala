@@ -83,7 +83,23 @@ const HUDUMA: Record<ServiceCode, { jina: string; maelezo: string }> = {
   },
   "minor-procedures": {
     jina: "Upasuaji mdogo na kutibu vidonda",
-    maelezo: "Kushona majeraha, kusafisha na kufunga vidonda, kutoa usaha kwenye jipu na huduma nyingine ndogo.",
+    maelezo: "Upasuaji mdogo, kushona majeraha, kusafisha na kufunga vidonda, na kutoa usaha kwenye jipu.",
+  },
+  "obstetrics-gynaecology": {
+    jina: "Kliniki ya magonjwa ya wanawake na uzazi",
+    maelezo: "Afya ya wanawake: ujauzito, matatizo ya hedhi, uchunguzi wa saratani ya mlango wa kizazi na zaidi.",
+  },
+  "gp-clinic": {
+    jina: "Kliniki ya daktari (GP)",
+    maelezo: "Muone daktari kwa uchunguzi kamili, matatizo yanayojirudia, ripoti za matibabu na rufaa.",
+  },
+  physiotherapy: {
+    jina: "Fiziotherapia",
+    maelezo: "Mazoezi na matibabu ya kupunguza maumivu na kukusaidia kutembea na kufanya kazi tena.",
+  },
+  "specialist-clinics": {
+    jina: "Kliniki za madaktari bingwa",
+    maelezo: "Muone daktari bingwa hapa Maili Sita bila kusafiri hadi mjini. Uliza mapokezi siku za kliniki.",
   },
   theatre: {
     jina: "Chumba cha upasuaji (inakuja hivi karibuni)",
@@ -158,7 +174,7 @@ export default function KiswahiliPage() {
         <SectionHeading
           id="huduma"
           eyebrow="Huduma zetu"
-          title="Huduma 12 chini ya paa moja"
+          title="Huduma 16 chini ya paa moja"
           intro="Bofya huduma yoyote kusoma maelezo zaidi (kurasa hizo ziko kwa Kiingereza). Chumba cha upasuaji na huduma za meno zinakuja hivi karibuni."
         />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

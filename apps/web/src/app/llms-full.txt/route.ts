@@ -1,7 +1,7 @@
 import { SERVICE_PAGES } from "@/content/services";
 import { EMERGENCY_FAQS, GENERAL_FAQS, PAYMENT_FAQS, SWAHILI_FAQS, VISITOR_FAQS, type Faq } from "@/content/faqs";
 import { getAllArticles, getArticleMarkdown } from "@/lib/content";
-import { absoluteUrl, fullAddress, hasPhone, phoneDisplay, site } from "@/lib/site";
+import { PHONES, absoluteUrl, fullAddress, hasPhone, site } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -71,7 +71,7 @@ ${qa(SWAHILI_FAQS)}`;
 ${site.description}
 
 Address: ${fullAddress()}. Open 24 hours.
-Email: ${site.contact.email}${hasPhone ? `. Phone: ${phoneDisplay()}` : ""}. Emergencies: call 999 or 112.
+Email: ${site.contact.email}${hasPhone ? `. Phone: ${PHONES.map((p) => p.label).join(" or ")}` : ""}. Emergencies: call 999 or 112.
 
 # Frequently asked questions
 

@@ -27,13 +27,13 @@ const GROUPS: { id: string; title: string; intro: string; codes: ServiceCode[] }
     id: "everyday-and-urgent",
     title: "Everyday and urgent care",
     intro: "Walk in at any hour for illness, injuries and check-ups.",
-    codes: ["general-outpatient", "emergency-24hr", "minor-procedures"],
+    codes: ["general-outpatient", "gp-clinic", "emergency-24hr", "minor-procedures"],
   },
   {
     id: "mother-and-child",
-    title: "Pregnancy, birth and family health",
-    intro: "From your first antenatal visit to your child's vaccinations.",
-    codes: ["antenatal-care", "maternity", "family-planning", "child-health"],
+    title: "Pregnancy, birth, women's and family health",
+    intro: "From your first antenatal visit to your child's vaccinations, and gynaecology care at every age.",
+    codes: ["antenatal-care", "maternity", "obstetrics-gynaecology", "family-planning", "child-health"],
   },
   {
     id: "tests-and-medicines",
@@ -43,9 +43,9 @@ const GROUPS: { id: string; title: string; intro: string; codes: ServiceCode[] }
   },
   {
     id: "ongoing-care",
-    title: "Ongoing and inpatient care",
-    intro: "Long-term condition reviews, and admission when you need closer care.",
-    codes: ["chronic-care", "inpatient"],
+    title: "Ongoing, specialist and inpatient care",
+    intro: "Long-term condition reviews, physiotherapy, specialist clinics, and admission when you need closer care.",
+    codes: ["chronic-care", "specialist-clinics", "physiotherapy", "inpatient"],
   },
   {
     id: "coming-soon",
@@ -75,7 +75,7 @@ export default function ServicesPage() {
         crumbs={[{ name: "Services", path: "/services" }]}
         eyebrow="Our services"
         title="Care for every stage of life, six miles closer"
-        intro={`Primegala offers ${OPEN_SERVICES.length} services under one roof at Maili Sita, open 24 hours: outpatient and urgent care, maternity and antenatal care, family planning, child health, HIV testing, laboratory, pharmacy, inpatient admission, chronic disease care and minor procedures. A surgical theatre and dental care are coming soon.${site.shaContracted ? " SHA is accepted for eligible services." : ""}`}
+        intro={`Primegala offers ${OPEN_SERVICES.length} services under one roof at Maili Sita, open 24 hours: outpatient and urgent care, a GP clinic, maternity and antenatal care, obstetrics and gynaecology, family planning, child health, HIV testing, laboratory, pharmacy, inpatient admission, chronic disease care, physiotherapy, specialist clinics and minor surgery. A surgical theatre and dental care are coming soon.${site.shaContracted ? " SHA is accepted for eligible services." : ""}`}
       >
         <ButtonLink href="/book" size="lg" track="book_click_services">
           <CalendarCheck className="size-5" aria-hidden /> Book a visit

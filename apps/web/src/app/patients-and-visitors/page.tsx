@@ -246,7 +246,7 @@ export default function PatientsAndVisitorsPage() {
           </Prose>
           <div className="grid gap-5 sm:grid-cols-2">
             <Photo name="labDoor" caption="Follow the green 'Laboratory' sign for your tests." />
-            <Photo name="pharmacyCounter" caption="The Primegala pharmacy, with medicines sorted by type." />
+            <Photo name="pharmacyDoor" caption="Then follow the green 'Pharmacy' sign to collect your medicines." />
           </div>
         </ContentBlock>
 

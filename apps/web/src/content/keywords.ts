@@ -124,6 +124,22 @@ export const KEYWORDS = {
     "minor surgery Bahati",
     "operation hospital near me",
   ],
+  gynae: [
+    "gynaecologist Nakuru",
+    "obstetrician Nakuru",
+    "gynae clinic near me",
+    "women's health clinic Nakuru",
+    "pap smear Nakuru",
+  ],
+  gp: ["GP near me Nakuru", "general practitioner Nakuru", "doctor consultation Nakuru", "medical check up Nakuru"],
+  physio: [
+    "physiotherapy Nakuru",
+    "physiotherapist near me",
+    "physio Bahati",
+    "back pain treatment Nakuru",
+    "stroke rehabilitation Nakuru",
+  ],
+  specialist: ["specialist clinic Nakuru", "specialist doctor Nakuru", "see a specialist near me Nakuru"],
   dental: [
     "dentist Nakuru",
     "dentist near me",

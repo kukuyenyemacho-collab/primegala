@@ -3,9 +3,12 @@ import {
   Baby,
   Bandage,
   BedDouble,
+  BriefcaseMedical,
   CalendarHeart,
+  ClipboardPlus,
   FlaskConical,
   HeartPulse,
+  PersonStanding,
   Pill,
   Ribbon,
   Scissors,
@@ -13,6 +16,7 @@ import {
   Stethoscope,
   Syringe,
   Toothbrush,
+  Venus,
   type LucideProps,
 } from "lucide-react";
 import type { IconName } from "@/content/services";
@@ -22,9 +26,12 @@ const ICONS = {
   Baby,
   Bandage,
   BedDouble,
+  BriefcaseMedical,
   CalendarHeart,
+  ClipboardPlus,
   FlaskConical,
   HeartPulse,
+  PersonStanding,
   Pill,
   Ribbon,
   Scissors,
@@ -32,6 +39,7 @@ const ICONS = {
   Stethoscope,
   Syringe,
   Toothbrush,
+  Venus,
 } satisfies Record<IconName, unknown>;
 
 export function ServiceIcon({ name, ...props }: { name: IconName } & LucideProps) {

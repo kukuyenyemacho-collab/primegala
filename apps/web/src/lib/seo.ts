@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EMAILS, absoluteUrl, fullAddress, isProductionSite, site } from "./site";
+import { EMAILS, PHONES, absoluteUrl, fullAddress, isProductionSite, site } from "./site";
 import { AREAS } from "@/content/keywords";
 
 interface PageMetaInput {
@@ -75,12 +75,20 @@ export function organizationJsonLd(): JsonLdObject {
     foundingDate: site.foundingDate,
     ...(site.contact.phone ? { telephone: site.contact.phone } : {}),
     ...(site.contact.email ? { email: site.contact.email } : {}),
-    contactPoint: EMAILS.map((e) => ({
-      "@type": "ContactPoint",
-      contactType: e.label,
-      email: e.address,
-      availableLanguage: ["en", "sw"],
-    })),
+    contactPoint: [
+      ...PHONES.map((p) => ({
+        "@type": "ContactPoint",
+        contactType: "Reception (24 hours)",
+        telephone: p.e164,
+        availableLanguage: ["en", "sw"],
+      })),
+      ...EMAILS.map((e) => ({
+        "@type": "ContactPoint",
+        contactType: e.label,
+        email: e.address,
+        availableLanguage: ["en", "sw"],
+      })),
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: `${site.address.building}, ${site.address.street} (${site.address.landmark})`,

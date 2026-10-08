@@ -22,6 +22,10 @@ export const SERVICE_CODES = [
   "minor-procedures",
   "theatre",
   "dental-care",
+  "obstetrics-gynaecology",
+  "gp-clinic",
+  "physiotherapy",
+  "specialist-clinics",
 ] as const;
 
 export type ServiceCode = (typeof SERVICE_CODES)[number];
@@ -49,9 +53,13 @@ export const SERVICES: readonly ServiceDefinition[] = [
   { code: "pharmacy", name: "Pharmacy", listedOnKmhfr: false },
   { code: "inpatient", name: "Inpatient Care", listedOnKmhfr: true, shaFund: "SHIF" },
   { code: "chronic-care", name: "Diabetes & Hypertension Clinic", listedOnKmhfr: false, shaFund: "PHCF" },
-  { code: "minor-procedures", name: "Minor Procedures & Wound Care", listedOnKmhfr: false },
+  { code: "minor-procedures", name: "Minor Surgery & Wound Care", listedOnKmhfr: false },
   { code: "theatre", name: "Surgical Theatre", listedOnKmhfr: false, shaFund: "SHIF", comingSoon: true },
   { code: "dental-care", name: "Dental Care", listedOnKmhfr: false, comingSoon: true },
+  { code: "obstetrics-gynaecology", name: "Obstetrics & Gynaecology", listedOnKmhfr: false, shaFund: "SHIF" },
+  { code: "gp-clinic", name: "General Practitioner Clinic", listedOnKmhfr: false, shaFund: "PHCF" },
+  { code: "physiotherapy", name: "Physiotherapy", listedOnKmhfr: false },
+  { code: "specialist-clinics", name: "Specialist Clinics", listedOnKmhfr: false },
 ];
 
 export function getService(code: ServiceCode): ServiceDefinition {

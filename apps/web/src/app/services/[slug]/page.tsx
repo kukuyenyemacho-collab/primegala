@@ -81,7 +81,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </li>
               ) : (
                 <li className="flex gap-3">
-                  <Clock className="size-5 shrink-0 text-trust-700" aria-hidden /> Open 24 hours, walk-ins welcome
+                  <Clock className="size-5 shrink-0 text-trust-700" aria-hidden />{" "}
+                  {service.hoursNote ?? "Open 24 hours, walk-ins welcome"}
                 </li>
               )}
               <li className="flex gap-3">
@@ -161,7 +162,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <h2 id="photos-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
                   A look inside
                 </h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                <div
+                  className={cn(
+                    "mt-6 grid gap-4",
+                    service.photos.length === 1 && "max-w-sm",
+                    service.photos.length === 3 && "sm:grid-cols-3",
+                    (service.photos.length === 2 || service.photos.length >= 4) && "sm:grid-cols-2",
+                  )}
+                >
                   {service.photos.map((p) => (
                     <Photo key={p.name} name={p.name} caption={p.caption} aspect="aspect-[4/5]" />
                   ))}
@@ -218,7 +226,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <p className="mt-2 text-muted">
                 {soon
                   ? `Leave your details and we will contact you when ${service.name.toLowerCase()} opens at Primegala.`
-                  : "Our team will contact you to confirm. Walk-ins are welcome at any hour."}
+                  : service.hoursNote
+                    ? "Our team will contact you to confirm the next clinic date."
+                    : "Our team will contact you to confirm. Walk-ins are welcome at any hour."}
               </p>
               <LeadForm
                 className="mt-5"

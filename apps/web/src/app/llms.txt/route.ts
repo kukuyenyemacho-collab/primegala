@@ -2,7 +2,7 @@ import { SERVICE_PAGES } from "@/content/services";
 import { GENERAL_FAQS } from "@/content/faqs";
 import { AREAS_SERVED } from "@/content/areas";
 import { getAllArticles } from "@/lib/content";
-import { EMAILS, absoluteUrl, fullAddress, hasPhone, hasWhatsApp, phoneDisplay, site } from "@/lib/site";
+import { EMAILS, PHONES, absoluteUrl, fullAddress, hasPhone, hasWhatsApp, site } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -16,7 +16,7 @@ export function GET() {
   // Only list contact channels that are really set up on the live site.
   const contactLines = [
     ...EMAILS.map((e) => `- Email (${e.label.toLowerCase()}): ${e.address}`),
-    ...(hasPhone ? [`- Phone: ${phoneDisplay()}`] : []),
+    ...(hasPhone ? [`- Phone: ${PHONES.map((p) => p.label).join(" or ")}`] : []),
     ...(hasWhatsApp ? [`- WhatsApp: https://wa.me/${site.contact.whatsapp}`] : []),
     "- In person: front desk open 24 hours",
   ].join("\n");

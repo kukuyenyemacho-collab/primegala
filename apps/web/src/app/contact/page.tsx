@@ -15,6 +15,7 @@ import { keywordsFor } from "@/content/keywords";
 import { pageMetadata } from "@/lib/seo";
 import {
   EMAILS,
+  PHONES,
   absoluteUrl,
   emailHref,
   fullAddress,
@@ -44,7 +45,7 @@ const CONTACT_FAQS = [
   },
   {
     q: "How do I contact Primegala Medical Centre?",
-    a: `${hasPhone ? `Call ${phoneDisplay()}, email` : "Email"} ${site.contact.email}, request an appointment online, or come to our front desk at any hour. For a life-threatening emergency, call 999 or 112.`,
+    a: `${hasPhone ? `Call ${PHONES.map((p) => p.label).join(" or ")}, email` : "Email"} ${site.contact.email}, request an appointment online, or come to our front desk at any hour. For a life-threatening emergency, call 999 or 112.`,
   },
   {
     q: "Is Primegala open on weekends and public holidays?",
@@ -120,9 +121,16 @@ export default function ContactPage() {
             {hasPhone && (
               <p className="mt-5 border-t border-trust-100 pt-4">
                 <span className="text-sm font-bold tracking-wider text-trust-800 uppercase">Phone</span>
-                <a href={phoneHref()} className="link-brand mt-1 block text-lg" data-track="call_click_contact_hero">
-                  {phoneDisplay()}
-                </a>
+                {PHONES.map((p) => (
+                  <a
+                    key={p.href}
+                    href={p.href}
+                    className="link-brand mt-1 block text-lg"
+                    data-track="call_click_contact_hero"
+                  >
+                    {p.label}
+                  </a>
+                ))}
               </p>
             )}
             <p className="mt-5 flex gap-2 border-t border-trust-100 pt-4 text-sm leading-relaxed text-ink">
@@ -185,9 +193,13 @@ export default function ContactPage() {
           </ContactCard>
           {hasPhone && (
             <ContactCard icon={Phone} title="Phone">
-              <a href={phoneHref()} className="link-brand" data-track="call_click_contact_card">
-                {phoneDisplay()}
-              </a>
+              <span className="grid gap-1">
+                {PHONES.map((p) => (
+                  <a key={p.href} href={p.href} className="link-brand" data-track="call_click_contact_card">
+                    {p.label}
+                  </a>
+                ))}
+              </span>
             </ContactCard>
           )}
           {hasWhatsApp && (

@@ -5,7 +5,7 @@ import { MapEmbed } from "@/components/MapEmbed";
 import { Photo } from "@/components/Photo";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { AREAS_SERVED } from "@/content/areas";
-import { emailHref, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
+import { PHONES, emailHref, hasPhone, site } from "@/lib/site";
 
 export function FindUs() {
   const a = site.address;
@@ -21,9 +21,13 @@ export function FindUs() {
           {
             term: "Phone",
             value: (
-              <a href={phoneHref()} className="link-brand" data-track="call_click_home">
-                {phoneDisplay()}
-              </a>
+              <span className="flex flex-wrap gap-x-4 gap-y-1">
+                {PHONES.map((p) => (
+                  <a key={p.href} href={p.href} className="link-brand" data-track="call_click_home">
+                    {p.label}
+                  </a>
+                ))}
+              </span>
             ),
           },
         ]

@@ -16,7 +16,11 @@ export type IconName =
   | "Activity"
   | "Bandage"
   | "Scissors"
-  | "Toothbrush";
+  | "Toothbrush"
+  | "Venus"
+  | "ClipboardPlus"
+  | "PersonStanding"
+  | "BriefcaseMedical";
 
 export interface ServiceContent {
   code: ServiceCode;
@@ -43,6 +47,11 @@ export interface ServiceContent {
   keywordGroups: KeywordGroup[];
   related: string[];
   featured?: boolean;
+  /**
+   * Shown instead of "Open 24 hours, walk-ins welcome" for services that run as
+   * booked clinics on set days.
+   */
+  hoursNote?: string;
   /** Real photos of this service at Primegala, shown on the service page. */
   photos?: { name: PhotoName; caption: string }[];
   /**
@@ -232,6 +241,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
   },
   {
     code: "antenatal-care",
+    photos: [{ name: "mchDoor", caption: "Look for the ANC/MCH/F.P door: antenatal, child health and family planning." }],
     slug: "antenatal-care",
     name: "Antenatal Care (ANC)",
     icon: "HeartPulse",
@@ -285,6 +295,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
   },
   {
     code: "family-planning",
+    photos: [{ name: "mchDoor", caption: "Look for the ANC/MCH/F.P door: antenatal, child health and family planning." }],
     slug: "family-planning",
     name: "Family Planning",
     icon: "CalendarHeart",
@@ -337,6 +348,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
   },
   {
     code: "child-health",
+    photos: [{ name: "mchDoor", caption: "Look for the ANC/MCH/F.P door: antenatal, child health and family planning." }],
     slug: "child-health",
     name: "Child Health & Immunisation",
     icon: "Syringe",
@@ -446,6 +458,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { name: "labBench", caption: "Microscope, centrifuge, shaker and incubator on our lab bench." },
       { name: "labAnalyser", caption: "Our automated blood-count analyser for full blood counts." },
       { name: "labMicroscope", caption: "Microscopy for malaria and other tests, on site." },
+      { name: "labAnalysers", caption: "Analysers for blood chemistry and rapid tests." },
     ],
     slug: "laboratory",
     name: "Laboratory Services",
@@ -552,6 +565,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       { name: "pharmacyStock", caption: "Antibiotics, syrups and antacids, each on its own labelled shelf." },
       { name: "pharmacyCounter", caption: "Children's medicines and cough remedies within easy reach of the counter." },
       { name: "pharmacyShelves", caption: "Our pharmacy store at Maili Sita." },
+      { name: "pharmacyDoor", caption: "Follow the green 'Pharmacy' sign after your consultation." },
     ],
   },
   {
@@ -662,12 +676,12 @@ export const SERVICE_PAGES: ServiceContent[] = [
   {
     code: "minor-procedures",
     slug: "minor-procedures",
-    name: "Minor Procedures & Wound Care",
+    name: "Minor Surgery & Wound Care",
     icon: "Bandage",
-    summary: "Stitches, dressings, abscess drainage and other quick procedures.",
-    metaTitle: "Wound Care & Minor Procedures | Maili Sita, Nakuru",
+    summary: "Minor surgery, stitches, dressings, abscess drainage and other quick procedures.",
+    metaTitle: "Minor Surgery & Wound Care | Maili Sita, Nakuru",
     metaDescription:
-      "Wound dressing, stitching, abscess drainage and minor procedures at Primegala Medical Centre, Maili Sita, Nakuru. Clean, careful care, 24 hours a day.",
+      "Minor surgery, wound dressing, stitching and abscess drainage at Primegala Medical Centre, Maili Sita, Nakuru. Clean, careful care, 24 hours a day.",
     intro:
       "Cuts, burns and boils heal best when they're cleaned and treated properly from the start. Our team handles minor procedures in a clean, calm setting, at any hour.",
     story: {
@@ -675,6 +689,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
       body: "A cut from the shamba or a burn from the jiko can become infected if it isn't cleaned well. We clean, close and dress wounds properly, check your tetanus protection and tell you exactly what to watch for at home.",
     },
     offers: [
+      "Minor surgical procedures under local anaesthetic",
       "Wound cleaning, stitching and dressing",
       "Burns care",
       "Incision and drainage of abscesses",
@@ -711,6 +726,221 @@ export const SERVICE_PAGES: ServiceContent[] = [
     ],
     keywordGroups: ["emergency"],
     related: ["when-to-seek-urgent-care", "dog-bites-rabies"],
+  },
+  {
+    code: "obstetrics-gynaecology",
+    hoursNote: "Booked clinics: call or ask reception for clinic days",
+    slug: "obstetrics-gynaecology",
+    name: "Obstetrics & Gynaecology",
+    icon: "Venus",
+    summary: "Women's health from puberty to menopause: pregnancy care, gynae checks and screening.",
+    metaTitle: "Obstetrics & Gynaecology Clinic, Maili Sita Nakuru",
+    metaDescription:
+      "Obstetrics and gynaecology at Primegala Medical Center, Maili Sita, Nakuru: pregnancy care, period problems, cervical cancer screening, fertility questions and menopause care. SHA accepted.",
+    intro:
+      "Women's health deserves unhurried, private care. Our obstetrics and gynaecology clinic sees women and girls for pregnancy, period problems, screening, fertility questions and menopause, close to home.",
+    story: {
+      heading: "The questions that are hard to ask",
+      body: "Heavy periods, pain, a missed period or a lump you're worried about are easy to put off talking about. Here you can ask in private, in English or Kiswahili, and get a clear plan, whether that's a test, treatment or a referral.",
+    },
+    offers: [
+      "Pregnancy reviews alongside our antenatal clinic",
+      "Period problems: heavy, painful or irregular periods",
+      "Cervical cancer screening",
+      "Pelvic infections and vaginal discharge",
+      "Fertility questions and preconception advice",
+      "Menopause care",
+    ],
+    steps: [
+      { title: "Book or walk in", body: "Book a visit or ask at reception for the next clinic." },
+      { title: "Private consultation", body: "We listen, examine with your consent and explain what we find." },
+      { title: "Tests if needed", body: "Laboratory tests on site, with referral for scans when needed." },
+      { title: "Your plan", body: "Treatment, follow-up or referral, explained clearly." },
+    ],
+    prepare: [
+      "Note the date of your last period and how long your cycles usually are.",
+      "Bring your Mother & Child Health booklet if you are pregnant.",
+      "Bring any previous test results, scans or prescriptions.",
+      "You are welcome to bring a female relative or friend, or ask for a female chaperone.",
+    ],
+    sha: "Gynaecology and pregnancy care are covered according to SHA benefit rules. We confirm what is covered, and any cost, before treatment.",
+    faqs: [
+      {
+        q: "Do I need a referral to see the gynaecology clinic?",
+        a: "No. You can book or walk in. Our clinicians may also refer you to the clinic after an outpatient visit.",
+      },
+      {
+        q: "Can I get a cervical cancer screening at Primegala?",
+        a: "Yes. Ask for screening at reception or during your visit. It takes a few minutes and is done in private.",
+      },
+      {
+        q: "Can I ask for a female chaperone?",
+        a: "Yes. You can always ask for a chaperone during an examination.",
+      },
+    ],
+    keywordGroups: ["gynae", "maternity"],
+    related: ["cervical-cancer-screening-hpv", "period-pain-when-to-worry", "utis-in-women"],
+    photos: [{ name: "mchDoor", caption: "Our ANC, MCH and family planning room, where pregnancy reviews take place." }],
+  },
+  {
+    code: "gp-clinic",
+    hoursNote: "Booked clinics: call or ask reception for clinic days",
+    slug: "gp-clinic",
+    name: "General Practitioner Clinic",
+    icon: "ClipboardPlus",
+    summary: "See a doctor for a full review, ongoing problems, check-ups and medical reports.",
+    metaTitle: "GP Clinic: See a Doctor at Maili Sita, Nakuru",
+    metaDescription:
+      "General practitioner clinic at Primegala Medical Center, Maili Sita, Nakuru: doctor consultations, check-ups, medical reports and referrals, with lab and pharmacy on site. SHA accepted.",
+    intro:
+      "Sometimes you want time with a doctor to look at the whole picture. Our general practitioner clinic is for full reviews, problems that keep coming back, check-ups and medical reports.",
+    story: {
+      heading: "One doctor who sees the whole picture",
+      body: "A cough, tiredness and poor sleep can look like three problems, or one. A general practitioner reviews your history, your medicines and your test results together, then agrees a plan with you.",
+    },
+    offers: [
+      "Doctor consultations for adults and children",
+      "Full medical check-ups",
+      "Review of problems that keep coming back",
+      "Medical reports and fitness certificates",
+      "Referral letters to specialists and hospitals",
+    ],
+    steps: [
+      { title: "Book or ask at reception", body: "Book ahead online, or ask at reception for the next GP slot." },
+      { title: "Triage", body: "A nurse checks your vital signs before you see the doctor." },
+      { title: "Consultation", body: "The doctor reviews your history, examines you and explains the findings." },
+      { title: "Plan", body: "Tests, treatment, follow-up or referral, agreed with you." },
+    ],
+    prepare: [
+      "Write down your symptoms, when they started and what makes them better or worse.",
+      "Bring all the medicines you take, or their packets.",
+      "Bring previous test results, discharge summaries or referral letters.",
+      "For a medical report, bring the form and your national ID.",
+    ],
+    sha: "GP consultations are covered according to SHA benefit rules. We confirm what is covered, and any cost, before treatment.",
+    faqs: [
+      {
+        q: "What is the difference between the GP clinic and outpatient?",
+        a: "Outpatient is for walk-in care at any hour. The GP clinic is for a fuller review with a doctor, check-ups, medical reports and long-running problems.",
+      },
+      {
+        q: "Can I get a medical report or fitness certificate?",
+        a: "Yes. Bring the form and your national ID. The doctor examines you before completing it.",
+      },
+      {
+        q: "Do I need an appointment?",
+        a: "Booking ahead helps us plan, but you can also ask at reception for the next available slot.",
+      },
+    ],
+    keywordGroups: ["gp", "core"],
+    related: ["medical-checkups-by-age", "know-your-numbers", "your-first-visit-to-primegala"],
+  },
+  {
+    code: "physiotherapy",
+    hoursNote: "Booked clinics: call or ask reception for clinic days",
+    slug: "physiotherapy",
+    name: "Physiotherapy",
+    icon: "PersonStanding",
+    summary: "Exercise and hands-on treatment to ease pain and help you move again.",
+    metaTitle: "Physiotherapy at Maili Sita, Nakuru",
+    metaDescription:
+      "Physiotherapy at Primegala Medical Center, Maili Sita, Nakuru: back and neck pain, joint problems, recovery after injury or surgery, and rehabilitation after a stroke.",
+    intro:
+      "Pain and stiffness can make work, farming and daily life hard. Our physiotherapy service uses guided exercise and hands-on treatment to ease pain and help you move with confidence again.",
+    story: {
+      heading: "Getting back to the shamba",
+      body: "Back pain after lifting, a stiff knee or weakness after an illness can stop you working for weeks. Physiotherapy gives you a plan of exercises and treatment, and shows you how to keep improving at home.",
+    },
+    offers: [
+      "Back, neck and shoulder pain",
+      "Joint pain and stiffness",
+      "Recovery after injuries and fractures",
+      "Rehabilitation after surgery",
+      "Rehabilitation after a stroke",
+      "Home exercise programmes",
+    ],
+    steps: [
+      { title: "Assessment", body: "We ask about your pain and check how you move." },
+      { title: "Plan", body: "Together we set goals and agree a treatment plan." },
+      { title: "Treatment", body: "Guided exercise and hands-on treatment during your sessions." },
+      { title: "At home", body: "Exercises to continue at home, and review sessions to track progress." },
+    ],
+    prepare: [
+      "Wear loose, comfortable clothing you can move in.",
+      "Bring any X-rays, scan reports or discharge summaries.",
+      "Bring a list of the medicines you take.",
+      "Note which movements or activities make the pain worse.",
+    ],
+    sha: "We confirm what SHA covers for physiotherapy, and any cost, before your first session.",
+    faqs: [
+      {
+        q: "Do I need a referral for physiotherapy?",
+        a: "Not always. You can book directly, and our clinicians can also refer you after a consultation.",
+      },
+      {
+        q: "How many sessions will I need?",
+        a: "It depends on the problem. Your physiotherapist will suggest a plan after your first assessment.",
+      },
+      {
+        q: "Does physiotherapy help after a stroke?",
+        a: "Yes. Rehabilitation can help with movement, balance and daily activities. Starting early helps.",
+      },
+    ],
+    keywordGroups: ["physio"],
+    related: ["medical-checkups-by-age", "stress-and-sleep"],
+  },
+  {
+    code: "specialist-clinics",
+    hoursNote: "Booked clinics: call or ask reception for clinic days",
+    slug: "specialist-clinics",
+    name: "Specialist Clinics",
+    icon: "BriefcaseMedical",
+    summary: "Booked clinics with specialists, so you can see one without the trip to town.",
+    metaTitle: "Specialist Clinics at Maili Sita, Nakuru",
+    metaDescription:
+      "Specialist clinics at Primegala Medical Center, Maili Sita, Nakuru: booked appointments with specialists, with referral from our clinicians and follow-up close to home.",
+    intro:
+      "Seeing a specialist often means a long trip and a long wait. Primegala runs specialist clinics at Maili Sita, so you can see a specialist close to home and keep your follow-up here.",
+    story: {
+      heading: "Specialist care, closer to home",
+      body: "When your clinician thinks you need a specialist's opinion, we book you into a specialist clinic here when we can, so your records, tests and follow-up stay in one place.",
+    },
+    offers: [
+      "Booked appointments with specialists",
+      "Referral from our clinicians",
+      "Tests before your appointment, on site",
+      "Follow-up with your Primegala clinician",
+      "Referral to a hospital when you need one",
+    ],
+    steps: [
+      { title: "Referral or booking", body: "Our clinician refers you, or you ask reception about upcoming clinics." },
+      { title: "Tests", body: "Any tests the specialist needs can be done here beforehand." },
+      { title: "Specialist visit", body: "The specialist reviews you and agrees a plan with you." },
+      { title: "Follow-up", body: "Your Primegala clinician helps you follow the plan." },
+    ],
+    prepare: [
+      "Bring your referral letter, if you have one.",
+      "Bring previous test results, scans and discharge summaries.",
+      "Bring all the medicines you take.",
+      "Write down the questions you want to ask the specialist.",
+    ],
+    sha: "Specialist consultations are covered according to SHA benefit rules. We confirm what is covered, and any cost, before your appointment.",
+    faqs: [
+      {
+        q: "Which specialists come to Primegala?",
+        a: "Specialist clinics are held on set days. Call or ask at reception which specialists are coming and when.",
+      },
+      {
+        q: "Do I need a referral for a specialist clinic?",
+        a: "A referral from our clinicians helps the specialist prepare, but you can also ask reception to book you.",
+      },
+      {
+        q: "Can I have my tests done before the clinic?",
+        a: "Yes. Our laboratory can do most routine tests beforehand, so results are ready for the specialist.",
+      },
+    ],
+    keywordGroups: ["specialist"],
+    related: ["managing-high-blood-pressure", "diabetes-early-signs"],
   },
   {
     code: "theatre",

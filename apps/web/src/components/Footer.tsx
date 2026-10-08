@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon, YouTubeIcon } from "./Icon";
 import { SERVICE_PAGES } from "@/content/services";
 import { NAV_GROUPS, type NavLink } from "@/content/navigation";
-import { EMAILS, emailHref, fullAddress, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
+import { EMAILS, PHONES, emailHref, fullAddress, hasPhone, site } from "@/lib/site";
 
 const LEGAL_LINKS: NavLink[] = [
   { href: "/legal/privacy-policy", label: "Privacy Policy" },
@@ -86,9 +86,13 @@ export function Footer() {
             {hasPhone && (
               <p className="flex gap-3">
                 <Phone className="mt-0.5 size-5 shrink-0 text-trust-300" aria-hidden />
-                <a href={phoneHref()} className={linkClass} data-track="call_click_footer">
-                  {phoneDisplay()}
-                </a>
+                <span className="grid gap-1">
+                  {PHONES.map((p) => (
+                    <a key={p.href} href={p.href} className={linkClass} data-track="call_click_footer">
+                      {p.label}
+                    </a>
+                  ))}
+                </span>
               </p>
             )}
             <p className="flex gap-3">

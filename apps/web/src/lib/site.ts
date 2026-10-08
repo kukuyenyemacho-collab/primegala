@@ -14,6 +14,7 @@ const env = (key: string) => {
 };
 
 const phone = env("NEXT_PUBLIC_PHONE") ?? "0182744816";
+const phoneAlt = env("NEXT_PUBLIC_PHONE_2") ?? "0746100727";
 const whatsapp = env("NEXT_PUBLIC_WHATSAPP") ?? phone;
 const lat = Number(env("NEXT_PUBLIC_GEO_LAT"));
 const lng = Number(env("NEXT_PUBLIC_GEO_LNG"));
@@ -32,7 +33,7 @@ export const site = {
   shortName: "Primegala",
   tagline: "Your Health, Our Priority.",
   description:
-    "Primegala Medical Center and Nursing Home is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, maternity, antenatal, family planning, HIV testing, laboratory, pharmacy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
+    "Primegala Medical Center and Nursing Home is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, GP and specialist clinics, maternity, antenatal, obstetrics and gynaecology, family planning, HIV testing, laboratory, pharmacy, physiotherapy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
   url: (env("NEXT_PUBLIC_SITE_URL") ?? "https://primegalahospital.co.ke").replace(/\/$/, ""),
   locale: "en_KE",
   foundingDate: "2022-03-01",
@@ -58,6 +59,8 @@ export const site = {
     "https://www.google.com/maps/search/?api=1&query=Primegala+Medical+Centre+Maili+Sita+Nakuru",
   contact: {
     phone: phone ? normalizeKenyanPhone(phone) : null,
+    /** Second line, shown alongside the main number. */
+    phoneAlt: phoneAlt ? normalizeKenyanPhone(phoneAlt) : null,
     whatsapp: whatsapp ? toWhatsAppNumber(whatsapp) : null,
     /** General enquiries, records requests and feedback. */
     email: env("NEXT_PUBLIC_EMAIL") ?? "info@primegalahospital.co.ke",
@@ -113,6 +116,11 @@ export function phoneDisplay(): string {
 export function phoneHref(): string {
   return site.contact.phone ? `tel:${site.contact.phone}` : emailHref();
 }
+
+/** Every configured phone line, main number first. */
+export const PHONES = [site.contact.phone, site.contact.phoneAlt]
+  .filter((n): n is string => Boolean(n))
+  .map((n) => ({ href: `tel:${n}`, label: formatKenyanPhone(n), e164: n }));
 
 export function emailHref(subject?: string, to: string = site.contact.email): string {
   return `mailto:${to}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
