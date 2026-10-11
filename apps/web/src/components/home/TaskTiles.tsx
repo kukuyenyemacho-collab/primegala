@@ -61,7 +61,7 @@ export function TaskTiles() {
           <li key={href}>
             <Link
               href={href}
-              className="group flex h-full items-start gap-4 rounded-xl border border-line bg-white p-5 transition-colors duration-150 hover:border-brand-300 hover:bg-brand-50/40 focus-visible:border-brand-300"
+              className="group flex h-full items-start gap-3 rounded-xl border border-line bg-white p-4 sm:gap-4 sm:p-5 transition-colors duration-150 hover:border-brand-300 hover:bg-brand-50/40 focus-visible:border-brand-300"
             >
               <span
                 className={cn(
@@ -72,10 +72,10 @@ export function TaskTiles() {
                 <Icon className="size-5" aria-hidden />
               </span>
               <span className="min-w-0 flex-1">
-                <h3 className="text-lg leading-snug font-bold text-brand-700 decoration-brand-300 underline-offset-4 group-hover:underline">
+                <h3 className="text-base leading-snug font-bold text-brand-700 sm:text-lg decoration-brand-300 underline-offset-4 group-hover:underline">
                   {title}
                 </h3>
-                <span className="mt-1 block text-[0.95rem] leading-relaxed text-muted">{body}</span>
+                <span className="mt-1 block text-sm leading-relaxed text-muted sm:text-[0.95rem]">{body}</span>
               </span>
               <ArrowRight
                 className="mt-1 size-5 shrink-0 text-brand-600 transition-transform group-hover:translate-x-0.5"

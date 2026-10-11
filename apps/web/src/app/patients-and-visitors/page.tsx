@@ -27,7 +27,7 @@ const PATH = "/patients-and-visitors";
 export const metadata: Metadata = pageMetadata({
   title: "Patient & Visitor Guide: Your Visit to Primegala, Maili Sita",
   description:
-    "What to bring, what happens at the front desk and triage, tests and pharmacy on site, admission, visiting, discharge, your records and feedback at Primegala Medical Centre, Maili Sita, Nakuru. Open 24 hours.",
+    "What to bring, what happens at the front desk and triage, tests and pharmacy on site, admission, visiting, discharge, your records and feedback at PRIMEGALA HOSPITAL, Maili Sita, Nakuru. Open 24 hours.",
   path: PATH,
   keywords: [
     ...keywordsFor("local", "inpatient"),

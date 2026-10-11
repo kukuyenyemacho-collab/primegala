@@ -25,7 +25,7 @@ const PATH = "/payments-and-insurance";
 export const metadata: Metadata = pageMetadata({
   title: "Payments & Insurance: SHA, M-Pesa and Cash at Primegala, Nakuru",
   description:
-    "How to pay at Primegala Medical Centre, Maili Sita: SHA for eligible services, M-Pesa and cash. We explain what is covered and any cost before treatment. Emergency treatment is a right under Article 43(2).",
+    "How to pay at PRIMEGALA HOSPITAL, Maili Sita: SHA for eligible services, M-Pesa and cash. We explain what is covered and any cost before treatment. Emergency treatment is a right under Article 43(2).",
   path: PATH,
   keywords: [
     ...keywordsFor("sha"),

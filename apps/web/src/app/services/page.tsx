@@ -16,7 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Medical Services at Maili Sita, Nakuru",
   description:
-    "All services at Primegala Medical Centre, Maili Sita: 24-hour outpatient and urgent care, maternity, antenatal, family planning, child health, HIV testing, laboratory, pharmacy, inpatient and chronic care.",
+    "All services at PRIMEGALA HOSPITAL, Maili Sita: 24-hour outpatient and urgent care, maternity, antenatal, family planning, child health, HIV testing, laboratory, pharmacy, inpatient and chronic care.",
   path: "/services",
   keywords: keywordsFor("core", "maternity", "familyPlanning", "lab", "hiv", "child", "chronic"),
 });
@@ -109,7 +109,7 @@ export default function ServicesPage() {
         return (
           <Section key={group.id} id={group.id} labelledBy={`${group.id}-title`} className="pb-0! sm:pb-0!">
             <SectionHeading id={`${group.id}-title`} title={group.title} intro={group.intro} />
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {services.map((s) => (
                 <ServiceCard key={s.slug} service={s} />
               ))}

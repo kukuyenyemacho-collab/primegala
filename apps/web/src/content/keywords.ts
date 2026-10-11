@@ -44,6 +44,8 @@ export const KEYWORDS = {
   local: [
     "hospital Maili Sita",
     "clinic Maili Sita",
+    "Primegala Hospital Maili Sita",
+    "Primegala Hospital Nakuru",
     "Primegala Medical Centre Maili Sita",
     "hospital along Nakuru Nyahururu road",
     "hospital near Kiamaina Primary School",

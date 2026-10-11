@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 export const PHOTOS = {
   building: {
     src: "/images/building-exterior.jpg",
-    alt: "The Primegala Medical Centre & Nursing Home building at Maili Sita: a white and blue building with the sign 'SHA accepted here' and '24 hr service'",
+    alt: "The PRIMEGALA HOSPITAL building at Maili Sita: a white and blue building with the sign 'SHA accepted here' and '24 hr service'",
     width: 1280,
     height: 960,
   },
@@ -112,7 +112,7 @@ export function Photo({
         )}
       />
       {caption && (
-        <figcaption className="border-t border-line px-4 py-3 text-sm leading-snug text-muted">{caption}</figcaption>
+        <figcaption className="border-t border-line px-3 py-2 text-xs leading-snug text-muted sm:px-4 sm:py-3 sm:text-sm">{caption}</figcaption>
       )}
     </figure>
   );

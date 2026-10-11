@@ -46,12 +46,12 @@ export function MaternitySpotlight({ guides }: { guides: { slug: string; title: 
           )}
         </div>
 
-        <dl className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2">
+        <dl className="grid grid-cols-2 gap-3 sm:gap-4">
           {FACTS.map(({ value, label }) => (
-            <div key={value} className="flex flex-col rounded-xl border border-line bg-white p-6">
+            <div key={value} className="flex flex-col rounded-xl border border-line bg-white p-4 sm:p-6">
               {/* Term (label) first in the markup; the figure is shown above it. */}
               <dt className="mt-2 text-sm leading-relaxed text-muted">{label}</dt>
-              <dd className="order-first text-3xl font-bold tracking-tight text-trust-700 sm:text-4xl">{value}</dd>
+              <dd className="order-first text-2xl font-bold tracking-tight text-trust-700 sm:text-4xl">{value}</dd>
             </div>
           ))}
         </dl>

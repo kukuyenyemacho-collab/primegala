@@ -14,7 +14,7 @@ export function MapEmbed({ query, mapsUrl }: { query: string; mapsUrl: string })
   if (loaded) {
     return (
       <iframe
-        title="Map showing Primegala Medical Centre at Maili Sita"
+        title="Map showing PRIMEGALA HOSPITAL at Maili Sita"
         src={`https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`}
         className="aspect-[4/3] min-h-80 w-full rounded-xl border border-line"
         loading="lazy"

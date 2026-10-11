@@ -27,7 +27,8 @@ export function pageMetadata({
   const url = absoluteUrl(path);
   return {
     // Short titles get the brand suffix; longer ones already carry the keywords and location.
-    title: title.length > 48 ? { absolute: title } : title,
+    // The layout template appends " | PRIMEGALA HOSPITAL"; longer titles stand alone to stay near 60 characters.
+    title: title.length > 40 ? { absolute: title } : title,
     description,
     keywords,
     alternates: { canonical: url },
@@ -66,7 +67,7 @@ export function organizationJsonLd(): JsonLdObject {
     "@type": "MedicalClinic",
     "@id": ORG_ID,
     name: site.name,
-    alternateName: [site.shortName, "Primegala Maili Sita"],
+    alternateName: [site.shortName, "Primegala Hospital", "Primegala Medical Centre", "Primegala Maili Sita"],
     slogan: site.tagline,
     description: site.description,
     url: site.url,

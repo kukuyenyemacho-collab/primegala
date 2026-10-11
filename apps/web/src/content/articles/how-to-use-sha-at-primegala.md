@@ -1,6 +1,6 @@
 ---
 title: "How to Use SHA at Primegala: A Step-by-Step Guide for Nakuru Families"
-description: "Everything you need to use the Social Health Authority (SHA) at Primegala Medical Centre, Maili Sita: registering on *147#, checking your status, what the Primary Healthcare Fund covers and what to bring."
+description: "Everything you need to use the Social Health Authority (SHA) at PRIMEGALA HOSPITAL, Maili Sita: registering on *147#, checking your status, what the Primary Healthcare Fund covers and what to bring."
 category: sha-guides
 published: "2026-10-04"
 author: "Primegala Clinical Team"
@@ -22,7 +22,7 @@ faqs:
     a: "Bring your national ID (or your child's birth certificate) and the phone number registered with SHA, because the facility may send you a one-time verification code."
 ---
 
-**Short answer:** If you are registered with the Social Health Authority (SHA), you can use it at Primegala Medical Centre for eligible services. Bring your national ID and the phone registered with SHA, and our front desk will confirm your eligibility before treatment.
+**Short answer:** If you are registered with the Social Health Authority (SHA), you can use it at PRIMEGALA HOSPITAL for eligible services. Bring your national ID and the phone registered with SHA, and our front desk will confirm your eligibility before treatment.
 
 Since SHA replaced NHIF in October 2024, we've met many patients at our Maili Sita front desk who weren't sure whether they were registered, what was covered or what to bring. This guide answers those questions in one place.
 

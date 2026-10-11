@@ -30,7 +30,7 @@ It's two in the morning and the contractions are coming every few minutes. While
 
 Kenya grades health facilities by the level of care they provide, known as KEPH levels. Level 2 and 3 facilities, such as dispensaries, health centres and medical centres, provide primary care, and many offer antenatal visits, normal (vaginal) deliveries, newborn care and postnatal checks. Caesarean sections and specialist obstetric care are provided at higher-level hospitals (Level 4 and above).
 
-Primegala Medical Centre is a KEPH Level 3 medical centre registered on the Kenya Master Health Facility Registry, open 24 hours at Maili Sita on the Nakuru–Nyahururu Road.
+PRIMEGALA HOSPITAL is a KEPH Level 3 facility registered on the Kenya Master Health Facility Registry, open 24 hours at Maili Sita on the Nakuru–Nyahururu Road.
 
 ## What does SHA cover for giving birth?
 

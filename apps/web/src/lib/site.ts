@@ -29,11 +29,11 @@ export const isProductionSite = env("NEXT_PUBLIC_SITE_ENV") === "production";
 
 export const site = {
   /** Registered name on KMHFR. CONFIRM if the facility has been re-licensed as a hospital. */
-  name: "Primegala Medical Center and Nursing Home",
+  name: "PRIMEGALA HOSPITAL",
   shortName: "Primegala",
   tagline: "Your Health, Our Priority.",
   description:
-    "Primegala Medical Center and Nursing Home is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, GP and specialist clinics, maternity, antenatal, obstetrics and gynaecology, family planning, HIV testing, laboratory, pharmacy, physiotherapy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
+    "PRIMEGALA HOSPITAL is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, GP and specialist clinics, maternity, antenatal, obstetrics and gynaecology, family planning, HIV testing, laboratory, pharmacy, physiotherapy and inpatient care for families in Bahati, Kabatini, Kiamaina, Lanet and Dundori.",
   url: (env("NEXT_PUBLIC_SITE_URL") ?? "https://primegalahospital.co.ke").replace(/\/$/, ""),
   locale: "en_KE",
   foundingDate: "2022-03-01",

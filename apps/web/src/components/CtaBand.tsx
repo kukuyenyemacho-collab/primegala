@@ -21,9 +21,9 @@ export function CtaBand({
           <h2 id="cta-band-title" className="text-3xl leading-tight font-bold tracking-tight sm:text-4xl">
             {title}
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-trust-100">{body}</p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-trust-100 sm:text-lg">{body}</p>
         </div>
-        <div className="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end">
+        <div className="grid gap-3 sm:flex sm:flex-wrap lg:col-span-6 lg:justify-end">
           <ButtonLink href="/book" size="lg" track="book_click_cta">
             <CalendarCheck className="size-5" aria-hidden /> Book a visit
           </ButtonLink>

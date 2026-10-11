@@ -18,8 +18,8 @@ export default function NotFound() {
         <p className="eyebrow">Error 404</p>
         <h1 className="mt-3 text-4xl leading-tight font-bold tracking-tight text-ink sm:text-5xl">Page not found</h1>
         <p className="mt-5 text-lg leading-relaxed text-muted">
-          We couldn&apos;t find the page you were looking for. It may have moved, or the address may be mistyped. Our
-          medical centre at Maili Sita is open 24 hours a day.
+          We couldn&apos;t find the page you were looking for. It may have moved, or the address may be mistyped. PRIMEGALA
+          HOSPITAL at Maili Sita is open 24 hours a day.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <ButtonLink href="/">Go to the home page</ButtonLink>

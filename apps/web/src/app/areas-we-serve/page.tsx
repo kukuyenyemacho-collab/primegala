@@ -13,7 +13,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Clinic Near Bahati, Kabatini, Kiamaina, Lanet & Dundori",
   description:
-    "Primegala Medical Centre at Maili Sita serves families across Nakuru North: Kabatini, Kiamaina, Bahati, Lanet, Umoja, Dundori, Maili Kumi and Nakuru town. Directions from each area, open 24 hours.",
+    "PRIMEGALA HOSPITAL at Maili Sita serves families across Nakuru North: Kabatini, Kiamaina, Bahati, Lanet, Umoja, Dundori, Maili Kumi and Nakuru town. Directions from each area, open 24 hours.",
   path: "/areas-we-serve",
   keywords: keywordsFor("local", "questions"),
 });
@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMetadata({
 const AREA_FAQS = [
   {
     q: "Is there a 24-hour clinic near Bahati?",
-    a: "Yes. Primegala Medical Centre at Maili Sita on the Nakuru–Nyahururu Road is open 24 hours and serves Bahati, Kabatini, Kiamaina and the surrounding areas.",
+    a: "Yes. PRIMEGALA HOSPITAL at Maili Sita on the Nakuru–Nyahururu Road is open 24 hours and serves Bahati, Kabatini, Kiamaina and the surrounding areas.",
   },
   {
     q: "How far is Maili Sita from Nakuru town?",
@@ -29,7 +29,7 @@ const AREA_FAQS = [
   },
   {
     q: "Which hospital is opposite Kiamaina Primary School?",
-    a: "Primegala Medical Centre is directly opposite Kiamaina Primary School at Maili Sita Centre.",
+    a: "PRIMEGALA HOSPITAL is directly opposite Kiamaina Primary School at Maili Sita Centre.",
   },
   {
     q: "Which matatus pass Primegala?",

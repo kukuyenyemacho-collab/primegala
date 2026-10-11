@@ -34,7 +34,7 @@ export function HubInfoPanel({ guides, tips, topics }: { guides: number; tips: n
         <ul className="mt-4 space-y-3 text-sm leading-relaxed text-ink/85">
           <li className="flex gap-3">
             <PenLine className="mt-0.5 size-4 shrink-0 text-trust-700" aria-hidden />
-            Written by Primegala Medical Centre in plain language for families in Nakuru North.
+            Written by PRIMEGALA HOSPITAL in plain language for families in Nakuru North.
           </li>
           <li className="flex gap-3">
             <CalendarCheck className="mt-0.5 size-4 shrink-0 text-trust-700" aria-hidden />

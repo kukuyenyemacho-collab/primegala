@@ -1,5 +1,5 @@
 /* TEAM */
-Client: Primegala Medical Centre
+Client: PRIMEGALA HOSPITAL
 Location: Maili Sita, Nakuru–Nyahururu Road, Nakuru, Kenya
 
 Design & development: Steff Cloud Limited

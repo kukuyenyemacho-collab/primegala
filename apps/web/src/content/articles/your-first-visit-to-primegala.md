@@ -1,6 +1,6 @@
 ---
-title: "Your First Visit to Primegala Medical Centre: What to Expect and What to Bring"
-description: "Planning your first visit to Primegala Medical Centre at Maili Sita, Nakuru? Here's how to find us opposite Kiamaina Primary School, what to bring and how a visit works, step by step."
+title: "Your First Visit to PRIMEGALA HOSPITAL: What to Expect and What to Bring"
+description: "Planning your first visit to PRIMEGALA HOSPITAL at Maili Sita, Nakuru? Here's how to find us opposite Kiamaina Primary School, what to bring and how a visit works, step by step."
 category: everyday-health
 published: "2026-10-04"
 author: "Primegala Clinical Team"
@@ -8,17 +8,17 @@ reviewedBy: ""
 service: general-outpatient
 keywords:
   - hospital Maili Sita
-  - Primegala Medical Centre Maili Sita
+  - PRIMEGALA HOSPITAL Maili Sita
   - hospital along Nakuru Nyahururu road
   - hospital near Kiamaina Primary School
 faqs:
-  - q: "Where exactly is Primegala Medical Centre?"
+  - q: "Where exactly is PRIMEGALA HOSPITAL?"
     a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North."
   - q: "Do I need to book before my first visit?"
     a: "No. Walk-ins are welcome 24 hours a day. Booking ahead online helps us prepare for you."
 ---
 
-**Short answer:** Primegala Medical Centre is at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, and is open 24 hours. Bring your ID, your SHA details and any previous medical records, then walk in or book ahead online.
+**Short answer:** PRIMEGALA HOSPITAL is at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, and is open 24 hours. Bring your ID, your SHA details and any previous medical records, then walk in or book ahead online.
 
 A first visit anywhere can feel uncertain. Where do I go? Will it take all day? Will SHA work? Here's what happens from the moment you arrive.
 

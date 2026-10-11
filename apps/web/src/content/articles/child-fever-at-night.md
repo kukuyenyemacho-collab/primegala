@@ -92,4 +92,4 @@ Save the numbers of two people who can drive you at night, or a trusted boda rid
 
 ## How Primegala can help
 
-Primegala Medical Centre at Maili Sita, opposite Kiamaina Primary School, is open 24 hours, every day. Our [urgent care](/services/24-hour-urgent-care) team assesses children at any hour, and our on-site [laboratory](/services/laboratory) runs malaria tests day and night. For a fever that is settling but needs review, [book a child health visit](/book?service=child-health).
+PRIMEGALA HOSPITAL at Maili Sita, opposite Kiamaina Primary School, is open 24 hours, every day. Our [urgent care](/services/24-hour-urgent-care) team assesses children at any hour, and our on-site [laboratory](/services/laboratory) runs malaria tests day and night. For a fever that is settling but needs review, [book a child health visit](/book?service=child-health).

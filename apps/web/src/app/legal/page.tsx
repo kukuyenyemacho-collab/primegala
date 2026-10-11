@@ -11,7 +11,7 @@ import { emailHref, site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Policies & Legal Information",
   description:
-    "Privacy policy, terms of use, cookie policy, patient rights, complaints procedure, accessibility, editorial and communications policies for Primegala Medical Centre.",
+    "Privacy policy, terms of use, cookie policy, patient rights, complaints procedure, accessibility, editorial and communications policies for PRIMEGALA HOSPITAL.",
   path: "/legal",
 });
 

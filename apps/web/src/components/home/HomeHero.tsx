@@ -25,14 +25,14 @@ export function HomeHero() {
             24-hour care at Maili Sita, Nakuru
           </h1>
           <p className="mt-4 text-xl font-semibold text-brand-300 sm:text-2xl">{site.tagline}</p>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-trust-100">
-            {site.name} is a KEPH Level {site.kephLevel} medical centre at <strong className="text-white">Maili Sita</strong>{" "}
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-trust-100 sm:text-lg">
+            {site.name} is a KEPH Level {site.kephLevel} facility at <strong className="text-white">Maili Sita</strong>{" "}
             on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, open day and night. We offer outpatient and
             urgent care, maternity and antenatal care, family planning, child health, laboratory, pharmacy and inpatient
             care{site.shaContracted ? ", and we accept SHA for eligible services" : ""}.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
             <ButtonLink href="/book" size="lg" track="book_click_hero">
               <CalendarCheck className="size-5" aria-hidden /> Book a visit
             </ButtonLink>

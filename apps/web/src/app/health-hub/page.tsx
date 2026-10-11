@@ -26,7 +26,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Health Hub: Health Articles & Tips for Families in Nakuru",
   description:
-    "Practical, Kenyan health guides from Primegala Medical Centre: using SHA, antenatal care, pregnancy danger signs, malaria vs typhoid, family planning, immunisation, blood pressure, diabetes and daily health tips.",
+    "Practical, Kenyan health guides from PRIMEGALA HOSPITAL: using SHA, antenatal care, pregnancy danger signs, malaria vs typhoid, family planning, immunisation, blood pressure, diabetes and daily health tips.",
   path: "/health-hub",
   keywords: ["health tips Kenya", "health articles Kenya", "SHA guide", "pregnancy tips Kenya", "malaria symptoms Kenya"],
 });
@@ -63,7 +63,7 @@ export default function HealthHubPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: `${site.name} Health Hub`,
-          description: "Practical health guides and tips for families in Nakuru from Primegala Medical Centre.",
+          description: "Practical health guides and tips for families in Nakuru from PRIMEGALA HOSPITAL.",
           url: absoluteUrl("/health-hub"),
           inLanguage: "en-KE",
           isPartOf: { "@id": `${site.url}/#website` },
@@ -74,7 +74,7 @@ export default function HealthHubPage() {
         crumbs={[{ name: "Health Hub", path: "/health-hub" }]}
         eyebrow="Health Hub"
         title="Health answers for Nakuru families"
-        intro="Practical health guides from Primegala Medical Centre, written around the questions our patients ask most: using SHA, pregnancy and baby care, fevers and testing, and living with long-term conditions."
+        intro="Practical health guides from PRIMEGALA HOSPITAL, written around the questions our patients ask most: using SHA, pregnancy and baby care, fevers and testing, and living with long-term conditions."
         aside={<HubInfoPanel guides={guides.length} tips={tips.length} topics={topics.filter((t) => t.count > 0).length} />}
       >
         <ButtonLink href="#guides" size="lg">

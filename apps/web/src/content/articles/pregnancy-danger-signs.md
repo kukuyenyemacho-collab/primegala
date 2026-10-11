@@ -47,4 +47,4 @@ Agree on transport for night-time emergencies *before* you need it: a neighbour 
 
 ## We're open 24 hours at Maili Sita
 
-Primegala Medical Centre assesses pregnancy concerns at any hour, opposite Kiamaina Primary School on the Nakuru–Nyahururu Road. If you need specialist care, we stabilise and refer quickly. Learn about our [maternity services](/services/maternity) and [antenatal care](/services/antenatal-care).
+PRIMEGALA HOSPITAL assesses pregnancy concerns at any hour, opposite Kiamaina Primary School on the Nakuru–Nyahururu Road. If you need specialist care, we stabilise and refer quickly. Learn about our [maternity services](/services/maternity) and [antenatal care](/services/antenatal-care).

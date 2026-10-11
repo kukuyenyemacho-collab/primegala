@@ -54,8 +54,8 @@ export default async function OpengraphImage() {
               <img src={logoSrc} alt="" width={76} height={76} />
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 48, fontWeight: 700, letterSpacing: -1 }}>Primegala</div>
-              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 6, color: "#b6cbe9" }}>MEDICAL CENTRE</div>
+              <div style={{ fontSize: 48, fontWeight: 700, letterSpacing: -1 }}>PRIMEGALA</div>
+              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 6, color: "#b6cbe9" }}>HOSPITAL</div>
             </div>
           </div>
 

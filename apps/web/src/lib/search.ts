@@ -32,7 +32,7 @@ export interface SearchEntry {
 const PAGE_DETAILS: Record<string, { title?: string; description?: string; keywords: string[] }> = {
   "/": {
     title: "Home",
-    description: "Primegala Medical Centre: 24-hour care at Maili Sita on the Nakuru–Nyahururu Road.",
+    description: "PRIMEGALA HOSPITAL: 24-hour care at Maili Sita on the Nakuru–Nyahururu Road.",
     keywords: ["home", "Primegala", "Maili Sita", "Nakuru", "hospital", "clinic", "medical centre"],
   },
   "/services": {

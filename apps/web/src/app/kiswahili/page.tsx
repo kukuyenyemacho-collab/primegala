@@ -19,7 +19,7 @@ const PATH = "/kiswahili";
 const base = pageMetadata({
   title: "Hospitali ya Saa 24 Maili Sita, Nakuru | Primegala kwa Kiswahili",
   description:
-    "Primegala Medical Centre iko Maili Sita, barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina. Tuko wazi saa 24 kila siku. Tunakubali SHA kwa huduma zinazostahiki, M-Pesa na pesa taslimu.",
+    "PRIMEGALA HOSPITAL iko Maili Sita, barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina. Tuko wazi saa 24 kila siku. Tunakubali SHA kwa huduma zinazostahiki, M-Pesa na pesa taslimu.",
   path: PATH,
   keywords: [
     ...keywordsFor("swahili"),
@@ -120,7 +120,7 @@ export default function KiswahiliPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           url: absoluteUrl(PATH),
-          name: "Primegala Medical Centre kwa Kiswahili",
+          name: "PRIMEGALA HOSPITAL kwa Kiswahili",
           inLanguage: "sw-KE",
           about: { "@id": `${site.url}/#organization` },
           isPartOf: { "@id": `${site.url}/#website` },
@@ -129,7 +129,7 @@ export default function KiswahiliPage() {
       <PageHero
         crumbs={[{ name: "Kiswahili", path: PATH }]}
         eyebrow="Kwa Kiswahili"
-        title="Karibu Primegala Medical Centre"
+        title="Karibu PRIMEGALA HOSPITAL"
         intro="Sisi ni kituo cha afya cha ngazi ya tatu (KEPH Level 3) kilichoko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina. Tuko wazi saa 24 kila siku, ikiwemo sikukuu za umma, na tunakubali SHA kwa huduma zinazostahiki."
       >
         <ButtonLink href="/book" size="lg" track="book_click_kiswahili">

@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Our Care Team: Clinicians, Nurses & Midwives at Maili Sita",
   description:
-    "The registered clinicians, nurses, midwives, laboratory, pharmacy and front-desk teams who care for patients 24 hours a day at Primegala Medical Centre, Maili Sita, and how to check a health professional's registration.",
+    "The registered clinicians, nurses, midwives, laboratory, pharmacy and front-desk teams who care for patients 24 hours a day at PRIMEGALA HOSPITAL, Maili Sita, and how to check a health professional's registration.",
   path: "/team",
   keywords: ["doctor near me Nakuru", "clinical officer Nakuru", "midwife Nakuru", "daktari karibu Maili Sita"],
 });

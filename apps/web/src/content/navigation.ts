@@ -52,7 +52,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "About",
     href: "/about",
     panel: "links",
-    intro: "A 24-hour medical centre serving Maili Sita since 2022.",
+    intro: "A 24-hour hospital serving Maili Sita since 2022.",
     items: [
       { href: "/about", label: "Our story", description: "Why we opened at Maili Sita" },
       { href: "/team", label: "Our care team", description: "The people behind your care" },

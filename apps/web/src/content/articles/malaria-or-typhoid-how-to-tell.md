@@ -18,7 +18,7 @@ faqs:
   - q: "Is the Widal test accurate for typhoid?"
     a: "The Widal test, still widely used in Kenya, is unreliable on its own and often gives false positives. Stool antigen tests or blood/stool culture are more accurate."
   - q: "Where can I get a malaria test at night near Bahati?"
-    a: "Primegala Medical Centre at Maili Sita on the Nakuru–Nyahururu Road is open 24 hours and offers malaria testing at any time."
+    a: "PRIMEGALA HOSPITAL at Maili Sita on the Nakuru–Nyahururu Road is open 24 hours and offers malaria testing at any time."
 ---
 
 **Short answer:** Malaria and typhoid both cause fever, headache and body aches, so you can't reliably tell them apart from symptoms alone. A malaria rapid test or microscopy gives an answer in minutes; typhoid needs a stool antigen test or culture. Test first, then treat.

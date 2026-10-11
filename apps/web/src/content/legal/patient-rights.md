@@ -1,6 +1,6 @@
 ---
 title: "Patient Rights & Responsibilities"
-description: "Your rights and responsibilities as a patient at Primegala Medical Centre, based on the Constitution of Kenya, the Health Act, 2017 and the Kenya National Patients' Rights Charter."
+description: "Your rights and responsibilities as a patient at PRIMEGALA HOSPITAL, based on the Constitution of Kenya, the Health Act, 2017 and the Kenya National Patients' Rights Charter."
 order: 4
 ---
 

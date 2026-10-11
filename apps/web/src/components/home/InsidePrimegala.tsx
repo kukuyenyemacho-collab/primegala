@@ -18,11 +18,11 @@ export function InsidePrimegala() {
           Patient &amp; visitor guide <ArrowRight className="size-4" aria-hidden />
         </Link>
       </div>
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3">
         <Photo
           name="building"
-          caption="Primegala Medical Centre & Nursing Home, Esther Memorial Building, opposite Kiamaina Primary School."
-          className="sm:col-span-2"
+          caption="PRIMEGALA HOSPITAL, Esther Memorial Building, opposite Kiamaina Primary School."
+          className="col-span-2"
           imgClassName="lg:aspect-[16/10]"
         />
         <Photo name="reception" caption="Reception and triage: the first stop on every visit, day or night." />

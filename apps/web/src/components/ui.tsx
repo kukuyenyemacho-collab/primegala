@@ -95,7 +95,7 @@ export function Section({
       id={id}
       aria-labelledby={labelledBy}
       className={cn(
-        "py-14 sm:py-20",
+        "py-12 sm:py-20",
         tones[tone],
         bordered && (tone === "trust" || tone === "dark" ? "border-t border-white/10" : "border-t border-line"),
         className,
@@ -132,7 +132,7 @@ export function SectionHeading({
       <Tag
         id={id}
         className={cn(
-          "text-3xl leading-tight font-bold tracking-tight sm:text-4xl",
+          "text-[1.75rem] leading-tight font-bold tracking-tight sm:text-4xl",
           eyebrow && "mt-3",
           inverted ? "text-white" : "text-ink",
         )}

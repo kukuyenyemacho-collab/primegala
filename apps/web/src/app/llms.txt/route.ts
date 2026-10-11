@@ -27,7 +27,7 @@ export function GET() {
 
 ## Key facts
 - Name: ${site.name} (also "Primegala", "Primegala Maili Sita")
-- Type: KEPH Level ${site.kephLevel} medical centre, registered on the Kenya Master Health Facility Registry
+- Type: KEPH Level ${site.kephLevel} facility, registered on the Kenya Master Health Facility Registry
 - Opened: 1 March 2022
 - Hours: Open 24 hours, 7 days a week, including public holidays
 - Address: ${fullAddress()}

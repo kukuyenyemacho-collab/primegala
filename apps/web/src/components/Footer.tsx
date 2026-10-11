@@ -3,6 +3,7 @@ import { Clock, Mail, MapPin, Phone, Siren } from "lucide-react";
 import { Logo } from "./Logo";
 import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon, YouTubeIcon } from "./Icon";
 import { SERVICE_PAGES } from "@/content/services";
+import { cn } from "@/lib/cn";
 import { NAV_GROUPS, type NavLink } from "@/content/navigation";
 import { EMAILS, PHONES, emailHref, fullAddress, hasPhone, site } from "@/lib/site";
 
@@ -25,14 +26,24 @@ function groupItems(label: string): NavLink[] {
 const linkClass =
   "text-trust-200 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:text-white";
 
-function FooterColumn({ title, links, className }: { title: string; links: NavLink[]; className?: string }) {
+function FooterColumn({
+  title,
+  links,
+  className,
+  listClassName,
+}: {
+  title: string;
+  links: NavLink[];
+  className?: string;
+  listClassName?: string;
+}) {
   const id = `footer-${title.toLowerCase().replace(/[^a-z]+/g, "-")}`;
   return (
     <nav aria-labelledby={id} className={className}>
       <h2 id={id} className="text-sm font-bold tracking-wider text-white uppercase">
         {title}
       </h2>
-      <ul className="mt-5 grid gap-2.5 text-[0.95rem]">
+      <ul className={cn("mt-5 grid gap-2.5 text-[0.95rem]", listClassName)}>
         {links.map((l) => (
           <li key={l.href}>
             <Link href={l.href} className={linkClass}>
@@ -69,7 +80,7 @@ export function Footer() {
             <Logo inverted />
           </Link>
           <p className="mt-5 max-w-sm leading-relaxed text-trust-200">
-            {site.tagline} A 24-hour KEPH Level {site.kephLevel} medical centre at Maili Sita, serving families along the
+            {site.tagline} A 24-hour KEPH Level {site.kephLevel} facility at Maili Sita, serving families along the
             Nakuru–Nyahururu Road since March 2022.
           </p>
           <address className="mt-6 space-y-3 text-[0.95rem] not-italic">
@@ -156,7 +167,12 @@ export function Footer() {
           )}
         </div>
 
-        <FooterColumn title="Services" links={services} className="lg:col-span-3" />
+        <FooterColumn
+          title="Services"
+          links={services}
+          className="lg:col-span-3"
+          listClassName="grid-cols-2 gap-x-4 text-sm sm:grid-cols-1 sm:text-[0.95rem]"
+        />
         <FooterColumn title="Patients & visitors" links={patients} className="lg:col-span-3" />
         <FooterColumn title="About" links={about} className="lg:col-span-2" />
       </div>
@@ -196,8 +212,8 @@ export function Footer() {
       {/* Closing wordmark: one line, about three-quarters of the width on large screens, scaling down
           fluidly on phones. Decorative (the name is already in the logo and copyright line). */}
       <div className="container-page overflow-hidden" aria-hidden="true">
-        <p className="pointer-events-none pt-2 pb-6 text-[clamp(3.25rem,16.5vw,11.75rem)] leading-[0.85] font-extrabold tracking-[-0.045em] whitespace-nowrap text-trust-800 select-none sm:pb-10">
-          Primegala<span className="text-brand-500">.</span>
+        <p className="pointer-events-none pt-4 pb-6 text-[clamp(1.5rem,6.6vw,5.5rem)] leading-[0.9] font-extrabold tracking-[-0.03em] whitespace-nowrap text-trust-800 select-none sm:pb-10">
+          PRIMEGALA HOSPITAL<span className="text-brand-500">.</span>
         </p>
       </div>
     </footer>

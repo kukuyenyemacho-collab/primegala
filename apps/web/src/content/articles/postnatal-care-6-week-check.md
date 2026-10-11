@@ -89,4 +89,4 @@ Don't wait for your next scheduled visit if you notice heavy bleeding, fever, a 
 
 ## How Primegala can help
 
-Primegala Medical Centre at Maili Sita offers postnatal checks for mother and baby, family planning counselling and child health visits, and we are open 24 hours if something worries you between visits. Learn about [maternity care](/services/maternity), [family planning](/services/family-planning) and [child health](/services/child-health), or [book a postnatal visit](/book?service=maternity).
+PRIMEGALA HOSPITAL at Maili Sita offers postnatal checks for mother and baby, family planning counselling and child health visits, and we are open 24 hours if something worries you between visits. Learn about [maternity care](/services/maternity), [family planning](/services/family-planning) and [child health](/services/child-health), or [book a postnatal visit](/book?service=maternity).

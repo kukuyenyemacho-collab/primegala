@@ -1,19 +1,19 @@
 ---
-title: "Six Miles From Town: The Story Behind Primegala Medical Centre"
-description: "Why a 24-hour medical centre opened at Maili Sita on the Nakuru–Nyahururu Road in 2022, and what “prime care, close to home” means for families in Nakuru North."
+title: "Six Miles From Town: The Story Behind PRIMEGALA HOSPITAL"
+description: "Why a 24-hour hospital opened at Maili Sita on the Nakuru–Nyahururu Road in 2022, and what “prime care, close to home” means for families in Nakuru North."
 category: our-stories
 published: "2026-10-04"
-author: "Primegala Medical Centre"
+author: "PRIMEGALA HOSPITAL"
 reviewedBy: ""
 featured: true
 keywords:
-  - Primegala Medical Centre
+  - PRIMEGALA HOSPITAL
   - hospital Maili Sita
   - is there a hospital at Maili Sita
   - how far is Maili Sita from Nakuru town
 ---
 
-**Short answer:** Primegala Medical Centre opened in March 2022 at Maili Sita, about six miles (10 km) from Nakuru town on the Nakuru–Nyahururu Road, to give families in Kabatini, Kiamaina, Bahati and the surrounding areas round-the-clock care close to home.
+**Short answer:** PRIMEGALA HOSPITAL opened in March 2022 at Maili Sita, about six miles (10 km) from Nakuru town on the Nakuru–Nyahururu Road, to give families in Kabatini, Kiamaina, Bahati and the surrounding areas round-the-clock care close to home.
 
 ## A name that's also a distance
 
@@ -25,7 +25,7 @@ Those are the moments Primegala was built for.
 
 ## Opening the doors in 2022
 
-Primegala Medical Centre opened on **1 March 2022** at Maili Sita Centre, directly opposite **Kiamaina Primary School**. It is a registered **KEPH Level 3** medical centre, and from the start it has kept its doors open **24 hours a day**.
+PRIMEGALA HOSPITAL opened on **1 March 2022** at Maili Sita Centre, directly opposite **Kiamaina Primary School**. It is a registered **KEPH Level 3** facility, and from the start it has kept its doors open **24 hours a day**.
 
 The first services were the ones neighbours asked for most: outpatient consultations, antenatal care for expectant mothers, family planning (including long-acting methods), HIV testing and counselling, and inpatient care for patients who need to stay.
 

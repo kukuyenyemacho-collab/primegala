@@ -4,7 +4,7 @@
  * rename a code once the HMIS has records against it; add a new one instead.
  *
  * `listedOnKmhfr` marks services published on the Kenya Master Health Facility
- * Registry for Primegala Medical Centre. Everything else must be confirmed with the
+ * Registry for PRIMEGALA HOSPITAL. Everything else must be confirmed with the
  * facility before launch (see docs/03-client-discovery-questionnaire.md).
  */
 export const SERVICE_CODES = [

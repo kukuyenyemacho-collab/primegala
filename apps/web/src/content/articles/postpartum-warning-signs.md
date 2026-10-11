@@ -44,4 +44,4 @@ The first weeks with a new baby are busy and tiring, and it's tempting to put yo
 
 Partners and family often notice first. If a new mother seems confused, very unwell or not herself, help her get care straight away.
 
-Primegala Medical Centre at Maili Sita is open 24 hours; see our [urgent care](/services/24-hour-urgent-care) and [maternity](/services/maternity) services.
+PRIMEGALA HOSPITAL at Maili Sita is open 24 hours; see our [urgent care](/services/24-hour-urgent-care) and [maternity](/services/maternity) services.

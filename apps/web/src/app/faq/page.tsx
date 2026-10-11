@@ -15,7 +15,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "FAQs: Hours, SHA, Services & Directions",
   description:
-    "Answers to common questions about Primegala Medical Centre, Maili Sita: opening hours, SHA, services, payments, directions from Nakuru town, what to bring and privacy.",
+    "Answers to common questions about PRIMEGALA HOSPITAL, Maili Sita: opening hours, SHA, services, payments, directions from Nakuru town, what to bring and privacy.",
   path: "/faq",
   keywords: keywordsFor("questions", "sha", "core"),
 });

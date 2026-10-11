@@ -24,8 +24,8 @@ const jakarta = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | 24-Hour Clinic, Maili Sita Nakuru`,
-    template: `%s | ${site.shortName}`,
+    default: `${site.name} | 24-Hour Care, Maili Sita Nakuru`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   creator: site.credit.legalName,
   publisher: site.name,
   category: "health",
-  appleWebApp: { capable: true, title: site.shortName, statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: site.name, statusBarStyle: "default" },
   formatDetection: { telephone: true, address: true, email: true },
   alternates: {
     canonical: site.url,

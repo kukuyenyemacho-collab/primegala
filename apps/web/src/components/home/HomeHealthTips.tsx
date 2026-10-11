@@ -23,8 +23,8 @@ export function HomeHealthTips({ tips, guides }: { tips: TipSummary[]; guides: A
 
       {tips.length > 0 && (
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {tips.map((tip) => (
-            <li key={tip.slug}>
+          {tips.map((tip, i) => (
+            <li key={tip.slug} className={i >= 3 ? "hidden sm:block" : undefined}>
               <TipCard tip={tip} />
             </li>
           ))}

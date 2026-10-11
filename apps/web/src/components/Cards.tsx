@@ -10,9 +10,13 @@ import { cn } from "@/lib/cn";
 const CARD =
   "group relative flex h-full flex-col rounded-xl border border-line bg-white p-6 transition-colors duration-150 hover:border-brand-300 hover:bg-brand-50/30";
 
-/** Coming-soon services keep the same card, with a soft pink accent on hover and a "Coming soon" pill. */
-const SOON_CARD =
-  "group relative flex h-full flex-col rounded-xl border border-line bg-white p-6 transition-colors duration-150 hover:border-pink-200 hover:bg-pink-50 focus-visible:border-pink-200";
+/**
+ * Service card. On phones it is a compact row (icon beside the text) so a long list stays easy
+ * to scan; from tablet up it is the full card. Coming-soon services get a soft pink accent on
+ * hover and a "Coming soon" pill.
+ */
+const SERVICE_CARD =
+  "group relative flex h-full gap-4 rounded-xl border border-line bg-white p-4 transition-colors duration-150 sm:flex-col sm:gap-0 sm:p-6";
 
 export function ComingSoonPill({ className }: { className?: string }) {
   return (
@@ -30,29 +34,52 @@ export function ComingSoonPill({ className }: { className?: string }) {
 export function ServiceCard({ service }: { service: ServiceContent }) {
   const soon = Boolean(service.comingSoon);
   return (
-    <Link href={`/services/${service.slug}`} className={soon ? SOON_CARD : cn(CARD, "focus-visible:border-brand-300")}>
-      <span className="flex items-start justify-between gap-3">
+    <Link
+      href={`/services/${service.slug}`}
+      className={cn(
+        SERVICE_CARD,
+        soon
+          ? "hover:border-pink-200 hover:bg-pink-50 focus-visible:border-pink-200"
+          : "hover:border-brand-300 hover:bg-brand-50/30 focus-visible:border-brand-300",
+      )}
+    >
+      <span className="flex shrink-0 items-start justify-between gap-3">
         <span
           className={cn(
-            "flex size-11 items-center justify-center rounded-lg",
+            "flex size-10 items-center justify-center rounded-lg sm:size-11",
             soon ? "bg-pink-50 text-pink-700 group-hover:bg-white" : "bg-trust-50 text-trust-700",
           )}
         >
-          <ServiceIcon name={service.icon} className="size-6" strokeWidth={1.75} />
+          <ServiceIcon name={service.icon} className="size-5 sm:size-6" strokeWidth={1.75} />
         </span>
-        {soon && <ComingSoonPill />}
-      </span>
-      <h3 className="mt-5 text-lg leading-snug font-bold text-ink">{service.name}</h3>
-      <p className="mt-2 flex-1 text-[0.95rem] leading-relaxed text-muted">{service.summary}</p>
-      <span
-        className={cn(
-          "mt-5 inline-flex items-center gap-1.5 text-sm font-semibold",
-          soon ? "text-pink-700 group-hover:text-pink-800" : "text-brand-600 group-hover:text-brand-700",
+        {soon && (
+          <span className="hidden sm:block">
+            <ComingSoonPill />
+          </span>
         )}
-      >
-        {soon ? "Get notified" : "Learn more"}
-        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
       </span>
+      <span className="flex min-w-0 flex-1 flex-col">
+        {soon && (
+          <span className="mb-1.5 sm:hidden">
+            <ComingSoonPill />
+          </span>
+        )}
+        <h3 className="text-base leading-snug font-bold text-ink sm:mt-5 sm:text-lg">{service.name}</h3>
+        <p className="mt-1 flex-1 text-sm leading-relaxed text-muted sm:mt-2 sm:text-[0.95rem]">{service.summary}</p>
+        <span
+          className={cn(
+            "mt-5 hidden items-center gap-1.5 text-sm font-semibold sm:inline-flex",
+            soon ? "text-pink-700 group-hover:text-pink-800" : "text-brand-600 group-hover:text-brand-700",
+          )}
+        >
+          {soon ? "Get notified" : "Learn more"}
+          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+        </span>
+      </span>
+      <ArrowRight
+        className={cn("mt-0.5 size-5 shrink-0 sm:hidden", soon ? "text-pink-700" : "text-brand-600")}
+        aria-hidden
+      />
     </Link>
   );
 }

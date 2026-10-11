@@ -13,7 +13,7 @@ import { hasWhatsApp, whatsappHref } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Book an Appointment | Maili Sita, Nakuru",
   description:
-    "Book a visit, request a call back, get SHA help or arrange a maternity visit at Primegala Medical Centre, Maili Sita. Our team contacts you to confirm. Walk-ins are welcome 24 hours a day.",
+    "Book a visit, request a call back, get SHA help or arrange a maternity visit at PRIMEGALA HOSPITAL, Maili Sita. Our team contacts you to confirm. Walk-ins are welcome 24 hours a day.",
   path: "/book",
   keywords: ["book hospital appointment Nakuru", "book doctor Nakuru", "clinic appointment Maili Sita", "hospital near me"],
 });

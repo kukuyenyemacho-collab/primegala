@@ -21,13 +21,13 @@ import { hasWhatsApp, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: `${site.name} | 24-Hour Clinic, Maili Sita Nakuru`,
+    title: `${site.name} | 24-Hour Care, Maili Sita Nakuru`,
     description:
-      "24-hour medical centre at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, maternity, antenatal, family planning, lab, pharmacy and inpatient care. SHA accepted.",
+      "24-hour hospital at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School. Outpatient, maternity, antenatal, family planning, lab, pharmacy and inpatient care. SHA accepted.",
     path: "/",
     keywords: keywordsFor("core", "local", "sha", "maternity", "emergency", "swahili"),
   }),
-  title: { absolute: `${site.name} | 24-Hour Clinic, Maili Sita Nakuru` },
+  title: { absolute: `${site.name} | 24-Hour Care, Maili Sita Nakuru` },
 };
 
 const MATERNITY_GUIDES = ["antenatal-care-8-visits", "pregnancy-danger-signs", "kenya-immunisation-schedule"];

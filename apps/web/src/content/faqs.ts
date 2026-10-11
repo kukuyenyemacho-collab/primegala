@@ -11,12 +11,12 @@ export interface Faq {
  */
 export const GENERAL_FAQS: Faq[] = [
   {
-    q: "Where is Primegala Medical Centre located?",
-    a: "Primegala Medical Centre is at Maili Sita Centre on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North (Bahati) Sub-County, Nakuru County. It is about six miles (roughly 10 km) from Nakuru town.",
+    q: "Where is PRIMEGALA HOSPITAL located?",
+    a: "PRIMEGALA HOSPITAL is at Maili Sita Centre on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North (Bahati) Sub-County, Nakuru County. It is about six miles (roughly 10 km) from Nakuru town.",
   },
   {
     q: "Is Primegala open 24 hours?",
-    a: "Yes. Primegala Medical Centre is open 24 hours a day, 7 days a week, including weekends and public holidays.",
+    a: "Yes. PRIMEGALA HOSPITAL is open 24 hours a day, 7 days a week, including weekends and public holidays.",
   },
   {
     q: "Does Primegala accept SHA?",
@@ -25,12 +25,12 @@ export const GENERAL_FAQS: Faq[] = [
       : "Our front desk can explain how SHA applies to your visit. Bring your national ID so we can check your status.",
   },
   {
-    q: "What services does Primegala Medical Centre offer?",
+    q: "What services does PRIMEGALA HOSPITAL offer?",
     a: "Primegala offers general outpatient care, 24-hour urgent care, maternity and antenatal care, family planning including long-acting methods, child health and immunisation, HIV testing and counselling, laboratory tests, pharmacy, inpatient admission, diabetes and hypertension follow-up, and minor procedures.",
   },
   {
     q: "What level of facility is Primegala?",
-    a: "Primegala Medical Centre is a KEPH Level 3 medical centre registered on the Kenya Master Health Facility Registry, established in March 2022.",
+    a: "PRIMEGALA HOSPITAL is a KEPH Level 3 facility registered on the Kenya Master Health Facility Registry, established in March 2022.",
   },
   {
     q: "How do I book an appointment at Primegala?",
@@ -51,7 +51,7 @@ export const GENERAL_FAQS: Faq[] = [
     a: "Bring your national ID or birth certificate (for children), the phone registered with SHA, any previous medical records or prescriptions, a list of medicines you take, and your Mother & Child Health booklet for pregnancy and child visits.",
   },
   {
-    q: "How can I contact Primegala Medical Centre?",
+    q: "How can I contact PRIMEGALA HOSPITAL?",
     a: `${hasPhone ? `Call ${phoneDisplay()}, email` : "Email"} ${site.contact.email}, book online, or come to the front desk at Maili Sita at any hour. For a life-threatening emergency, call 999 or 112.`,
   },
   {
@@ -72,7 +72,7 @@ export const SWAHILI_SUMMARY = {
 /** Patient & visitor guide (/patients-and-visitors). */
 export const VISITOR_FAQS: Faq[] = [
   {
-    q: "What should I bring to Primegala Medical Centre?",
+    q: "What should I bring to PRIMEGALA HOSPITAL?",
     a: "Bring your national ID (or your child's birth certificate), the phone number registered with SHA, any previous prescriptions, test results or discharge notes, a list of the medicines you take, and your Mother & Child Health booklet for pregnancy and child visits.",
   },
   {
@@ -100,7 +100,7 @@ export const VISITOR_FAQS: Faq[] = [
 /** Payments & insurance (/payments-and-insurance). */
 export const PAYMENT_FAQS: Faq[] = [
   {
-    q: "Does Primegala Medical Centre accept SHA?",
+    q: "Does PRIMEGALA HOSPITAL accept SHA?",
     a: site.shaContracted
       ? "Yes. Primegala accepts the Social Health Authority (SHA) for eligible services. Bring your national ID and the phone registered with SHA so our front desk can confirm your eligibility before treatment."
       : "Our front desk will explain how SHA applies to your visit. Bring your national ID and the phone registered with SHA.",
@@ -131,7 +131,7 @@ export const PAYMENT_FAQS: Faq[] = [
 export const EMERGENCY_FAQS: Faq[] = [
   {
     q: "Is Primegala open at night for emergencies?",
-    a: "Yes. Primegala Medical Centre at Maili Sita is open 24 hours a day, every day, including public holidays. For urgent problems, come straight in: no appointment is needed.",
+    a: "Yes. PRIMEGALA HOSPITAL at Maili Sita is open 24 hours a day, every day, including public holidays. For urgent problems, come straight in: no appointment is needed.",
   },
   {
     q: "What number do I call for an ambulance in Kenya?",
@@ -143,7 +143,7 @@ export const EMERGENCY_FAQS: Faq[] = [
   },
   {
     q: "What happens if I need a bigger hospital?",
-    a: "Primegala is a KEPH Level 3 medical centre. If you need surgery, intensive care or specialist care, we stabilise you, explain why you need referral, help arrange onward transfer and send a referral note so the receiving hospital knows what has been done.",
+    a: "Primegala is a KEPH Level 3 facility. If you need surgery, intensive care or specialist care, we stabilise you, explain why you need referral, help arrange onward transfer and send a referral note so the receiving hospital knows what has been done.",
   },
   {
     q: "Does SHA cover emergency care?",
@@ -154,8 +154,8 @@ export const EMERGENCY_FAQS: Faq[] = [
 /** Kiswahili page (/kiswahili). Maswali kwa Kiswahili. */
 export const SWAHILI_FAQS: Faq[] = [
   {
-    q: "Primegala Medical Centre iko wapi?",
-    a: "Primegala Medical Centre iko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina, katika Wadi ya Kiamaina, Kaunti Ndogo ya Nakuru Kaskazini (Bahati), Kaunti ya Nakuru. Ni takriban kilomita 10 (maili sita) kutoka mjini Nakuru.",
+    q: "PRIMEGALA HOSPITAL iko wapi?",
+    a: "PRIMEGALA HOSPITAL iko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina, katika Wadi ya Kiamaina, Kaunti Ndogo ya Nakuru Kaskazini (Bahati), Kaunti ya Nakuru. Ni takriban kilomita 10 (maili sita) kutoka mjini Nakuru.",
   },
   {
     q: "Je, Primegala iko wazi saa 24?",

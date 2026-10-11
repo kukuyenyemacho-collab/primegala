@@ -8,7 +8,7 @@ export function HeroIllustration({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 600 520" className={className} role="img" aria-labelledby="hero-ill-title">
       <title id="hero-ill-title">
-        Illustration of Primegala Medical Centre on the Nakuru–Nyahururu Road at Maili Sita, opposite Kiamaina
+        Illustration of PRIMEGALA HOSPITAL on the Nakuru–Nyahururu Road at Maili Sita, opposite Kiamaina
         Primary School, with Menengai ridge behind
       </title>
       <defs>

@@ -29,14 +29,14 @@ import {
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact & Directions: Maili Sita, Opp. Kiamaina Primary School",
-  description: `Contact Primegala Medical Centre by email at ${site.contact.email}, or visit us at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, about 10 km from Nakuru town. Open 24 hours.`,
+  description: `Contact PRIMEGALA HOSPITAL by email at ${site.contact.email}, or visit us at Maili Sita on the Nakuru–Nyahururu Road, opposite Kiamaina Primary School, about 10 km from Nakuru town. Open 24 hours.`,
   path: "/contact",
-  keywords: [...keywordsFor("local", "questions"), "Primegala Medical Centre contact", "Primegala email"],
+  keywords: [...keywordsFor("local", "questions"), "PRIMEGALA HOSPITAL contact", "Primegala email"],
 });
 
 const CONTACT_FAQS = [
   {
-    q: "Where is Primegala Medical Centre?",
+    q: "Where is PRIMEGALA HOSPITAL?",
     a: "At Maili Sita Centre on the Nakuru–Nyahururu Road, directly opposite Kiamaina Primary School, in Kiamaina Ward, Nakuru North (Bahati) Sub-County, Nakuru County.",
   },
   {
@@ -44,7 +44,7 @@ const CONTACT_FAQS = [
     a: "About six miles (roughly 10 km) along the Nakuru–Nyahururu Road, which is where the name Maili Sita, “six miles”, comes from.",
   },
   {
-    q: "How do I contact Primegala Medical Centre?",
+    q: "How do I contact PRIMEGALA HOSPITAL?",
     a: `${hasPhone ? `Call ${PHONES.map((p) => p.label).join(" or ")}, email` : "Email"} ${site.contact.email}, request an appointment online, or come to our front desk at any hour. For a life-threatening emergency, call 999 or 112.`,
   },
   {
@@ -274,7 +274,7 @@ export default function ContactPage() {
             <MapEmbed query="Primegala Medical Centre, Maili Sita, Nakuru" mapsUrl={site.mapsUrl} />
             <Photo
               name="building"
-              caption="The Primegala building: look for 'Primegala Medical Centre & Nursing Home' and 'SHA accepted here'."
+              caption="The Primegala building: look for 'PRIMEGALA HOSPITAL' and 'SHA accepted here'."
             />
           </div>
         </div>

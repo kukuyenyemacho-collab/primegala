@@ -16,7 +16,7 @@ const PATH = "/emergency";
 export const metadata: Metadata = pageMetadata({
   title: "Emergency Care at Maili Sita, Nakuru North | Open 24 Hours",
   description:
-    "Life-threatening emergency? Call 999 or 112. Primegala Medical Centre at Maili Sita is open 24 hours: warning signs for adults, children and pregnancy, what happens when you arrive, what to bring, and your right to emergency treatment.",
+    "Life-threatening emergency? Call 999 or 112. PRIMEGALA HOSPITAL at Maili Sita is open 24 hours: warning signs for adults, children and pregnancy, what happens when you arrive, what to bring, and your right to emergency treatment.",
   path: PATH,
   keywords: [...keywordsFor("emergency", "core"), "what to do in a medical emergency Kenya", "999 112 Kenya ambulance"],
 });
@@ -186,7 +186,7 @@ export default function EmergencyPage() {
               id="on-arrival"
               eyebrow="When you arrive"
               title="What a Level 3 facility does in an emergency"
-              intro="Primegala is a KEPH Level 3 medical centre. We assess and treat urgent problems quickly, and when someone needs surgery, intensive care or specialist care, we stabilise them first and arrange the referral."
+              intro="Primegala is a KEPH Level 3 facility. We assess and treat urgent problems quickly, and when someone needs surgery, intensive care or specialist care, we stabilise them first and arrange the referral."
             />
             <p className="mt-5 leading-relaxed text-muted">
               Read about our{" "}

@@ -70,7 +70,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Walk in any time for coughs, fevers, aches, infections and check-ups.",
     metaTitle: "Walk-in Outpatient Clinic, Maili Sita Nakuru | Open 24/7",
     metaDescription:
-      "Walk-in outpatient care 24 hours a day at Primegala Medical Centre, Maili Sita on the Nakuru–Nyahururu Road. Consultations, treatment, lab and pharmacy under one roof. SHA accepted.",
+      "Walk-in outpatient care 24 hours a day at PRIMEGALA HOSPITAL, Maili Sita on the Nakuru–Nyahururu Road. Consultations, treatment, lab and pharmacy under one roof. SHA accepted.",
     intro:
       "Most health worries don't need a trip to town. Our outpatient clinic sees adults and children for everyday illnesses and check-ups, day and night, with the lab and pharmacy a few steps away.",
     story: {
@@ -129,7 +129,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Open all night for sudden illness and injuries, with stabilisation and referral when needed.",
     metaTitle: "24-Hour Clinic in Nakuru North | Night Care at Maili Sita",
     metaDescription:
-      "Primegala Medical Centre at Maili Sita is open 24 hours for urgent care: high fevers, injuries, breathing problems and pregnancy concerns. Stabilisation and referral on the Nakuru–Nyahururu Road.",
+      "PRIMEGALA HOSPITAL at Maili Sita is open 24 hours for urgent care: high fevers, injuries, breathing problems and pregnancy concerns. Stabilisation and referral on the Nakuru–Nyahururu Road.",
     intro:
       "Illness doesn't keep office hours. Our doors on the Nakuru–Nyahururu Road stay open through the night, so the closest help is minutes away. We assess urgent problems quickly and, when someone needs a higher-level hospital, we stabilise them first and arrange the referral.",
     story: {
@@ -160,7 +160,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     faqs: [
       {
         q: "Is Primegala really open at night?",
-        a: "Yes. Primegala Medical Centre is listed on the Kenya Master Health Facility Registry as open 24 hours, every day of the year, including public holidays.",
+        a: "Yes. PRIMEGALA HOSPITAL is listed on the Kenya Master Health Facility Registry as open 24 hours, every day of the year, including public holidays.",
       },
       {
         q: "What should I do in a life-threatening emergency?",
@@ -188,7 +188,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Respectful, skilled care through labour, birth and the first days with your baby.",
     metaTitle: "Maternity in Bahati & Maili Sita, Nakuru | SHA Delivery",
     metaDescription:
-      "Plan your delivery close to home at Primegala Medical Centre, Maili Sita, Nakuru. Skilled midwifery care 24/7, newborn care and postnatal follow-up. Ask us about delivery under SHA.",
+      "Plan your delivery close to home at PRIMEGALA HOSPITAL, Maili Sita, Nakuru. Skilled midwifery care 24/7, newborn care and postnatal follow-up. Ask us about delivery under SHA.",
     intro:
       "Bringing a baby into the world should feel safe and close to home, not like a race to town. Our midwives support you through labour, birth and the first hours with your newborn, with a plan for referral if a higher level of care is needed.",
     story: {
@@ -248,7 +248,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Regular pregnancy check-ups, tests and counselling from your first trimester.",
     metaTitle: "Antenatal Clinic (ANC) in Nakuru North | Maili Sita",
     metaDescription:
-      "Antenatal care at Primegala Medical Centre, Maili Sita: pregnancy check-ups, tests, nutrition advice and birth planning, following Kenya's 8-contact ANC guidelines. SHA accepted.",
+      "Antenatal care at PRIMEGALA HOSPITAL, Maili Sita: pregnancy check-ups, tests, nutrition advice and birth planning, following Kenya's 8-contact ANC guidelines. SHA accepted.",
     intro:
       "Healthy pregnancies are built visit by visit. Our antenatal clinic follows Kenya's recommended schedule of at least eight contacts, so problems are caught early and you're ready for the birth.",
     story: {
@@ -302,7 +302,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Private counselling and your choice of short- and long-acting methods.",
     metaTitle: "Family Planning Clinic Nakuru | Implants, Coil, Depo",
     metaDescription:
-      "Confidential family planning at Primegala Medical Centre, Maili Sita: counselling, implants, IUCD (coil), injectables, pills and removals. Long-acting methods available. SHA accepted.",
+      "Confidential family planning at PRIMEGALA HOSPITAL, Maili Sita: counselling, implants, IUCD (coil), injectables, pills and removals. Long-acting methods available. SHA accepted.",
     intro:
       "The right method is the one that fits your life. We take time to explain your options, answer your questions privately and support whatever you choose, including removal when you're ready to conceive.",
     story: {
@@ -355,7 +355,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Vaccinations, growth monitoring and care for sick babies and children.",
     metaTitle: "Child Clinic & Immunisation | Maili Sita, Nakuru",
     metaDescription:
-      "Baby and child clinic at Primegala Medical Centre, Maili Sita: immunisations on the Kenya schedule, growth monitoring, vitamin A, deworming and sick-child care, 24 hours a day.",
+      "Baby and child clinic at PRIMEGALA HOSPITAL, Maili Sita: immunisations on the Kenya schedule, growth monitoring, vitamin A, deworming and sick-child care, 24 hours a day.",
     intro:
       "From the first vaccines to the last growth check, we keep your child's health on track, and we're here at night when a little one is unwell.",
     story: {
@@ -408,7 +408,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Confidential testing with results in minutes, PEP and PrEP guidance.",
     metaTitle: "Confidential HIV Testing in Nakuru | VCT, PEP & PrEP",
     metaDescription:
-      "Confidential HIV testing and counselling at Primegala Medical Centre, Maili Sita, Nakuru. Rapid results, PEP within 72 hours of exposure and PrEP guidance. Open 24 hours.",
+      "Confidential HIV testing and counselling at PRIMEGALA HOSPITAL, Maili Sita, Nakuru. Rapid results, PEP within 72 hours of exposure and PrEP guidance. Open 24 hours.",
     intro:
       "Knowing your status is one of the bravest and most caring things you can do for yourself and the people you love. Testing is confidential, quick and judgement-free.",
     story: {
@@ -466,7 +466,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Common blood, urine and stool tests on site, with fast results.",
     metaTitle: "Lab Tests in Maili Sita, Nakuru | Malaria, Typhoid, Blood",
     metaDescription:
-      "On-site laboratory at Primegala Medical Centre, Maili Sita: malaria, typhoid, full blood count, blood sugar, urine, pregnancy and HIV tests with fast results, 24 hours.",
+      "On-site laboratory at PRIMEGALA HOSPITAL, Maili Sita: malaria, typhoid, full blood count, blood sugar, urine, pregnancy and HIV tests with fast results, 24 hours.",
     intro:
       "The right treatment starts with the right diagnosis. Our on-site laboratory runs the tests clinicians rely on every day, so most results are ready before you leave.",
     story: {
@@ -518,7 +518,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Prescriptions filled on site, with clear advice on how to take them.",
     metaTitle: "24-Hour Pharmacy at Maili Sita, Nakuru",
     metaDescription:
-      "On-site pharmacy at Primegala Medical Centre, Maili Sita: prescriptions dispensed with clear instructions, open 24 hours along the Nakuru–Nyahururu Road.",
+      "On-site pharmacy at PRIMEGALA HOSPITAL, Maili Sita: prescriptions dispensed with clear instructions, open 24 hours along the Nakuru–Nyahururu Road.",
     intro:
       "Leave with the medicine you need and a clear understanding of how to take it. Our pharmacy is part of the clinic, so prescriptions are filled before you head home.",
     story: {
@@ -576,7 +576,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Admission and round-the-clock nursing when you need closer observation.",
     metaTitle: "Inpatient Admission in Nakuru North | Maili Sita",
     metaDescription:
-      "Inpatient care at Primegala Medical Centre, Maili Sita, Nakuru: admission, 24-hour nursing, IV treatment and observation close to home. SHA inpatient cover accepted.",
+      "Inpatient care at PRIMEGALA HOSPITAL, Maili Sita, Nakuru: admission, 24-hour nursing, IV treatment and observation close to home. SHA inpatient cover accepted.",
     intro:
       "Some illnesses need more than a prescription. When you or a loved one needs closer observation, IV treatment or round-the-clock nursing, our inpatient ward keeps care close to home and family.",
     story: {
@@ -607,7 +607,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     faqs: [
       {
         q: "Does Primegala admit patients?",
-        a: "Yes. Inpatient services are listed for Primegala Medical Centre on the Kenya Master Health Facility Registry.",
+        a: "Yes. Inpatient services are listed for PRIMEGALA HOSPITAL on the Kenya Master Health Facility Registry.",
       },
       {
         q: "Can I use SHA for admission?",
@@ -629,7 +629,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Regular checks, medication reviews and lifestyle support for long-term conditions.",
     metaTitle: "Diabetes & Blood Pressure Clinic | Maili Sita, Nakuru",
     metaDescription:
-      "Diabetes and hypertension care at Primegala Medical Centre, Maili Sita: blood pressure and sugar checks, medication reviews, nutrition advice and review reminders.",
+      "Diabetes and hypertension care at PRIMEGALA HOSPITAL, Maili Sita: blood pressure and sugar checks, medication reviews, nutrition advice and review reminders.",
     intro:
       "High blood pressure and diabetes are often silent until they cause serious harm. Regular checks close to home make it much easier to stay on track.",
     story: {
@@ -681,7 +681,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Minor surgery, stitches, dressings, abscess drainage and other quick procedures.",
     metaTitle: "Minor Surgery & Wound Care | Maili Sita, Nakuru",
     metaDescription:
-      "Minor surgery, wound dressing, stitching and abscess drainage at Primegala Medical Centre, Maili Sita, Nakuru. Clean, careful care, 24 hours a day.",
+      "Minor surgery, wound dressing, stitching and abscess drainage at PRIMEGALA HOSPITAL, Maili Sita, Nakuru. Clean, careful care, 24 hours a day.",
     intro:
       "Cuts, burns and boils heal best when they're cleaned and treated properly from the start. Our team handles minor procedures in a clean, calm setting, at any hour.",
     story: {
@@ -736,7 +736,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Women's health from puberty to menopause: pregnancy care, gynae checks and screening.",
     metaTitle: "Obstetrics & Gynaecology Clinic, Maili Sita Nakuru",
     metaDescription:
-      "Obstetrics and gynaecology at Primegala Medical Center, Maili Sita, Nakuru: pregnancy care, period problems, cervical cancer screening, fertility questions and menopause care. SHA accepted.",
+      "Obstetrics and gynaecology at PRIMEGALA HOSPITAL, Maili Sita, Nakuru: pregnancy care, period problems, cervical cancer screening, fertility questions and menopause care. SHA accepted.",
     intro:
       "Women's health deserves unhurried, private care. Our obstetrics and gynaecology clinic sees women and girls for pregnancy, period problems, screening, fertility questions and menopause, close to home.",
     story: {
@@ -791,7 +791,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "See a doctor for a full review, ongoing problems, check-ups and medical reports.",
     metaTitle: "GP Clinic: See a Doctor at Maili Sita, Nakuru",
     metaDescription:
-      "General practitioner clinic at Primegala Medical Center, Maili Sita, Nakuru: doctor consultations, check-ups, medical reports and referrals, with lab and pharmacy on site. SHA accepted.",
+      "General practitioner clinic at PRIMEGALA HOSPITAL, Maili Sita, Nakuru: doctor consultations, check-ups, medical reports and referrals, with lab and pharmacy on site. SHA accepted.",
     intro:
       "Sometimes you want time with a doctor to look at the whole picture. Our general practitioner clinic is for full reviews, problems that keep coming back, check-ups and medical reports.",
     story: {
@@ -844,7 +844,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Exercise and hands-on treatment to ease pain and help you move again.",
     metaTitle: "Physiotherapy at Maili Sita, Nakuru",
     metaDescription:
-      "Physiotherapy at Primegala Medical Center, Maili Sita, Nakuru: back and neck pain, joint problems, recovery after injury or surgery, and rehabilitation after a stroke.",
+      "Physiotherapy at PRIMEGALA HOSPITAL, Maili Sita, Nakuru: back and neck pain, joint problems, recovery after injury or surgery, and rehabilitation after a stroke.",
     intro:
       "Pain and stiffness can make work, farming and daily life hard. Our physiotherapy service uses guided exercise and hands-on treatment to ease pain and help you move with confidence again.",
     story: {
@@ -898,7 +898,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Booked clinics with specialists, so you can see one without the trip to town.",
     metaTitle: "Specialist Clinics at Maili Sita, Nakuru",
     metaDescription:
-      "Specialist clinics at Primegala Medical Center, Maili Sita, Nakuru: booked appointments with specialists, with referral from our clinicians and follow-up close to home.",
+      "Specialist clinics at PRIMEGALA HOSPITAL, Maili Sita, Nakuru: booked appointments with specialists, with referral from our clinicians and follow-up close to home.",
     intro:
       "Seeing a specialist often means a long trip and a long wait. Primegala runs specialist clinics at Maili Sita, so you can see a specialist close to home and keep your follow-up here.",
     story: {
@@ -951,7 +951,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Coming soon: an operating theatre for planned and urgent surgery, closer to home.",
     metaTitle: "Surgical Theatre at Maili Sita, Nakuru | Coming Soon",
     metaDescription:
-      "Primegala Medical Center is opening a surgical theatre at Maili Sita on the Nakuru–Nyahururu Road, for planned and urgent operations closer to home. Register your interest.",
+      "PRIMEGALA HOSPITAL is opening a surgical theatre at Maili Sita on the Nakuru–Nyahururu Road, for planned and urgent operations closer to home. Register your interest.",
     intro:
       "Primegala is preparing an operating theatre at Maili Sita, so families along the Nakuru–Nyahururu Road can have planned and urgent operations closer to home. It is not open yet. Leave your details and we will tell you as soon as it is.",
     story: {
@@ -1004,7 +1004,7 @@ export const SERVICE_PAGES: ServiceContent[] = [
     summary: "Coming soon: check-ups, fillings, extractions and dental advice for the whole family.",
     metaTitle: "Dental Care at Maili Sita, Nakuru | Coming Soon",
     metaDescription:
-      "Dental care is coming to Primegala Medical Center at Maili Sita, Nakuru: check-ups, cleaning, fillings, extractions and children's dental care. Register your interest.",
+      "Dental care is coming to PRIMEGALA HOSPITAL at Maili Sita, Nakuru: check-ups, cleaning, fillings, extractions and children's dental care. Register your interest.",
     intro:
       "Dental care is coming to Primegala at Maili Sita: check-ups, cleaning, fillings and extractions for adults and children, without the trip to town. It is not open yet. Leave your details and we will tell you when it is.",
     story: {

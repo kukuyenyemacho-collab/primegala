@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "SHA at Primegala: Hospitals That Accept SHA in Nakuru North",
   description:
-    "Primegala Medical Centre at Maili Sita accepts the Social Health Authority (SHA) for eligible services. How to register on *147#, what the Primary Healthcare Fund covers at Level 3, what to bring and how we check eligibility.",
+    "PRIMEGALA HOSPITAL at Maili Sita accepts the Social Health Authority (SHA) for eligible services. How to register on *147#, what the Primary Healthcare Fund covers at Level 3, what to bring and how we check eligibility.",
   path: "/sha",
   keywords: keywordsFor("sha", "local"),
 });
@@ -38,14 +38,14 @@ const FUNDS = [
 
 const SHA_FAQS = [
   {
-    q: "Does Primegala Medical Centre accept SHA?",
+    q: "Does PRIMEGALA HOSPITAL accept SHA?",
     a: site.shaContracted
       ? "Yes. Primegala accepts SHA for eligible services. Our front desk checks your eligibility with your national ID before treatment."
       : "Our front desk will explain how SHA applies to your visit.",
   },
   {
     q: "Which hospitals accept SHA along the Nakuru–Nyahururu Road?",
-    a: "Primegala Medical Centre at Maili Sita, opposite Kiamaina Primary School, accepts SHA for eligible services and is open 24 hours. Check the official SHA facility list for other contracted facilities.",
+    a: "PRIMEGALA HOSPITAL at Maili Sita, opposite Kiamaina Primary School, accepts SHA for eligible services and is open 24 hours. Check the official SHA facility list for other contracted facilities.",
   },
   {
     q: "How do I check if I'm registered with SHA?",

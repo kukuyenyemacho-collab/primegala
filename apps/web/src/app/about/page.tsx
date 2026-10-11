@@ -11,11 +11,11 @@ import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Our Story: A 24-Hour Medical Centre at Maili Sita Since 2022",
+  title: "Our Story: A 24-Hour Hospital at Maili Sita Since 2022",
   description:
-    "Why Primegala Medical Centre opened at Maili Sita on the Nakuru–Nyahururu Road in 2022, our mission, our values and the care we offer every family in Nakuru North. KEPH Level 3, open 24 hours.",
+    "Why PRIMEGALA HOSPITAL opened at Maili Sita on the Nakuru–Nyahururu Road in 2022, our mission, our values and the care we offer every family in Nakuru North. KEPH Level 3, open 24 hours.",
   path: "/about",
-  keywords: ["Primegala Medical Centre", "hospital Maili Sita", "is there a hospital at Maili Sita", "medical centre Nakuru North", "level 3 hospital Nakuru"],
+  keywords: ["PRIMEGALA HOSPITAL", "hospital Maili Sita", "is there a hospital at Maili Sita", "medical centre Nakuru North", "level 3 hospital Nakuru"],
 });
 
 const TIMELINE = [
@@ -25,7 +25,7 @@ const TIMELINE = [
   },
   {
     when: "1 March 2022",
-    what: "Primegala Medical Centre opens at Maili Sita Centre, opposite Kiamaina Primary School, as a 24-hour KEPH Level 3 facility.",
+    what: "PRIMEGALA HOSPITAL opens at Maili Sita Centre, opposite Kiamaina Primary School, as a 24-hour KEPH Level 3 facility.",
   },
   {
     when: "October 2024",
@@ -72,7 +72,7 @@ export default function AboutPage() {
         crumbs={[{ name: "Our story", path: "/about" }]}
         eyebrow="Our story"
         title="Six miles from town. Right next door."
-        intro="Primegala Medical Centre is a 24-hour, KEPH Level 3 medical centre at Maili Sita on the Nakuru–Nyahururu Road. We opened on 1 March 2022 with one simple aim: prime care, close to home, at any hour."
+        intro="PRIMEGALA HOSPITAL is a 24-hour, KEPH Level 3 facility at Maili Sita on the Nakuru–Nyahururu Road. We opened on 1 March 2022 with one simple aim: prime care, close to home, at any hour."
       />
 
       <Section>
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 priority
                 aspect="aspect-[4/5]"
                 imgClassName="object-[25%_center]"
-                caption="Primegala Medical Centre & Nursing Home, in the Esther Memorial Building at Maili Sita."
+                caption="PRIMEGALA HOSPITAL, in the Esther Memorial Building at Maili Sita."
               />
               <Photo
                 name="reception"
@@ -134,8 +134,8 @@ export default function AboutPage() {
                 className="mt-4"
                 tone="trust"
                 items={[
-                  { term: "Registered name", value: site.name },
-                  { term: "Facility level", value: "KEPH Level 3 medical centre, registered on the Kenya Master Health Facility Registry" },
+                  { term: "Name", value: site.name },
+                  { term: "Facility level", value: "KEPH Level 3 facility, registered on the Kenya Master Health Facility Registry" },
                   { term: "Opened", value: "1 March 2022" },
                   { term: "Hours", value: "Open 24 hours, every day, including public holidays" },
                   { term: "Location", value: "Maili Sita Centre, Nakuru–Nyahururu Road, opposite Kiamaina Primary School" },

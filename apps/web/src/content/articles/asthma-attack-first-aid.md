@@ -96,4 +96,4 @@ If you don't have a plan, ask for one at your next visit. Give a copy to your ch
 
 ## How Primegala can help
 
-Primegala Medical Centre is open 24 hours at Maili Sita on the Nakuru–Nyahururu Road. Our [24-hour urgent care](/services/24-hour-urgent-care) team provides first-line care for asthma and breathing difficulty, and stabilises and refers patients who need a higher-level hospital. For an asthma review, inhaler technique check or action plan, [book a visit](/book?service=general-outpatient). Know [what to do in an emergency](/emergency) before you need it.
+PRIMEGALA HOSPITAL is open 24 hours at Maili Sita on the Nakuru–Nyahururu Road. Our [24-hour urgent care](/services/24-hour-urgent-care) team provides first-line care for asthma and breathing difficulty, and stabilises and refers patients who need a higher-level hospital. For an asthma review, inhaler technique check or action plan, [book a visit](/book?service=general-outpatient). Know [what to do in an emergency](/emergency) before you need it.

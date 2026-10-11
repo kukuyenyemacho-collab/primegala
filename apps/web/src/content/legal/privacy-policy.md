@@ -1,10 +1,10 @@
 ---
 title: "Privacy Policy"
-description: "How Primegala Medical Centre collects, uses, shares and protects personal and health data under Kenya's Data Protection Act, 2019, the Health Act, 2017 and the Digital Health Act, 2023."
+description: "How PRIMEGALA HOSPITAL collects, uses, shares and protects personal and health data under Kenya's Data Protection Act, 2019, the Health Act, 2017 and the Digital Health Act, 2023."
 order: 1
 ---
 
-Primegala Medical Centre ("**Primegala**", "**we**", "**us**") respects your privacy. This policy explains how we handle personal data collected through this website, WhatsApp, phone and our facility, and what rights you have.
+PRIMEGALA HOSPITAL ("**Primegala**", "**we**", "**us**") respects your privacy. This policy explains how we handle personal data collected through this website, WhatsApp, phone and our facility, and what rights you have.
 
 It is written to meet our obligations under the **Constitution of Kenya, 2010 (Article 31)**, the **Data Protection Act, 2019** ("DPA"), the **Data Protection (General) Regulations, 2021**, the **Health Act, 2017**, the **Digital Health Act, 2023** and the Office of the Data Protection Commissioner's **Guidance Note on the Processing of Health Data**.
 

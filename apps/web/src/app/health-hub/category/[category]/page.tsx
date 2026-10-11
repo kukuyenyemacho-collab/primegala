@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const keywords = [...new Set(getArticlesByCategory(category).flatMap((a) => a.keywords))].slice(0, 12);
   return pageMetadata({
     title: `${c.name}: Health Hub`,
-    description: `${c.description} Practical guides from Primegala Medical Centre, Maili Sita, Nakuru.`,
+    description: `${c.description} Practical guides from PRIMEGALA HOSPITAL, Maili Sita, Nakuru.`,
     path: `/health-hub/category/${category}`,
     keywords: keywords.length > 0 ? keywords : undefined,
   });
@@ -77,7 +77,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         intro={
           isTips
             ? `${c.description} Each tip takes a minute or two to read. Open one to read it here, or open it as a page to share it.`
-            : `${c.description} Practical guides from Primegala Medical Centre at Maili Sita, Nakuru.`
+            : `${c.description} Practical guides from PRIMEGALA HOSPITAL at Maili Sita, Nakuru.`
         }
       />
 

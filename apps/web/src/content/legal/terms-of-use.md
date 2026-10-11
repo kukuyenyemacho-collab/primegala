@@ -1,6 +1,6 @@
 ---
 title: "Terms of Use"
-description: "The terms that apply when you use the Primegala Medical Centre website, book online or contact us through digital channels."
+description: "The terms that apply when you use the PRIMEGALA HOSPITAL website, book online or contact us through digital channels."
 order: 2
 ---
 

@@ -58,7 +58,7 @@ ${qa(EMERGENCY_FAQS)}
 ## Kiswahili
 URL: ${absoluteUrl("/kiswahili")}
 
-Primegala Medical Centre iko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina. Tuko wazi saa 24 kila siku. Tunakubali SHA kwa huduma zinazostahiki, M-Pesa na pesa taslimu. Kwa dharura, piga 999 au 112.
+PRIMEGALA HOSPITAL iko Maili Sita, kando ya barabara ya Nakuru–Nyahururu, mkabala na Shule ya Msingi Kiamaina. Tuko wazi saa 24 kila siku. Tunakubali SHA kwa huduma zinazostahiki, M-Pesa na pesa taslimu. Kwa dharura, piga 999 au 112.
 
 ${qa(SWAHILI_FAQS)}`;
 

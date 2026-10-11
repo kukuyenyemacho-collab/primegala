@@ -17,7 +17,7 @@ export function HomeServices() {
           All services <ArrowRight className="size-4" aria-hidden />
         </ButtonLink>
       </div>
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <ul className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
         {SERVICE_PAGES.map((s) => (
           <li key={s.slug}>
             <ServiceCard service={s} />

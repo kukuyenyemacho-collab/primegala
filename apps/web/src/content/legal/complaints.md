@@ -1,6 +1,6 @@
 ---
 title: "Feedback & Complaints Procedure"
-description: "How to give feedback or make a complaint to Primegala Medical Centre, our response timelines, and the regulators you can escalate to."
+description: "How to give feedback or make a complaint to PRIMEGALA HOSPITAL, our response timelines, and the regulators you can escalate to."
 order: 6
 ---
 
