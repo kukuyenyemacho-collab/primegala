@@ -18,7 +18,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white">
       <div className="container-page flex h-[4.5rem] items-center gap-3">
-        <Link href="/" aria-label={`${site.name}, home`} className="shrink-0 rounded-lg">
+        <Link href="/" aria-label={`${site.name}, home`} className="min-w-0 rounded-lg sm:shrink-0">
           <Logo />
         </Link>
 
