@@ -7,22 +7,27 @@ import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { ArticleCard, ComingSoonPill, ServiceCard } from "@/components/Cards";
 import { FaqList } from "@/components/FaqList";
 import { LeadForm } from "@/components/LeadForm";
-import { Photo } from "@/components/Photo";
+import { Photo, UploadedPhoto } from "@/components/Photo";
 import { ServiceIcon, WhatsAppIcon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { CtaBand } from "@/components/CtaBand";
 import { CheckList, InfoPanel, StepList } from "@/components/PageSections";
 import { OPEN_SERVICES, SERVICE_PAGES, getServiceBySlug, serviceKeywords, serviceOptions } from "@/content/services";
 import { getArticlesBySlugs } from "@/lib/content";
+import { getSlotItems } from "@/lib/media";
 import { cn } from "@/lib/cn";
 import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 import { emailHref, hasPhone, hasWhatsApp, phoneDisplay, phoneHref, site, whatsappHref } from "@/lib/site";
+
+/** Re-render at most every minute so photos posted from the staff dashboard show up. */
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return SERVICE_PAGES.map((s) => ({ slug: s.slug }));
 }
 
-export const dynamicParams = false;
+// Unknown slugs fall through to notFound() below. (dynamicParams = false breaks on-demand
+// revalidation after a dashboard upload, which returns 404 for these pages.)
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -42,6 +47,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   if (!service) notFound();
 
   const related = getArticlesBySlugs(service.related);
+  const uploads = await getSlotItems(`service-${service.slug}`);
+  const photoCount = (service.photos?.length ?? 0) + uploads.length;
   const soon = Boolean(service.comingSoon);
   const others = (soon ? OPEN_SERVICES : SERVICE_PAGES).filter((s) => s.slug !== service.slug).slice(0, 3);
   const formServices = serviceOptions();
@@ -157,7 +164,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <p className="mt-4 text-lg leading-relaxed text-ink/85">{service.story.body}</p>
             </section>
 
-            {service.photos && (
+            {photoCount > 0 && (
               <section aria-labelledby="photos-title" className="mt-14">
                 <h2 id="photos-title" className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
                   A look inside
@@ -165,12 +172,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div
                   className={cn(
                     "mt-6 grid gap-4",
-                    service.photos.length === 1 && "max-w-sm",
-                    service.photos.length === 3 && "sm:grid-cols-3",
-                    (service.photos.length === 2 || service.photos.length >= 4) && "sm:grid-cols-2",
+                    photoCount === 1 && "max-w-sm",
+                    photoCount % 3 === 0 && "sm:grid-cols-3",
+                    photoCount > 1 && photoCount % 3 !== 0 && "sm:grid-cols-2",
                   )}
                 >
-                  {service.photos.map((p) => (
+                  {uploads.map((item) => (
+                    <UploadedPhoto key={item.id} item={item} />
+                  ))}
+                  {service.photos?.map((p) => (
                     <Photo key={p.name} name={p.name} caption={p.caption} aspect="aspect-[4/5]" />
                   ))}
                 </div>

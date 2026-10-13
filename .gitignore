@@ -13,3 +13,6 @@ npm-debug.log*
 pnpm-debug.log*
 .vercel
 preview/
+
+# Local test storage for the image dashboard
+.media-local/

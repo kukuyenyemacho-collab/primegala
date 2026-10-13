@@ -1,8 +1,10 @@
 import { CalendarCheck, Mail, MapPin, Navigation, Phone } from "lucide-react";
 import { Badge, ButtonLink } from "@/components/ui";
 import { emailHref, hasPhone, phoneDisplay, phoneHref, site } from "@/lib/site";
+import { HeroPromotions, type Promotion } from "./HeroPromotions";
 
-export function HomeHero() {
+/** `promotions` come from the staff dashboard; when there are none, the doctor illustration shows. */
+export function HomeHero({ promotions = [] }: { promotions?: Promotion[] }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-line bg-trust-950" aria-labelledby="home-title">
       {/* Background photograph with a navy overlay so text stays readable */}
@@ -72,16 +74,22 @@ export function HomeHero() {
           </ul>
         </div>
 
-        <div className="hidden min-w-0 lg:col-span-5 lg:block">
-          <figure className="mx-auto max-w-sm overflow-hidden rounded-2xl border border-white/20 bg-white/5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/doctor-smiling.jpg" alt="Illustration of a smiling doctor" className="block h-auto w-full" />
-            <figcaption className="flex items-start gap-2 px-4 py-3 text-sm text-trust-100">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-brand-300" aria-hidden />
-              Maili Sita Centre, Nakuru–Nyahururu Road, opposite Kiamaina Primary School
-            </figcaption>
-          </figure>
-        </div>
+        {promotions.length > 0 ? (
+          <div className="order-first min-w-0 lg:order-none lg:col-span-5">
+            <HeroPromotions items={promotions} />
+          </div>
+        ) : (
+          <div className="hidden min-w-0 lg:col-span-5 lg:block">
+            <figure className="mx-auto max-w-sm overflow-hidden rounded-2xl border border-white/20 bg-white/5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/doctor-smiling.jpg" alt="Illustration of a smiling doctor" className="block h-auto w-full" />
+              <figcaption className="flex items-start gap-2 px-4 py-3 text-sm text-trust-100">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-brand-300" aria-hidden />
+                Maili Sita Centre, Nakuru–Nyahururu Road, opposite Kiamaina Primary School
+              </figcaption>
+            </figure>
+          </div>
+        )}
       </div>
     </section>
   );

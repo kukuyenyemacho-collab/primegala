@@ -210,11 +210,16 @@ export function Footer() {
       </div>
 
       {/* Closing wordmark: one line, about three-quarters of the width on large screens, scaling down
-          fluidly on phones. Decorative (the name is already in the logo and copyright line). */}
-      <div className="container-page overflow-hidden" aria-hidden="true">
-        <p className="pointer-events-none pt-4 pb-6 text-[clamp(1.5rem,6.6vw,5.5rem)] leading-[0.9] font-extrabold tracking-[-0.03em] whitespace-nowrap text-trust-800 select-none sm:pb-10">
+          fluidly on phones. It doubles as the quiet way in to the staff dashboard (password protected). */}
+      <div className="container-page overflow-hidden">
+        <Link
+          href="/admin"
+          rel="nofollow"
+          aria-label="Staff dashboard"
+          className="block w-fit pt-4 pb-6 text-[clamp(1.5rem,6.6vw,5.5rem)] leading-[0.9] font-extrabold tracking-[-0.03em] whitespace-nowrap text-trust-800 transition-colors select-none hover:text-trust-700 sm:pb-10"
+        >
           PRIMEGALA HOSPITAL<span className="text-brand-500">.</span>
-        </p>
+        </Link>
       </div>
     </footer>
   );

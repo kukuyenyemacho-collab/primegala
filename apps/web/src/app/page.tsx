@@ -16,6 +16,7 @@ import { VisitSteps } from "@/components/home/VisitSteps";
 import { GENERAL_FAQS } from "@/content/faqs";
 import { keywordsFor } from "@/content/keywords";
 import { getAllArticles, getArticlesByCategory, getArticlesBySlugs } from "@/lib/content";
+import { getSlotItems } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 import { hasWhatsApp, site } from "@/lib/site";
 
@@ -30,9 +31,14 @@ export const metadata: Metadata = {
   title: { absolute: `${site.name} | 24-Hour Care, Maili Sita Nakuru` },
 };
 
+/** Re-check every minute: new uploads, and promotions past their "show until" date. */
+export const revalidate = 60;
+
 const MATERNITY_GUIDES = ["antenatal-care-8-visits", "pregnancy-danger-signs", "kenya-immunisation-schedule"];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [promotions, insidePhotos] = await Promise.all([getSlotItems("promotions"), getSlotItems("home-inside")]);
+
   const tips: TipSummary[] = getArticlesByCategory("health-tips")
     .slice(0, 6)
     .map(({ slug, title, description, html, readingMinutes }) => ({ slug, title, description, html, readingMinutes }));
@@ -53,13 +59,13 @@ export default function HomePage() {
 
   return (
     <>
-      <HomeHero />
+      <HomeHero promotions={promotions.map(({ id, url, alt, title, link }) => ({ id, url, alt, title, link }))} />
       <TaskTiles />
       <KeyFacts />
       <HomeServices />
       <HomeStory />
       <VisitSteps />
-      <InsidePrimegala />
+      <InsidePrimegala uploads={insidePhotos} />
       <ShaPanel />
       <MaternitySpotlight guides={maternityGuides} />
       <HomeHealthTips tips={tips} guides={guides} />

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Photo } from "@/components/Photo";
+import { Photo, UploadedPhoto } from "@/components/Photo";
+import type { MediaItem } from "@/lib/media";
 import { Section, SectionHeading } from "@/components/ui";
 
 /** Real photos of the facility, so first-time visitors know what to expect when they walk in. */
-export function InsidePrimegala() {
+export function InsidePrimegala({ uploads = [] }: { uploads?: MediaItem[] }) {
   return (
     <Section tone="surface" labelledBy="inside-heading">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -29,6 +30,9 @@ export function InsidePrimegala() {
         <Photo name="labMicroscope" caption="Our on-site laboratory, for malaria tests and more." />
         <Photo name="labAnalyser" caption="Automated full blood counts, with results during your visit." />
         <Photo name="pharmacyStock" caption="Our pharmacy: medicines sorted and labelled by type." />
+        {uploads.map((item) => (
+          <UploadedPhoto key={item.id} item={item} />
+        ))}
       </div>
     </Section>
   );

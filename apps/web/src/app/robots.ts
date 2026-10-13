@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
   }
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/"] },
+      { userAgent: "*", allow: "/", disallow: ["/api/", "/admin"] },
       {
         userAgent: [
           "Googlebot",
@@ -27,7 +27,7 @@ export default function robots(): MetadataRoute.Robots {
           "Applebot-Extended",
         ],
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin"],
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),

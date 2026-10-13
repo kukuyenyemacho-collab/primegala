@@ -78,6 +78,11 @@ const PAGE_DETAILS: Record<string, { title?: string; description?: string; keywo
   "/team": {
     keywords: ["team", "staff", "clinicians", "nurses", "doctors", "people"],
   },
+  "/gallery": {
+    title: "Gallery",
+    description: "Photos of our facility at Maili Sita, our team and community health days.",
+    keywords: ["gallery", "photos", "pictures", "images", "picha"],
+  },
   "/kiswahili": {
     keywords: ["Kiswahili", "Swahili", "taarifa", "huduma", "hospitali", "karibu"],
   },

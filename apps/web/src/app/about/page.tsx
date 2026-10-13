@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, HandHeart, HeartHandshake, Sun, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { Photo } from "@/components/Photo";
+import { Photo, UploadedPhoto } from "@/components/Photo";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { FactList, IconCard } from "@/components/PageSections";
+import { getSlotItems } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
+
+/** Re-render at most every minute so photos posted from the staff dashboard show up. */
+export const revalidate = 60;
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Story: A 24-Hour Hospital at Maili Sita Since 2022",
@@ -56,7 +60,8 @@ const VALUES = [
 
 const AIMS = ["Quality and standards", "Accessibility and equity", "Professionalism", "Community well-being", "Continuous improvement"];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const uploads = await getSlotItems("about");
   return (
     <>
       <JsonLd
@@ -110,6 +115,9 @@ export default function AboutPage() {
                 priority
                 caption="Our reception, with our quality policy and values on the desk. Triage is the door beside it."
               />
+              {uploads.map((item) => (
+                <UploadedPhoto key={item.id} item={item} />
+              ))}
             </div>
 
             <h2 className="mt-14 text-2xl font-bold tracking-tight text-ink sm:text-3xl">Our mission</h2>

@@ -56,6 +56,7 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       { href: "/about", label: "Our story", description: "Why we opened at Maili Sita" },
       { href: "/team", label: "Our care team", description: "The people behind your care" },
+      { href: "/gallery", label: "Gallery", description: "Photos of our facility and team" },
       { href: "/kiswahili", label: "Kiswahili", description: "Taarifa kwa Kiswahili" },
       { href: "/contact", label: "Contact & directions", description: "Opposite Kiamaina Primary School" },
     ],

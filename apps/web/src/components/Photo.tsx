@@ -117,3 +117,32 @@ export function Photo({
     </figure>
   );
 }
+
+/** An image posted from the staff dashboard, framed like the built-in photos. */
+export function UploadedPhoto({
+  item,
+  className,
+  imgClassName,
+  aspect = "aspect-[4/5]",
+}: {
+  item: { url: string; alt: string; caption?: string };
+  className?: string;
+  imgClassName?: string;
+  aspect?: string;
+}) {
+  return (
+    <figure className={cn("overflow-hidden rounded-xl border border-line bg-white", className)}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={item.url}
+        alt={item.alt}
+        loading="lazy"
+        decoding="async"
+        className={cn("block h-auto w-full object-cover", aspect, imgClassName)}
+      />
+      <figcaption className="border-t border-line px-3 py-2 text-xs leading-snug text-muted sm:px-4 sm:py-3 sm:text-sm">
+        {item.caption ?? item.alt}
+      </figcaption>
+    </figure>
+  );
+}

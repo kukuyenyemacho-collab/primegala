@@ -5,7 +5,12 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeading } from "@/components/ui";
 import { CtaBand } from "@/components/CtaBand";
 import { IconCard, InfoPanel } from "@/components/PageSections";
+import { UploadedPhoto } from "@/components/Photo";
+import { getSlotItems } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
+
+/** Re-render at most every minute so photos posted from the staff dashboard show up. */
+export const revalidate = 60;
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Care Team: Clinicians, Nurses & Midwives at Maili Sita",
@@ -61,7 +66,8 @@ const REGULATORS = [
   { profession: "Laboratory professionals", body: "Kenya Medical Laboratory Technicians and Technologists Board" },
 ];
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  const photos = await getSlotItems("team");
   return (
     <>
       <PageHero
@@ -70,6 +76,19 @@ export default function TeamPage() {
         title="The people who keep the lights on at night"
         intro="Primegala is staffed 24 hours a day by registered health professionals: clinicians, nurses and midwives, laboratory and pharmacy teams, HIV testing counsellors and a front-desk team who help with registration and SHA."
       />
+
+      {photos.length > 0 && (
+        <Section className="pb-0! sm:pb-0!" labelledBy="team-photos">
+          <h2 id="team-photos" className="sr-only">
+            Photos of our team
+          </h2>
+          <div className={photos.length === 1 ? "max-w-3xl" : "grid gap-4 sm:grid-cols-2 lg:grid-cols-3"}>
+            {photos.map((item) => (
+              <UploadedPhoto key={item.id} item={item} aspect={photos.length === 1 ? "aspect-[16/10]" : "aspect-[4/3]"} />
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section labelledBy="roles">
         <SectionHeading

@@ -1,6 +1,6 @@
 /* Primegala service worker: offline-friendly PWA.
    Pages: network first, falling back to the cached copy (or the home page) when offline.
-   Static assets: cache first. The booking API is never cached. */
+   Static assets: cache first. The API and the staff dashboard are never cached. */
 const CACHE = "primegala-v1";
 const PRECACHE = ["/", "/emergency", "/contact", "/book", "/manifest.webmanifest", "/icons/icon-192.png", "/brand/logo-mark.png"];
 
@@ -13,7 +13,7 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   const url = new URL(req.url);
-  if (req.method !== "GET" || url.origin !== self.location.origin || url.pathname.startsWith("/api/")) return;
+  if (req.method !== "GET" || url.origin !== self.location.origin || url.pathname.startsWith("/api/") || url.pathname.startsWith("/admin")) return;
   if (req.mode === "navigate") {
     e.respondWith(
       fetch(req)
