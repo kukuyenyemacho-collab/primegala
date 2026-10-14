@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { buildLead, leadInputSchema } from "@primegala/contracts";
 import { deliverLead, leadReference, rateLimited } from "@/lib/leads";
+import { storeLead } from "@/lib/lead-store";
 import { site } from "@/lib/site";
 
 const MAX_BODY_BYTES = 10_000;
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
   }
 
   const lead = buildLead(parsed.data, { id: crypto.randomUUID(), policyVersion: site.policyVersion });
-  const result = await deliverLead(lead);
+  const result = await deliverLead(lead, process.env, await storeLead(lead));
 
   if (!result.ok) {
     return NextResponse.json(

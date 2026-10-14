@@ -1,6 +1,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { verifyWebhook } from "@primegala/contracts";
-import { POST } from "./route";
+
+vi.mock("server-only", () => ({}));
+const storeLead = vi.fn(async () => "off" as "stored" | "failed" | "off");
+vi.mock("@/lib/lead-store", () => ({ storeLead: (...args: unknown[]) => storeLead(...(args as [])) }));
+
+const { POST } = await import("./route");
 
 const valid = {
   type: "appointment",
@@ -108,6 +113,34 @@ describe("POST /api/leads", () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("HMIS_LEADS_WEBHOOK_URL", "");
     vi.spyOn(console, "error").mockImplementation(() => {});
+    const res = await POST(request(valid));
+    expect(res.status).toBe(503);
+  });
+
+  it("accepts leads in production when they are saved to the database, even without the HMIS", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("HMIS_LEADS_WEBHOOK_URL", "");
+    vi.stubEnv("LEADS_LOG_ONLY", "");
+    storeLead.mockResolvedValueOnce("stored");
+    const res = await POST(request(valid));
+    expect(res.status).toBe(201);
+    expect(storeLead).toHaveBeenCalled();
+  });
+
+  it("keeps a saved lead even when the HMIS is down", async () => {
+    vi.stubEnv("HMIS_LEADS_WEBHOOK_URL", "https://hmis.example/hooks/leads");
+    vi.stubEnv("HMIS_LEADS_WEBHOOK_SECRET", "test-secret");
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("down", { status: 502 })));
+    storeLead.mockResolvedValueOnce("stored");
+    const res = await POST(request(valid));
+    expect(res.status).toBe(201);
+  });
+
+  it("still refuses in production when saving fails and there is no HMIS", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("HMIS_LEADS_WEBHOOK_URL", "");
+    vi.stubEnv("LEADS_LOG_ONLY", "");
+    storeLead.mockResolvedValueOnce("failed");
     const res = await POST(request(valid));
     expect(res.status).toBe(503);
   });

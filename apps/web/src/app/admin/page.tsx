@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
 import { AdminLogin } from "@/components/admin/AdminLogin";
-import { SignOutButton } from "@/components/admin/SignOutButton";
+import { AdminNav } from "@/components/admin/AdminNav";
 import { SlotCard } from "@/components/admin/SlotCard";
 import { MEDIA_SLOTS, SLOT_GROUPS } from "@/content/media-slots";
 import { adminConfigured, isAdmin } from "@/lib/admin-auth";
@@ -62,15 +62,13 @@ export default async function AdminPage() {
   return (
     <div className="bg-surface pb-20">
       <div className="container-page py-10 sm:py-12">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="eyebrow">Staff only</p>
-            <h1 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Image dashboard</h1>
-            <p className="mt-2 max-w-2xl text-muted">
-              Post images to any page of the website. Changes go live within seconds, with no developer needed.
-            </p>
-          </div>
-          <SignOutButton />
+        <AdminNav current="images" />
+        <div className="mt-8">
+          <p className="eyebrow">Staff only</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Image dashboard</h1>
+          <p className="mt-2 max-w-2xl text-muted">
+            Post images to any page of the website. Changes go live within seconds, with no developer needed.
+          </p>
         </div>
 
         <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -90,8 +88,8 @@ export default async function AdminPage() {
         <div className="mt-6">
           {!ready ? (
             <Notice tone="warn" title="Image storage is not connected">
-              In Vercel, open the project → Storage → Create Database → Blob, and connect it to this project. Then
-              redeploy. Until then you can look around, but uploads are switched off.
+              Add NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SECRET_KEY in Vercel (Settings → Environment Variables), apply
+              the database migration, then redeploy. Until then you can look around, but uploads are switched off.
             </Notice>
           ) : loadError ? (
             <Notice tone="warn" title="Could not load posted images">

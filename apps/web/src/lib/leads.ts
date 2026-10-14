@@ -1,7 +1,7 @@
 import { leadToFhirBundle, signWebhook, SIGNATURE_HEADER, type Lead } from "@primegala/contracts";
 
 export type DeliveryResult =
-  | { ok: true; mode: "webhook" | "log" }
+  | { ok: true; mode: "webhook" | "log" | "database" }
   | { ok: false; reason: "not-configured" | "hmis-error" | "network-error"; status?: number };
 
 /** Redact for logs: never write full phone numbers or messages to application logs. */
@@ -16,7 +16,9 @@ function redact(lead: Lead) {
 }
 
 /**
- * Deliver a lead to the HMIS.
+ * Deliver a lead to the HMIS. `stored` says whether the lead was already saved to the
+ * website database (lib/lead-store.ts); a saved lead is never lost, so it counts as delivered
+ * even when the HMIS is missing or down.
  *
  * Payload: { lead, fhir } where `fhir` is a FHIR R4 transaction Bundle
  * (Patient + proposed Appointment, or Patient + Task). Signed with HMAC-SHA256 in
@@ -24,11 +26,17 @@ function redact(lead: Lead) {
  * `verifyWebhook()` from @primegala/contracts. The lead id doubles as an
  * idempotency key so retries never create duplicate patients.
  */
-export async function deliverLead(lead: Lead, env = process.env): Promise<DeliveryResult> {
+export async function deliverLead(
+  lead: Lead,
+  env = process.env,
+  stored: "stored" | "failed" | "off" = "off",
+): Promise<DeliveryResult> {
   const url = env.HMIS_LEADS_WEBHOOK_URL;
   const secret = env.HMIS_LEADS_WEBHOOK_SECRET;
 
   if (!url || !secret) {
+    // Saved to the database: the front desk sees it in the staff dashboard.
+    if (stored === "stored") return { ok: true, mode: "database" };
     // Production refuses to drop leads silently. LEADS_LOG_ONLY=true is an explicit
     // opt-in for demos and staging before the HMIS exists.
     if (env.NODE_ENV === "production" && env.LEADS_LOG_ONLY !== "true") {
@@ -53,11 +61,13 @@ export async function deliverLead(lead: Lead, env = process.env): Promise<Delive
     });
     if (!res.ok) {
       console.error("[leads] HMIS rejected lead", res.status, redact(lead));
+      if (stored === "stored") return { ok: true, mode: "database" };
       return { ok: false, reason: "hmis-error", status: res.status };
     }
     return { ok: true, mode: "webhook" };
   } catch (error) {
     console.error("[leads] HMIS unreachable", (error as Error).name, redact(lead));
+    if (stored === "stored") return { ok: true, mode: "database" };
     return { ok: false, reason: "network-error" };
   }
 }
